@@ -7,183 +7,111 @@
                     "entries": [
                         {
                             "codegenResult": 2,
-                            "column": 5,
+                            "column": 12,
                             "durationMicroseconds": 0,
-                            "functionName": "gradeAvg",
-                            "line": 18,
+                            "functionName": "x",
+                            "line": 31,
+                            "message": "Could not find property \"x\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 12,
+                            "durationMicroseconds": 0,
+                            "functionName": "y",
+                            "line": 32,
+                            "message": "Could not find property \"y\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "closePolicy",
+                            "line": 37,
+                            "message": "Could not find property \"closePolicy\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 9,
+                            "durationMicroseconds": 0,
+                            "functionName": "openAdd",
+                            "line": 40,
+                            "message": "Cannot retrieve a non-object type by ID: grpInput"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 9,
+                            "durationMicroseconds": 0,
+                            "functionName": "openEdit",
+                            "line": 52,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
-                            "codegenResult": 0,
-                            "column": 23,
-                            "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 31,
-                            "message": ""
-                        },
-                        {
                             "codegenResult": 2,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 43,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 29,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 45,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 44,
+                            "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 50,
-                            "message": "Cannot access value for name cDim"
+                            "line": 74,
+                            "message": "Cannot access value for name cBorder"
                         },
                         {
-                            "codegenResult": 2,
-                            "column": 41,
+                            "codegenResult": 0,
+                            "column": 20,
                             "durationMicroseconds": 0,
-                            "functionName": "onCurrentIndexChanged",
-                            "line": 53,
-                            "message": "Could not find signal \"currentIndexChanged\"."
+                            "functionName": "width",
+                            "line": 80,
+                            "message": ""
                         },
                         {
                             "codegenResult": 2,
                             "column": 24,
                             "durationMicroseconds": 0,
-                            "functionName": "model",
-                            "line": 54,
-                            "message": "Could not find property \"model\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 43,
-                            "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 57,
-                            "message": "Cannot access value for name cDim"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 20,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 64,
-                            "message": "Cannot access value for name cWhite"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 42,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 64,
-                            "message": "Cannot access value for name cBorder"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 31,
-                            "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 67,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 72,
+                            "line": 87,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 71,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 73,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 103,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 73,
-                            "message": "Cannot access value for name cNavy"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 49,
-                            "durationMicroseconds": 0,
-                            "functionName": "bottom",
-                            "line": 73,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 39,
-                            "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 76,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 36,
-                            "durationMicroseconds": 0,
-                            "functionName": "model",
-                            "line": 78,
-                            "message": "Cannot generate efficient code for storing an array in a non-sequence type"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
+                            "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "width",
                             "line": 89,
-                            "message": "Cannot access value for name modelData"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 89,
-                            "durationMicroseconds": 0,
-                            "functionName": "height",
-                            "line": 90,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 59,
-                            "durationMicroseconds": 0,
-                            "functionName": "right",
-                            "line": 90,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 43,
+                            "column": 95,
                             "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 93,
-                            "message": "Cannot access value for name modelData"
+                            "functionName": "color",
+                            "line": 89,
+                            "message": "Cannot access value for name cNavy"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 56,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "bottom",
+                            "line": 89,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 93,
+                            "message": "Cannot retrieve a non-object type by ID: studentPopup"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 95,
+                            "line": 97,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 51,
+                            "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
                             "line": 92,
@@ -191,10 +119,418 @@
                         },
                         {
                             "codegenResult": 0,
-                            "column": 92,
+                            "column": 76,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 94,
+                            "line": 96,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 110,
+                            "message": "Cannot access value for name cDim"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 117,
+                            "message": "Cannot access value for name cDim"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 126,
+                            "message": "Cannot access value for name cNavy"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 94,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 126,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "placeholderText",
+                            "line": 134,
+                            "message": "Could not find property \"placeholderText\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "inputMethodHints",
+                            "line": 135,
+                            "message": "Could not find property \"inputMethodHints\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 146,
+                            "message": "Cannot access value for name cNavy"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 94,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 146,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "placeholderText",
+                            "line": 154,
+                            "message": "Could not find property \"placeholderText\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "inputMethodHints",
+                            "line": 155,
+                            "message": "Could not find property \"inputMethodHints\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 169,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 173,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 175,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 21,
+                            "durationMicroseconds": 0,
+                            "functionName": "onAccepted",
+                            "line": 207,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 21,
+                            "durationMicroseconds": 0,
+                            "functionName": "onAccepted",
+                            "line": 213,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 17,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 223,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 9,
+                            "durationMicroseconds": 0,
+                            "functionName": "onError",
+                            "line": 225,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 9,
+                            "durationMicroseconds": 0,
+                            "functionName": "onStudentsChanged",
+                            "line": 227,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 247,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 257,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 261,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 266,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 270,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 278,
+                            "message": "Cannot access value for name cDim"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "onCurrentIndexChanged",
+                            "line": 281,
+                            "message": "Could not find signal \"currentIndexChanged\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "model",
+                            "line": 285,
+                            "message": "Could not find property \"model\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTextChanged",
+                            "line": 289,
+                            "message": "Could not find signal \"textChanged\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 20,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 299,
+                            "message": "Cannot access value for name cWhite"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 299,
+                            "message": "Cannot access value for name cBorder"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 302,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 307,
+                            "message": "Cannot access value for name cNavy"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 69,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 308,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 99,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 308,
+                            "message": "Cannot access value for name cNavy"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "bottom",
+                            "line": 308,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 311,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "model",
+                            "line": 316,
+                            "message": "Cannot generate efficient code for storing an array in a non-sequence type"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 328,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 89,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 329,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 59,
+                            "durationMicroseconds": 0,
+                            "functionName": "right",
+                            "line": 329,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 334,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "cursorShape",
+                            "line": 335,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 336,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 333,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 345,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 347,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 348,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 60,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
+                            "line": 351,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 96,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 350,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "visible",
+                            "line": 355,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 358,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 96,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 360,
                             "message": ""
                         },
                         {
@@ -202,7 +538,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 104,
+                            "line": 372,
                             "message": "Cannot access value for name studentBE"
                         },
                         {
@@ -210,7 +546,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "policy",
-                            "line": 107,
+                            "line": 378,
                             "message": "Could not find property \"policy\"."
                         },
                         {
@@ -218,31 +554,31 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 113,
+                            "line": 384,
                             "message": "Cannot access value for name studentList"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "d",
-                            "line": 114,
-                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 116,
-                            "message": "Cannot load property st from (component in /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/DeanPage.qml)::d with type QVariant."
+                            "line": 386,
+                            "message": "Cannot access value for name selectedRow"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTapped",
+                            "line": 397,
+                            "message": "Cannot access value for name index"
                         },
                         {
                             "codegenResult": 0,
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 125,
+                            "line": 401,
                             "message": ""
                         },
                         {
@@ -250,15 +586,15 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 126,
-                            "message": "Cannot access value for name d"
+                            "line": 402,
+                            "message": "Cannot access value for name selectedRow"
                         },
                         {
                             "codegenResult": 0,
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 130,
+                            "line": 409,
                             "message": ""
                         },
                         {
@@ -266,7 +602,23 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
-                            "line": 131,
+                            "line": 411,
+                            "message": "Cannot access value for name index"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 89,
+                            "durationMicroseconds": 0,
+                            "functionName": "cellColor",
+                            "line": 411,
+                            "message": "Cannot access value for name cDim"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "cellText",
+                            "line": 412,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -274,7 +626,7 @@
                             "column": 82,
                             "durationMicroseconds": 0,
                             "functionName": "cellColor",
-                            "line": 131,
+                            "line": 412,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -282,7 +634,7 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
-                            "line": 132,
+                            "line": 413,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -290,7 +642,7 @@
                             "column": 82,
                             "durationMicroseconds": 0,
                             "functionName": "cellColor",
-                            "line": 132,
+                            "line": 413,
                             "message": "Cannot access value for name cText"
                         },
                         {
@@ -298,7 +650,7 @@
                             "column": 89,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 135,
+                            "line": 418,
                             "message": ""
                         },
                         {
@@ -306,7 +658,7 @@
                             "column": 110,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 135,
+                            "line": 418,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -314,7 +666,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 135,
+                            "line": 418,
                             "message": ""
                         },
                         {
@@ -322,7 +674,7 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "verticalCenter",
-                            "line": 137,
+                            "line": 420,
                             "message": ""
                         },
                         {
@@ -330,7 +682,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "left",
-                            "line": 138,
+                            "line": 421,
                             "message": ""
                         },
                         {
@@ -338,15 +690,15 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 141,
-                            "message": "Cannot access value for name d"
+                            "line": 423,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 56,
+                            "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "badgeText",
-                            "line": 143,
+                            "line": 425,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -354,7 +706,7 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "badgeColor",
-                            "line": 144,
+                            "line": 426,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -362,23 +714,23 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
-                            "line": 151,
-                            "message": "Cannot access value for name d"
+                            "line": 434,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "cellColor",
-                            "line": 152,
-                            "message": "Cannot access value for name d"
+                            "line": 435,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 0,
                             "column": 89,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 157,
+                            "line": 442,
                             "message": ""
                         },
                         {
@@ -386,7 +738,7 @@
                             "column": 110,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 157,
+                            "line": 442,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -394,7 +746,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 157,
+                            "line": 442,
                             "message": ""
                         },
                         {
@@ -402,7 +754,7 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "verticalCenter",
-                            "line": 159,
+                            "line": 444,
                             "message": ""
                         },
                         {
@@ -410,7 +762,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "left",
-                            "line": 160,
+                            "line": 445,
                             "message": ""
                         },
                         {
@@ -418,15 +770,15 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 163,
-                            "message": "Cannot access value for name d"
+                            "line": 447,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 56,
+                            "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "badgeText",
-                            "line": 165,
+                            "line": 449,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -434,7 +786,7 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "badgeColor",
-                            "line": 166,
+                            "line": 450,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -442,23 +794,23 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
-                            "line": 173,
-                            "message": "Cannot access value for name d"
+                            "line": 458,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "cellColor",
-                            "line": 174,
-                            "message": "Cannot access value for name d"
+                            "line": 459,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 0,
                             "column": 89,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 179,
+                            "line": 466,
                             "message": ""
                         },
                         {
@@ -466,7 +818,7 @@
                             "column": 110,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 179,
+                            "line": 466,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -474,7 +826,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 179,
+                            "line": 466,
                             "message": ""
                         },
                         {
@@ -482,23 +834,23 @@
                             "column": 49,
                             "durationMicroseconds": 0,
                             "functionName": "badgeText",
-                            "line": 182,
-                            "message": "Cannot access value for name d"
+                            "line": 469,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
                             "column": 49,
                             "durationMicroseconds": 0,
                             "functionName": "badgeColor",
-                            "line": 183,
-                            "message": "Cannot access value for name d"
+                            "line": 470,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 55,
+                            "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 181,
+                            "line": 468,
                             "message": ""
                         },
                         {
@@ -506,15 +858,31 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 189,
+                            "line": 478,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 482,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 490,
+                            "message": "Could not find signal \"clicked\"."
                         },
                         {
                             "codegenResult": 0,
                             "column": 73,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 195,
+                            "line": 500,
                             "message": ""
                         },
                         {
@@ -522,7 +890,7 @@
                             "column": 103,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 195,
+                            "line": 500,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -530,39 +898,63 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 195,
+                            "line": 500,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 48,
+                            "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 204,
+                            "line": 509,
                             "message": "Cannot access value for name cDim"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 29,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 513,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 206,
+                            "line": 516,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
                             "codegenResult": 2,
-                            "column": 29,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 519,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 208,
+                            "line": 522,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
                             "codegenResult": 2,
-                            "column": 29,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 525,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 210,
+                            "line": 528,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -570,7 +962,7 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 212,
+                            "line": 531,
                             "message": "Cannot access value for name cRed"
                         },
                         {
@@ -578,7 +970,7 @@
                             "column": 86,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 212,
+                            "line": 531,
                             "message": ""
                         },
                         {
@@ -586,31 +978,31 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 213,
+                            "line": 532,
                             "message": "Cannot access value for name cDim"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 26,
+                            "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 214,
+                            "line": 534,
                             "message": "Cannot access value for name studentBE"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 104,
+                            "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 214,
+                            "line": 535,
                             "message": "Cannot access value for name cRed"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 165,
+                            "column": 81,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 214,
+                            "line": 535,
                             "message": ""
                         },
                         {
@@ -618,31 +1010,31 @@
                             "column": 88,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 215,
+                            "line": 537,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 45,
+                            "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 216,
+                            "line": 538,
                             "message": "Cannot access value for name cDim"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 26,
+                            "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 217,
+                            "line": 540,
                             "message": "Cannot access value for name studentBE"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 167,
+                            "column": 86,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 217,
+                            "line": 541,
                             "message": ""
                         },
                         {
@@ -650,7 +1042,7 @@
                             "column": 88,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 218,
+                            "line": 543,
                             "message": ""
                         },
                         {
@@ -658,31 +1050,31 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 219,
+                            "line": 544,
                             "message": "Cannot access value for name cDim"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 26,
+                            "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 220,
+                            "line": 546,
                             "message": "Cannot access value for name studentBE"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 104,
+                            "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 220,
+                            "line": 547,
                             "message": "Cannot access value for name cGreen"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 165,
+                            "column": 83,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 220,
+                            "line": 547,
                             "message": ""
                         }
                     ],

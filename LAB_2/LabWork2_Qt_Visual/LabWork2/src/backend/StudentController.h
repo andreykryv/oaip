@@ -1,13 +1,4 @@
 #pragma once
-// ─────────────────────────────────────────────────────────────
-//  StudentController.h
-//  Qt-объект для Задания 2 (Деканат).
-//  Подключён к QML как "studentBE".
-//
-//  КАК ПОДКЛЮЧИТЬ В QML:
-//    AppButton { onClicked: studentBE.openFile(path) }
-//    AppComboBox { onCurrentIndexChanged: studentListView.model = studentBE.filtered(currentIndex, searchInput.text) }
-// ─────────────────────────────────────────────────────────────
 #include <QObject>
 #include <QString>
 #include <QVariantList>
@@ -24,52 +15,63 @@ class StudentController : public QObject
     Q_PROPERTY(int expelCount  READ expelCount  NOTIFY studentsChanged)
     Q_PROPERTY(int okCount     READ okCount     NOTIFY studentsChanged)
 
+    // ── Состояние сортировки — QML читает для стрелок ────────
+    Q_PROPERTY(QString sortColumn READ sortColumn NOTIFY sortChanged)
+    Q_PROPERTY(bool    sortAsc    READ sortAsc    NOTIFY sortChanged)
+
 public:
     explicit StudentController(QObject* parent = nullptr);
 
-    // ── Свойства ─────────────────────────────────────────────
     QVariantList allStudents() const;
     int debtCount()  const;
     int expelCount() const;
     int okCount()    const;
 
+    QString sortColumn() const { return m_sortColumn; }
+    bool    sortAsc()    const { return m_sortAsc;    }
+
 public slots:
     // ── Файлы ────────────────────────────────────────────────
-    // studentBE.openFile(path)
     void openFile(const QString& path);
-    // studentBE.saveFile(path)
     void saveFile(const QString& path);
 
     // ── CRUD ─────────────────────────────────────────────────
-    // studentBE.addStudent("ИВТ-21","Иванов А.А.",[5,4,3,5,4],[5,4,4,5,5])
     void addStudent(const QString& group, const QString& name,
                     const QVariantList& winter, const QVariantList& summer);
 
-    // studentBE.deleteStudent(index)
     void deleteStudent(int index);
 
-    // studentBE.editStudent(index, "ИВТ-21","Петров И.И.",[...],[...])
     void editStudent(int index, const QString& group, const QString& name,
                      const QVariantList& winter, const QVariantList& summer);
 
-    // ── Фильтрация / поиск ───────────────────────────────────
-    // filterType: 0=все, 1=задолжники, 2=к отчислению
-    // studentBE.filtered(filterCombo.currentIndex, searchInput.text)
-    Q_INVOKABLE QVariantList filtered(int filterType, const QString& nameSearch) const;
+    // ── Получить данные одного студента для формы редактирования
+    Q_INVOKABLE QVariantMap getStudent(int index) const;
 
-    // ── Сортировка ───────────────────────────────────────────
-    // studentBE.sortByName()
+    // ── Фильтрация ───────────────────────────────────────────
+    Q_INVOKABLE QVariantList filtered(int filterType,
+                                      const QString& nameSearch) const;
+
+    // ── Сортировка с переключением направления ───────────────
+    // Первый вызов — по возрастанию.
+    // Повторный вызов той же колонки — меняет направление.
     void sortByName();
-    // studentBE.sortByGroup()
     void sortByGroup();
-    // studentBE.sortByAvgDesc()
-    void sortByAvgDesc();
+    void sortByAvgDesc();   // колонка avgSummer, направление тоже toggleable
 
 signals:
     void studentsChanged();
+    void sortChanged();
     void error(const QString& message);
 
 private:
     std::vector<Student> m_students;
+
+    // Состояние сортировки
+    QString m_sortColumn;   // "name" | "group" | "avg" | ""
+    bool    m_sortAsc = true;
+
     QVariantMap studentToMap(int index) const;
+
+    // Применяет текущий m_sortColumn + m_sortAsc к m_students
+    void applySort();
 };
