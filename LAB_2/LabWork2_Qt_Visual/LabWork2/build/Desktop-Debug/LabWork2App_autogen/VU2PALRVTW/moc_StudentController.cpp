@@ -44,6 +44,8 @@ template <> constexpr inline auto StudentController::qt_create_metaobjectdata<qt
         "sortChanged",
         "error",
         "message",
+        "openFileDialog",
+        "saveFileDialog",
         "openFile",
         "path",
         "saveFile",
@@ -81,55 +83,59 @@ template <> constexpr inline auto StudentController::qt_create_metaobjectdata<qt
         QtMocHelpers::SignalData<void(const QString &)>(4, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 5 },
         }}),
+        // Slot 'openFileDialog'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'saveFileDialog'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'openFile'
-        QtMocHelpers::SlotData<void(const QString &)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 7 },
+        QtMocHelpers::SlotData<void(const QString &)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 9 },
         }}),
         // Slot 'saveFile'
-        QtMocHelpers::SlotData<void(const QString &)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 7 },
+        QtMocHelpers::SlotData<void(const QString &)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 9 },
         }}),
         // Slot 'addStudent'
-        QtMocHelpers::SlotData<void(const QString &, const QString &, const QVariantList &, const QVariantList &)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 10 }, { QMetaType::QString, 11 }, { 0x80000000 | 12, 13 }, { 0x80000000 | 12, 14 },
+        QtMocHelpers::SlotData<void(const QString &, const QString &, const QVariantList &, const QVariantList &)>(11, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 12 }, { QMetaType::QString, 13 }, { 0x80000000 | 14, 15 }, { 0x80000000 | 14, 16 },
         }}),
         // Slot 'deleteStudent'
-        QtMocHelpers::SlotData<void(int)>(15, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 16 },
+        QtMocHelpers::SlotData<void(int)>(17, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 18 },
         }}),
         // Slot 'editStudent'
-        QtMocHelpers::SlotData<void(int, const QString &, const QString &, const QVariantList &, const QVariantList &)>(17, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 16 }, { QMetaType::QString, 10 }, { QMetaType::QString, 11 }, { 0x80000000 | 12, 13 },
-            { 0x80000000 | 12, 14 },
+        QtMocHelpers::SlotData<void(int, const QString &, const QString &, const QVariantList &, const QVariantList &)>(19, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 18 }, { QMetaType::QString, 12 }, { QMetaType::QString, 13 }, { 0x80000000 | 14, 15 },
+            { 0x80000000 | 14, 16 },
         }}),
         // Slot 'getStudent'
-        QtMocHelpers::SlotData<QVariantMap(int) const>(18, 2, QMC::AccessPublic, 0x80000000 | 19, {{
-            { QMetaType::Int, 16 },
+        QtMocHelpers::SlotData<QVariantMap(int) const>(20, 2, QMC::AccessPublic, 0x80000000 | 21, {{
+            { QMetaType::Int, 18 },
         }}),
         // Slot 'filtered'
-        QtMocHelpers::SlotData<QVariantList(int, const QString &) const>(20, 2, QMC::AccessPublic, 0x80000000 | 12, {{
-            { QMetaType::Int, 21 }, { QMetaType::QString, 22 },
+        QtMocHelpers::SlotData<QVariantList(int, const QString &) const>(22, 2, QMC::AccessPublic, 0x80000000 | 14, {{
+            { QMetaType::Int, 23 }, { QMetaType::QString, 24 },
         }}),
         // Slot 'sortByName'
-        QtMocHelpers::SlotData<void()>(23, 2, QMC::AccessPublic, QMetaType::Void),
-        // Slot 'sortByGroup'
-        QtMocHelpers::SlotData<void()>(24, 2, QMC::AccessPublic, QMetaType::Void),
-        // Slot 'sortByAvgDesc'
         QtMocHelpers::SlotData<void()>(25, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'sortByGroup'
+        QtMocHelpers::SlotData<void()>(26, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'sortByAvgDesc'
+        QtMocHelpers::SlotData<void()>(27, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
         // property 'allStudents'
-        QtMocHelpers::PropertyData<QVariantList>(26, 0x80000000 | 12, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 0),
+        QtMocHelpers::PropertyData<QVariantList>(28, 0x80000000 | 14, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 0),
         // property 'debtCount'
-        QtMocHelpers::PropertyData<int>(27, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
-        // property 'expelCount'
-        QtMocHelpers::PropertyData<int>(28, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
-        // property 'okCount'
         QtMocHelpers::PropertyData<int>(29, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
+        // property 'expelCount'
+        QtMocHelpers::PropertyData<int>(30, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
+        // property 'okCount'
+        QtMocHelpers::PropertyData<int>(31, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
         // property 'sortColumn'
-        QtMocHelpers::PropertyData<QString>(30, QMetaType::QString, QMC::DefaultPropertyFlags, 1),
+        QtMocHelpers::PropertyData<QString>(32, QMetaType::QString, QMC::DefaultPropertyFlags, 1),
         // property 'sortAsc'
-        QtMocHelpers::PropertyData<bool>(31, QMetaType::Bool, QMC::DefaultPropertyFlags, 1),
+        QtMocHelpers::PropertyData<bool>(33, QMetaType::Bool, QMC::DefaultPropertyFlags, 1),
     };
     QtMocHelpers::UintData qt_enums {
     };
@@ -154,18 +160,20 @@ void StudentController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 0: _t->studentsChanged(); break;
         case 1: _t->sortChanged(); break;
         case 2: _t->error((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 3: _t->openFile((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 4: _t->saveFile((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 5: _t->addStudent((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[4]))); break;
-        case 6: _t->deleteStudent((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 7: _t->editStudent((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[4])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[5]))); break;
-        case 8: { QVariantMap _r = _t->getStudent((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+        case 3: _t->openFileDialog(); break;
+        case 4: _t->saveFileDialog(); break;
+        case 5: _t->openFile((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->saveFile((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->addStudent((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[4]))); break;
+        case 8: _t->deleteStudent((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->editStudent((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[4])),(*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[5]))); break;
+        case 10: { QVariantMap _r = _t->getStudent((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QVariantMap*>(_a[0]) = std::move(_r); }  break;
-        case 9: { QVariantList _r = _t->filtered((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])));
+        case 11: { QVariantList _r = _t->filtered((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])));
             if (_a[0]) *reinterpret_cast<QVariantList*>(_a[0]) = std::move(_r); }  break;
-        case 10: _t->sortByName(); break;
-        case 11: _t->sortByGroup(); break;
-        case 12: _t->sortByAvgDesc(); break;
+        case 12: _t->sortByName(); break;
+        case 13: _t->sortByGroup(); break;
+        case 14: _t->sortByAvgDesc(); break;
         default: ;
         }
     }
@@ -210,14 +218,14 @@ int StudentController::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 15)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 13;
+        _id -= 15;
     }
     if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty

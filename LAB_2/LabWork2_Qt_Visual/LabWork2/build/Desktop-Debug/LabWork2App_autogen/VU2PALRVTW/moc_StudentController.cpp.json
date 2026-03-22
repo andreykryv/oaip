@@ -70,7 +70,7 @@
                     "designable": true,
                     "final": false,
                     "index": 4,
-                    "lineNumber": 19,
+                    "lineNumber": 18,
                     "name": "sortColumn",
                     "notify": "sortChanged",
                     "read": "sortColumn",
@@ -85,7 +85,7 @@
                     "designable": true,
                     "final": false,
                     "index": 5,
-                    "lineNumber": 20,
+                    "lineNumber": 19,
                     "name": "sortAsc",
                     "notify": "sortChanged",
                     "read": "sortAsc",
@@ -101,14 +101,14 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 62,
+                    "lineNumber": 67,
                     "name": "studentsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 63,
+                    "lineNumber": 68,
                     "name": "sortChanged",
                     "returnType": "void"
                 },
@@ -121,12 +121,26 @@
                         }
                     ],
                     "index": 2,
-                    "lineNumber": 64,
+                    "lineNumber": 69,
                     "name": "error",
                     "returnType": "void"
                 }
             ],
             "slots": [
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 36,
+                    "name": "openFileDialog",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 37,
+                    "name": "saveFileDialog",
+                    "returnType": "void"
+                },
                 {
                     "access": "public",
                     "arguments": [
@@ -135,8 +149,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 3,
-                    "lineNumber": 35,
+                    "index": 5,
+                    "lineNumber": 45,
                     "name": "openFile",
                     "returnType": "void"
                 },
@@ -148,8 +162,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 4,
-                    "lineNumber": 36,
+                    "index": 6,
+                    "lineNumber": 46,
                     "name": "saveFile",
                     "returnType": "void"
                 },
@@ -173,8 +187,8 @@
                             "type": "QVariantList"
                         }
                     ],
-                    "index": 5,
-                    "lineNumber": 39,
+                    "index": 7,
+                    "lineNumber": 49,
                     "name": "addStudent",
                     "returnType": "void"
                 },
@@ -186,8 +200,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 6,
-                    "lineNumber": 42,
+                    "index": 8,
+                    "lineNumber": 51,
                     "name": "deleteStudent",
                     "returnType": "void"
                 },
@@ -215,8 +229,8 @@
                             "type": "QVariantList"
                         }
                     ],
-                    "index": 7,
-                    "lineNumber": 44,
+                    "index": 9,
+                    "lineNumber": 52,
                     "name": "editStudent",
                     "returnType": "void"
                 },
@@ -228,9 +242,9 @@
                             "type": "int"
                         }
                     ],
-                    "index": 8,
+                    "index": 10,
                     "isConst": true,
-                    "lineNumber": 48,
+                    "lineNumber": 55,
                     "name": "getStudent",
                     "returnType": "QVariantMap"
                 },
@@ -246,30 +260,30 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 9,
+                    "index": 11,
                     "isConst": true,
-                    "lineNumber": 51,
+                    "lineNumber": 56,
                     "name": "filtered",
                     "returnType": "QVariantList"
                 },
                 {
                     "access": "public",
-                    "index": 10,
-                    "lineNumber": 57,
+                    "index": 12,
+                    "lineNumber": 62,
                     "name": "sortByName",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 11,
-                    "lineNumber": 58,
+                    "index": 13,
+                    "lineNumber": 63,
                     "name": "sortByGroup",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 12,
-                    "lineNumber": 59,
+                    "index": 14,
+                    "lineNumber": 64,
                     "name": "sortByAvgDesc",
                     "returnType": "void"
                 }
