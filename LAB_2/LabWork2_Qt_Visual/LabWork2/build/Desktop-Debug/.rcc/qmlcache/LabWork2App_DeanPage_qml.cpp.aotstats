@@ -543,15 +543,7 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 59,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 205,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 55,
+                            "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
                             "line": 206,
@@ -559,10 +551,18 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 65,
+                            "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 207,
+                            "line": 208,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 29,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 210,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -570,52 +570,12 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 209,
+                            "line": 212,
                             "message": "Cannot access value for name cRed"
                         },
                         {
                             "codegenResult": 0,
                             "column": 86,
-                            "durationMicroseconds": 0,
-                            "functionName": "alignment",
-                            "line": 209,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 45,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 210,
-                            "message": "Cannot access value for name cDim"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 26,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 211,
-                            "message": "Cannot access value for name studentBE"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 104,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 211,
-                            "message": "Cannot access value for name cRed"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 165,
-                            "durationMicroseconds": 0,
-                            "functionName": "weight",
-                            "line": 211,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 88,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
                             "line": 212,
@@ -638,8 +598,16 @@
                             "message": "Cannot access value for name studentBE"
                         },
                         {
+                            "codegenResult": 2,
+                            "column": 104,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 214,
+                            "message": "Cannot access value for name cRed"
+                        },
+                        {
                             "codegenResult": 0,
-                            "column": 167,
+                            "column": 165,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
                             "line": 214,
@@ -655,7 +623,7 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 38,
+                            "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "color",
                             "line": 216,
@@ -670,11 +638,43 @@
                             "message": "Cannot access value for name studentBE"
                         },
                         {
+                            "codegenResult": 0,
+                            "column": 167,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 217,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 88,
+                            "durationMicroseconds": 0,
+                            "functionName": "alignment",
+                            "line": 218,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 219,
+                            "message": "Cannot access value for name cDim"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 220,
+                            "message": "Cannot access value for name studentBE"
+                        },
+                        {
                             "codegenResult": 2,
                             "column": 104,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 217,
+                            "line": 220,
                             "message": "Cannot access value for name cGreen"
                         },
                         {
@@ -682,7 +682,7 @@
                             "column": 165,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 217,
+                            "line": 220,
                             "message": ""
                         }
                     ],

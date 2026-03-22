@@ -202,9 +202,12 @@ Item {
         AppToolBar {
             Layout.fillWidth: true
             Text { text: "Сортировка:"; color: cDim; font.pixelSize: 12; font.family: "Arial" }
-            AppButton { text: "По ФИО \u2191"; onClicked: { if(typeof studentBE!=="undefined") studentBE.sortByName() } }
-            AppButton { text: "По группе"; onClicked: { if(typeof studentBE!=="undefined") studentBE.sortByGroup() } }
-            AppButton { text: "По ср. баллу \u2193"; onClicked: { if(typeof studentBE!=="undefined") studentBE.sortByAvgDesc() } }
+            AppButton { text: "По ФИО \u2191";
+                onClicked:  if(typeof studentBE!=="undefined") studentBE.sortByName() }
+            AppButton { text: "По группе";
+                onClicked:  if(typeof studentBE!=="undefined") studentBE.sortByGroup()  }
+            AppButton { text: "По ср. баллу \u2193";
+                onClicked:  if(typeof studentBE!=="undefined") studentBE.sortByAvgDesc()  }
             ToolSep {}
             Rectangle { width:10;height:10;radius:5; color:cRed;    Layout.alignment:Qt.AlignVCenter }
             Text { text:"Отчислить:"; color:cDim; font.pixelSize:12; font.family:"Arial" }
