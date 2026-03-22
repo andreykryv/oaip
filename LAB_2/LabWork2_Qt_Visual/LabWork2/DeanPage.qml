@@ -138,7 +138,7 @@ Item {
                                     anchors.left:parent.left; anchors.leftMargin:8
                                     spacing: 4
                                     Repeater {
-                                        model:[d.w1,model.w2,model.w3,model.w4,model.w5]
+                                        model:[d.w1,d.w2,d.w3,d.w4,d.w5]
                                         delegate: Badge {
                                             badgeText: modelData.toString()
                                             badgeColor: modelData<3?"red":modelData===5?"green":"blue"
@@ -148,9 +148,9 @@ Item {
                             }
                             DCell {
                                 width:78; bold:true
-                                cellText: gradeAvg(d.w1,model.w2,model.w3,model.w4,model.w5)
-                                cellColor: parseFloat(gradeAvg(d.w1,model.w2,model.w3,model.w4,model.w5))<3 ? cRed :
-                                           parseFloat(gradeAvg(d.w1,model.w2,model.w3,model.w4,model.w5))>=4.5 ? cGreen : cOrange
+                                cellText: gradeAvg(d.w1,d.w2,d.w3,d.w4,d.w5)
+                                cellColor: parseFloat(gradeAvg(d.w1,d.w2,d.w3,d.w4,d.w5))<3 ? cRed :
+                                           parseFloat(gradeAvg(d.w1,d.w2,d.w3,d.w4,d.w5))>=4.5 ? cGreen : cOrange
                             }
                             Item {
                                 width:155; height:38
@@ -160,7 +160,7 @@ Item {
                                     anchors.left:parent.left; anchors.leftMargin:8
                                     spacing: 4
                                     Repeater {
-                                        model:[model.s1,model.s2,model.s3,model.s4,model.s5]
+                                        model:[d.s1,d.s2,d.s3,d.s4,d.s5]
                                         delegate: Badge {
                                             badgeText: modelData.toString()
                                             badgeColor: modelData<3?"red":modelData===5?"green":"blue"
@@ -170,9 +170,9 @@ Item {
                             }
                             DCell {
                                 width:78; bold:true
-                                cellText: gradeAvg(model.s1,model.s2,model.s3,model.s4,model.s5)
-                                cellColor: parseFloat(gradeAvg(model.s1,model.s2,model.s3,model.s4,model.s5))<3 ? cRed :
-                                           parseFloat(gradeAvg(model.s1,model.s2,model.s3,model.s4,model.s5))>=4.5 ? cGreen : cOrange
+                                cellText: gradeAvg(d.s1,d.s2,d.s3,d.s4,d.s5)
+                                cellColor: parseFloat(gradeAvg(d.s1,d.s2,d.s3,d.s4,d.s5))<3 ? cRed :
+                                           parseFloat(gradeAvg(d.s1,d.s2,d.s3,d.s4,d.s5))>=4.5 ? cGreen : cOrange
                             }
                             Item {
                                 width:108; height:38
@@ -202,9 +202,12 @@ Item {
         AppToolBar {
             Layout.fillWidth: true
             Text { text: "Сортировка:"; color: cDim; font.pixelSize: 12; font.family: "Arial" }
-            AppButton { text: "По ФИО \u2191"; onClicked: { if(typeof studentBE!=="undefined") studentBE.sortByName() } }
-            AppButton { text: "По группе"; onClicked: { if(typeof studentBE!=="undefined") studentBE.sortByGroup() } }
-            AppButton { text: "По ср. баллу \u2193"; onClicked: { if(typeof studentBE!=="undefined") studentBE.sortByAvgDesc() } }
+            AppButton { text: "По ФИО \u2191";
+                onClicked:  if(typeof studentBE!=="undefined") studentBE.sortByName() }
+            AppButton { text: "По группе";
+                onClicked:  if(typeof studentBE!=="undefined") studentBE.sortByGroup()  }
+            AppButton { text: "По ср. баллу \u2193";
+                onClicked:  if(typeof studentBE!=="undefined") studentBE.sortByAvgDesc()  }
             ToolSep {}
             Rectangle { width:10;height:10;radius:5; color:cRed;    Layout.alignment:Qt.AlignVCenter }
             Text { text:"Отчислить:"; color:cDim; font.pixelSize:12; font.family:"Arial" }
