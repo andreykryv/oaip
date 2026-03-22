@@ -152,17 +152,21 @@ Item {
                 Layout.fillWidth: true
                 Text { text: "Выражение:"; color: cDim; font.pixelSize: 13; font.family: "Arial" }
                 AppInput { id: exprInput; implicitWidth: 220; text: "3 + 4.5 * 5"; Keys.onReturnPressed: evalBtn.clicked() }
-                AppButton {
-                    id: evalBtn; text: "\u25B6  Вычислить"; variant: "primary"
-                    onClicked: {
-                        try {
-                            var r2 = (typeof exprBE !== "undefined") ? exprBE.evaluate(exprInput.text) : ""
-                            if (r2 !== "") { resultText = r2; hasError = r2.startsWith("Ошибка"); return; }
-                            resultText = String(Math.round(r*1e10)/1e10)
-                            hasError = false
-                        } catch(e) { resultText = "Ошибка"; hasError = true }
-                    }
-                }
+                property var astTree: null
+
+AppButton {
+    id: evalBtn; text: "\u25B6  Вычислить"; variant: "primary"
+    onClicked: {
+        if (typeof exprBE === "undefined") return
+        var r = exprBE.evaluate(exprInput.text)
+        resultText = r
+        hasError = r.startsWith("Ошибка")
+        if (!hasError) {
+            astTree = exprBE.parseTree(exprInput.text)  // ← C++ строит дерево
+            astCanvas.requestPaint()
+        }
+    }
+}
                 AppButton { text: "\u2715 Очистить"; onClicked: { exprInput.text=""; resultText="\u2014"; hasError=false } }
                 ToolSep {}
                 Text { text: "Результат:"; color: cDim; font.pixelSize: 13; font.family: "Arial" }

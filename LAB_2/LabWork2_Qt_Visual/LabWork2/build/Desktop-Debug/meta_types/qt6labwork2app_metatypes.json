@@ -300,7 +300,7 @@
         "classes": [
             {
                 "className": "ExpressionController",
-                "lineNumber": 25,
+                "lineNumber": 7,
                 "object": true,
                 "qualifiedClassName": "ExpressionController",
                 "signals": [
@@ -313,7 +313,7 @@
                             }
                         ],
                         "index": 0,
-                        "lineNumber": 47,
+                        "lineNumber": 30,
                         "name": "error",
                         "returnType": "void"
                     }
@@ -328,9 +328,22 @@
                             }
                         ],
                         "index": 1,
-                        "lineNumber": 37,
+                        "lineNumber": 19,
                         "name": "evaluate",
                         "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "expression",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "lineNumber": 20,
+                        "name": "parseTree",
+                        "returnType": "QVariantMap"
                     },
                     {
                         "access": "public",
@@ -344,8 +357,8 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 2,
-                        "lineNumber": 44,
+                        "index": 3,
+                        "lineNumber": 27,
                         "name": "checkEquals",
                         "returnType": "bool"
                     }

@@ -327,10 +327,10 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 32,
+                            "column": 16,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 157,
+                            "line": 159,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -338,7 +338,7 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 166,
+                            "line": 170,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -346,7 +346,7 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 168,
+                            "line": 172,
                             "message": "Cannot access value for name cDim"
                         },
                         {
@@ -354,7 +354,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 170,
+                            "line": 174,
                             "message": ""
                         },
                         {
@@ -362,7 +362,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 171,
+                            "line": 175,
                             "message": "Cannot access value for name hasError"
                         },
                         {
@@ -370,7 +370,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 172,
+                            "line": 176,
                             "message": "Cannot access value for name hasError"
                         },
                         {
@@ -378,7 +378,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 175,
+                            "line": 179,
                             "message": "Cannot access value for name resultText"
                         },
                         {
@@ -386,7 +386,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 176,
+                            "line": 180,
                             "message": "Cannot access value for name hasError"
                         },
                         {
@@ -394,7 +394,7 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 174,
+                            "line": 178,
                             "message": ""
                         },
                         {
@@ -402,7 +402,7 @@
                             "column": 80,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 177,
+                            "line": 181,
                             "message": ""
                         },
                         {
@@ -410,7 +410,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 186,
+                            "line": 190,
                             "message": "Cannot access value for name cWhite"
                         },
                         {
@@ -418,7 +418,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 186,
+                            "line": 190,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -426,7 +426,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 189,
+                            "line": 193,
                             "message": ""
                         },
                         {
@@ -434,7 +434,7 @@
                             "column": 69,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 194,
+                            "line": 198,
                             "message": ""
                         },
                         {
@@ -442,7 +442,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 194,
+                            "line": 198,
                             "message": ""
                         },
                         {
@@ -450,7 +450,7 @@
                             "column": 69,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 195,
+                            "line": 199,
                             "message": ""
                         },
                         {
@@ -458,7 +458,7 @@
                             "column": 99,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 195,
+                            "line": 199,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -466,7 +466,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 195,
+                            "line": 199,
                             "message": ""
                         },
                         {
@@ -474,7 +474,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 199,
+                            "line": 203,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -482,7 +482,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 200,
+                            "line": 204,
                             "message": ""
                         },
                         {
@@ -490,7 +490,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 197,
+                            "line": 201,
                             "message": ""
                         },
                         {
@@ -498,7 +498,7 @@
                             "column": 94,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 199,
+                            "line": 203,
                             "message": ""
                         },
                         {
@@ -506,7 +506,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "onPaint",
-                            "line": 206,
+                            "line": 210,
                             "message": "Instruction \"generate_PushBlockContext\" not implemented"
                         },
                         {
@@ -514,7 +514,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 266,
+                            "line": 270,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -522,7 +522,7 @@
                             "column": 63,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 267,
+                            "line": 271,
                             "message": ""
                         },
                         {
@@ -530,7 +530,7 @@
                             "column": 93,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 267,
+                            "line": 271,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -538,7 +538,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "top",
-                            "line": 267,
+                            "line": 271,
                             "message": ""
                         },
                         {
@@ -546,7 +546,7 @@
                             "column": 98,
                             "durationMicroseconds": 0,
                             "functionName": "wrapMode",
-                            "line": 271,
+                            "line": 275,
                             "message": ""
                         },
                         {
@@ -554,7 +554,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 269,
+                            "line": 273,
                             "message": ""
                         }
                     ],

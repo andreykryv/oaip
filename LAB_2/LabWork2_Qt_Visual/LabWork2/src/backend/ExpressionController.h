@@ -1,26 +1,8 @@
 #pragma once
-// ─────────────────────────────────────────────────────────────
-//  ExpressionController.h
-//  Qt-объект для Заданий 3 и 4.
-//  Подключён к QML как "exprBE".
-//
-//  КАК ПОДКЛЮЧИТЬ В QML:
-//    AppButton {
-//        onClicked: {
-//            var r = exprBE.evaluate(exprInput.text)
-//            resultText = r
-//        }
-//    }
-//    AppButton {
-//        onClicked: {
-//            var r = exprBE.checkEquals(leftCombo.currentIndex,
-//                                       rightCombo.currentIndex)
-//            // r == true/false
-//        }
-//    }
-// ─────────────────────────────────────────────────────────────
+
 #include <QObject>
 #include <QString>
+
 
 class ExpressionController : public QObject
 {
@@ -35,6 +17,7 @@ public slots:
     // Возвращает результат как строку, или "Ошибка: ..."
     // Вызвать из QML: var r = exprBE.evaluate("3 + 4.5 * 5")
     Q_INVOKABLE QString evaluate(const QString& expression);
+    Q_INVOKABLE QVariantMap parseTree(const QString& expression);
 
     // ── Задание 4 ─────────────────────────────────────────────
     // typeA, typeB: 0 = Number, 1 = BinaryOperation

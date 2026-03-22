@@ -5,17 +5,9 @@
 #include <stack>
 #include <sstream>
 #include <cctype>
+#include <cmath>
 
 ExpressionController::ExpressionController(QObject* parent) : QObject(parent) {}
-
-// ─────────────────────────────────────────────────────────────
-//  evaluate
-//  Простой рекурсивный парсер: строит дерево Expression и
-//  вызывает evaluate(). Поддерживает +, -, *, /, скобки.
-//
-//  TODO: вы можете заменить parser на свою реализацию или
-//  расширить его поддержкой унарного минуса.
-// ─────────────────────────────────────────────────────────────
 
 namespace {
 
@@ -33,7 +25,6 @@ struct Parser {
         return std::stod(s.substr(start, pos - start));
     }
 
-    // Forward declarations
     Expression* parseExpr();
     Expression* parseTerm();
     Expression* parseFactor();
@@ -48,7 +39,6 @@ Expression* Parser::parseFactor() {
         if (pos < s.size() && s[pos] == ')') ++pos;
         return e;
     }
-    // Unary minus
     if (pos < s.size() && s[pos] == '-') {
         ++pos;
         double v = parseNumber();
@@ -87,6 +77,7 @@ Expression* Parser::parseExpr() {
 
 } // namespace
 
+// ── evaluate ─────────────────────────────────────────────────
 QString ExpressionController::evaluate(const QString& expression)
 {
     std::string s = expression.toStdString();
@@ -95,7 +86,6 @@ QString ExpressionController::evaluate(const QString& expression)
         Expression* expr = p.parseExpr();
         double result = expr->evaluate();
         delete expr;
-        // Round to 10 decimal places to avoid floating point noise
         double rounded = std::round(result * 1e10) / 1e10;
         return QString::number(rounded, 'g', 10);
     } catch (const std::exception& e) {
@@ -107,31 +97,42 @@ QString ExpressionController::evaluate(const QString& expression)
     }
 }
 
-// ─────────────────────────────────────────────────────────────
-//  checkEquals  (Задание 4)
-//  typeA/typeB: 0 = Number, 1 = BinaryOperation
-// ─────────────────────────────────────────────────────────────
+// ── checkEquals ──────────────────────────────────────────────
 bool ExpressionController::checkEquals(int typeA, int typeB)
 {
-    // Создаём объекты нужных типов
-    Expression* left  = nullptr;
-    Expression* right = nullptr;
-
-    // typeA
-    if (typeA == 0)
-        left = new Number(0);
-    else
-        left = new BinaryOperation(new Number(0), '+', new Number(0));
-
-    // typeB
-    if (typeB == 0)
-        right = new Number(0);
-    else
-        right = new BinaryOperation(new Number(0), '+', new Number(0));
-
+    Expression* left  = (typeA == 0) ? (Expression*)new Number(0)
+                                     : new BinaryOperation(new Number(0), '+', new Number(0));
+    Expression* right = (typeB == 0) ? (Expression*)new Number(0)
+                                     : new BinaryOperation(new Number(0), '+', new Number(0));
     bool result = check_equals(left, right);
-
     delete left;
     delete right;
     return result;
+}
+
+// ── buildMap — ВЫШЕ parseTree ─────────────────────────────────
+static QVariantMap buildMap(Expression* node) {
+    if (!node) return {};
+    QVariantMap m;
+    m["label"] = QString::fromStdString(node->nodeLabel());
+    m["isOp"]  = (node->type_tag() == 2);
+    if (node->leftChild())  m["left"]  = buildMap(node->leftChild());
+    if (node->rightChild()) m["right"] = buildMap(node->rightChild());
+    return m;
+}
+
+// ── parseTree ────────────────────────────────────────────────
+QVariantMap ExpressionController::parseTree(const QString& expression)
+{
+    std::string s = expression.toStdString();
+    try {
+        Parser p{s};
+        Expression* root = p.parseExpr();
+        QVariantMap result = buildMap(root);
+        delete root;
+        return result;
+    } catch (const std::exception& e) {
+        emit error(QString("Ошибка парсинга: %1").arg(e.what()));
+        return {};
+    }
 }
