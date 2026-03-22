@@ -419,7 +419,7 @@
                             "durationMicroseconds": 0,
                             "functionName": "model",
                             "line": 163,
-                            "message": "Cannot load property s1 from (component in /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/DeanPage.qml)::model with type QVariant."
+                            "message": "Cannot access value for name d"
                         },
                         {
                             "codegenResult": 2,
@@ -443,7 +443,7 @@
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
                             "line": 173,
-                            "message": "Cannot access value for name model"
+                            "message": "Cannot access value for name d"
                         },
                         {
                             "codegenResult": 2,
@@ -451,7 +451,7 @@
                             "durationMicroseconds": 0,
                             "functionName": "cellColor",
                             "line": 174,
-                            "message": "Cannot access value for name model"
+                            "message": "Cannot access value for name d"
                         },
                         {
                             "codegenResult": 0,
