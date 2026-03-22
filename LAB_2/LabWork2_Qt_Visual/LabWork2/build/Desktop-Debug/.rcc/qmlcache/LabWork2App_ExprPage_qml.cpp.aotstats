@@ -6,19 +6,67 @@
                 {
                     "entries": [
                         {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "treeDepth",
+                            "line": 19,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "treeWidth",
+                            "line": 23,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "buildCodeText",
+                            "line": 27,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "astLabelText",
+                            "line": 35,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
                             "codegenResult": 0,
                             "column": 9,
                             "durationMicroseconds": 0,
                             "functionName": "codeHtml",
-                            "line": 21,
+                            "line": 43,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 17,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 79,
+                            "message": "Cannot access value for name exprBE"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 9,
+                            "durationMicroseconds": 0,
+                            "functionName": "onError",
+                            "line": 80,
+                            "message": "Functions without type annotations won't be compiled"
                         },
                         {
                             "codegenResult": 0,
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 58,
+                            "line": 84,
                             "message": ""
                         },
                         {
@@ -26,7 +74,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 68,
+                            "line": 94,
                             "message": "Cannot access value for name cWhite"
                         },
                         {
@@ -34,7 +82,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 68,
+                            "line": 94,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -42,7 +90,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 71,
+                            "line": 96,
                             "message": ""
                         },
                         {
@@ -50,7 +98,7 @@
                             "column": 73,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 77,
+                            "line": 100,
                             "message": ""
                         },
                         {
@@ -58,7 +106,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 77,
+                            "line": 100,
                             "message": ""
                         },
                         {
@@ -66,7 +114,7 @@
                             "column": 73,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 78,
+                            "line": 101,
                             "message": ""
                         },
                         {
@@ -74,7 +122,7 @@
                             "column": 103,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 78,
+                            "line": 101,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -82,7 +130,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 78,
+                            "line": 101,
                             "message": ""
                         },
                         {
@@ -90,7 +138,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 81,
+                            "line": 103,
                             "message": ""
                         },
                         {
@@ -98,7 +146,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 83,
+                            "line": 105,
                             "message": "Cannot generate efficient code for storing an array in a non-sequence type"
                         },
                         {
@@ -106,7 +154,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 85,
+                            "line": 107,
                             "message": ""
                         },
                         {
@@ -114,7 +162,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 86,
+                            "line": 108,
                             "message": "Cannot access value for name index"
                         },
                         {
@@ -122,71 +170,71 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 87,
+                            "line": 109,
                             "message": "Cannot access value for name index"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 48,
+                            "column": 85,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 92,
+                            "line": 111,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 70,
+                            "column": 106,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 92,
+                            "line": 111,
                             "message": "Cannot access value for name index"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 48,
+                            "column": 127,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 93,
+                            "line": 111,
                             "message": "Cannot access value for name cAccent"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 57,
+                            "column": 64,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 91,
+                            "line": 111,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 47,
+                            "column": 82,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 97,
+                            "line": 112,
                             "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 48,
+                            "column": 99,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 98,
+                            "line": 112,
                             "message": "Cannot access value for name index"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 68,
+                            "column": 69,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 96,
+                            "line": 112,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 54,
+                            "column": 173,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 100,
+                            "line": 112,
                             "message": "Cannot access value for name index"
                         },
                         {
@@ -194,23 +242,23 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "contentHeight",
-                            "line": 110,
+                            "line": 119,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 37,
+                            "column": 64,
                             "durationMicroseconds": 0,
                             "functionName": "policy",
-                            "line": 113,
+                            "line": 120,
                             "message": "Could not find property \"policy\"."
                         },
                         {
                             "codegenResult": 2,
-                            "column": 37,
+                            "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 121,
+                            "line": 124,
                             "message": "Cannot load property contentHeight from (component in /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/ExprPage.qml)::parent with type QQuickItem."
                         },
                         {
@@ -218,7 +266,7 @@
                             "column": 85,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 123,
+                            "line": 125,
                             "message": ""
                         },
                         {
@@ -226,7 +274,7 @@
                             "column": 106,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 123,
+                            "line": 125,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -234,12 +282,12 @@
                             "column": 55,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 123,
+                            "line": 125,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 47,
+                            "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
                             "line": 126,
@@ -247,162 +295,162 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 58,
+                            "column": 82,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 130,
+                            "line": 127,
                             "message": "Cannot access value for name index"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 48,
+                            "column": 96,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 131,
+                            "line": 127,
                             "message": "Cannot access value for name cDim"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 62,
+                            "column": 162,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 132,
+                            "line": 127,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 36,
+                            "column": 66,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 140,
+                            "line": 130,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 36,
+                            "column": 167,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 143,
+                            "line": 130,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 53,
+                            "column": 183,
                             "durationMicroseconds": 0,
                             "functionName": "wrapMode",
-                            "line": 143,
+                            "line": 130,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 41,
+                            "column": 211,
                             "durationMicroseconds": 0,
                             "functionName": "textFormat",
-                            "line": 144,
+                            "line": 130,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 66,
+                            "column": 235,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 144,
+                            "line": 130,
                             "message": "Cannot access value for name codeHtml"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 51,
+                            "column": 49,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 153,
+                            "line": 137,
                             "message": "Cannot access value for name cDim"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 106,
+                            "column": 100,
                             "durationMicroseconds": 0,
                             "functionName": "onReturnPressed",
-                            "line": 154,
+                            "line": 138,
                             "message": "Cannot retrieve a non-object type by ID: evalBtn"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 16,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 159,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 65,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 170,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 51,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 172,
-                            "message": "Cannot access value for name cDim"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 174,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 175,
-                            "message": "Cannot access value for name hasError"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 35,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 176,
-                            "message": "Cannot access value for name hasError"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 31,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 179,
-                            "message": "Cannot access value for name resultText"
                         },
                         {
                             "codegenResult": 2,
                             "column": 32,
                             "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 141,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 154,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 49,
+                            "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 180,
+                            "line": 162,
+                            "message": "Cannot access value for name cDim"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 164,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 165,
+                            "message": "Cannot access value for name hasError"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 70,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 165,
+                            "message": "Cannot access value for name hasError"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 74,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 166,
+                            "message": "Cannot access value for name resultText"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 92,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 166,
                             "message": "Cannot access value for name hasError"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 60,
+                            "column": 61,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 178,
+                            "line": 166,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 80,
+                            "column": 166,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 181,
+                            "line": 166,
                             "message": ""
                         },
                         {
@@ -410,7 +458,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 190,
+                            "line": 175,
                             "message": "Cannot access value for name cWhite"
                         },
                         {
@@ -418,7 +466,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 190,
+                            "line": 175,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -426,7 +474,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 193,
+                            "line": 178,
                             "message": ""
                         },
                         {
@@ -434,7 +482,7 @@
                             "column": 69,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 198,
+                            "line": 184,
                             "message": ""
                         },
                         {
@@ -442,7 +490,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 198,
+                            "line": 184,
                             "message": ""
                         },
                         {
@@ -450,7 +498,7 @@
                             "column": 69,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 199,
+                            "line": 185,
                             "message": ""
                         },
                         {
@@ -458,7 +506,7 @@
                             "column": 99,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 199,
+                            "line": 185,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -466,15 +514,23 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 199,
+                            "line": 185,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 188,
+                            "message": "method astLabelText cannot be resolved."
                         },
                         {
                             "codegenResult": 2,
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 203,
+                            "line": 189,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -482,7 +538,15 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 204,
+                            "line": 190,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 70,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 190,
                             "message": ""
                         },
                         {
@@ -490,7 +554,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 201,
+                            "line": 187,
                             "message": ""
                         },
                         {
@@ -498,31 +562,63 @@
                             "column": 94,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 203,
+                            "line": 189,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "contentWidth",
+                            "line": 199,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "contentHeight",
+                            "line": 200,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 30,
+                            "column": 33,
                             "durationMicroseconds": 0,
-                            "functionName": "onPaint",
-                            "line": 210,
-                            "message": "Instruction \"generate_PushBlockContext\" not implemented"
+                            "functionName": "policy",
+                            "line": 203,
+                            "message": "Could not find property \"policy\"."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 20,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTreeChanged",
+                            "line": 216,
+                            "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 35,
+                            "column": 14,
                             "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 270,
-                            "message": "Cannot access value for name cBorder"
+                            "functionName": "onPaint",
+                            "line": 218,
+                            "message": "Instruction \"generate_PushBlockContext\" not implemented"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 29,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 314,
+                            "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 63,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 271,
+                            "line": 316,
                             "message": ""
                         },
                         {
@@ -530,7 +626,7 @@
                             "column": 93,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 271,
+                            "line": 316,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -538,15 +634,23 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "top",
-                            "line": 271,
+                            "line": 316,
                             "message": ""
                         },
                         {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 320,
+                            "message": "method buildCodeText cannot be resolved."
+                        },
+                        {
                             "codegenResult": 0,
-                            "column": 98,
+                            "column": 95,
                             "durationMicroseconds": 0,
                             "functionName": "wrapMode",
-                            "line": 275,
+                            "line": 321,
                             "message": ""
                         },
                         {
@@ -554,7 +658,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 273,
+                            "line": 319,
                             "message": ""
                         }
                     ],

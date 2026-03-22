@@ -1,12 +1,19 @@
 #include "Expression.h"
 #include <stdexcept>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 // Number
 Number::Number(double value) : m_value(value) {}
 double Number::evaluate()        const { return m_value; }
 int    Number::type_tag()        const { return 1; }
-std::string Number::nodeLabel()  const { return std::to_string(m_value); }
+std::string Number::nodeLabel() const {
+    std::ostringstream oss;
+   
+    oss << std::setprecision(10) << m_value;
+    return oss.str();
+}
 
 // BinaryOperation
 BinaryOperation::BinaryOperation(Expression* left, char op, Expression* right)
