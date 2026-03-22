@@ -1,0 +1,600 @@
+[
+    {
+        "classes": [
+            {
+                "className": "DateController",
+                "lineNumber": 20,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "lineNumber": 25,
+                        "name": "dates",
+                        "notify": "datesChanged",
+                        "read": "dates",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "lineNumber": 26,
+                        "name": "todayStr",
+                        "notify": "datesChanged",
+                        "read": "todayStr",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "DateController",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 77,
+                        "name": "datesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 78,
+                        "name": "error",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 36,
+                        "name": "openFileDialog",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 37,
+                        "name": "saveFileDialog",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "lineNumber": 38,
+                        "name": "appendToFileDialog",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "lineNumber": 39,
+                        "name": "openFile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "lineNumber": 42,
+                        "name": "saveFile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 7,
+                        "lineNumber": 46,
+                        "name": "appendToFile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 8,
+                        "lineNumber": 50,
+                        "name": "addDate",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 9,
+                        "lineNumber": 53,
+                        "name": "deleteDate",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "newDateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 10,
+                        "lineNumber": 56,
+                        "name": "editDate",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 11,
+                        "isConst": true,
+                        "lineNumber": 61,
+                        "name": "getNextDay",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 12,
+                        "isConst": true,
+                        "lineNumber": 62,
+                        "name": "getPrevDay",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 13,
+                        "isConst": true,
+                        "lineNumber": 63,
+                        "name": "getIsLeap",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 14,
+                        "isConst": true,
+                        "lineNumber": 64,
+                        "name": "getWeekNumber",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "birthday",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 15,
+                        "isConst": true,
+                        "lineNumber": 65,
+                        "name": "getDaysTillBirthday",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateA",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "dateB",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 16,
+                        "isConst": true,
+                        "lineNumber": 67,
+                        "name": "getDuration",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "dateStr",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "birthday",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 17,
+                        "isConst": true,
+                        "lineNumber": 73,
+                        "name": "getResult",
+                        "returnType": "QVariantMap"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "DateController.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "ExpressionController",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "ExpressionController",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 47,
+                        "name": "error",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "expression",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 37,
+                        "name": "evaluate",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "typeA",
+                                "type": "int"
+                            },
+                            {
+                                "name": "typeB",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "lineNumber": 44,
+                        "name": "checkEquals",
+                        "returnType": "bool"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ExpressionController.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "StudentController",
+                "lineNumber": 18,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "lineNumber": 22,
+                        "name": "allStudents",
+                        "notify": "studentsChanged",
+                        "read": "allStudents",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariantList",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "lineNumber": 23,
+                        "name": "debtCount",
+                        "notify": "studentsChanged",
+                        "read": "debtCount",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "lineNumber": 24,
+                        "name": "expelCount",
+                        "notify": "studentsChanged",
+                        "read": "expelCount",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "lineNumber": 25,
+                        "name": "okCount",
+                        "notify": "studentsChanged",
+                        "read": "okCount",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "StudentController",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 69,
+                        "name": "studentsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 70,
+                        "name": "error",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "lineNumber": 39,
+                        "name": "openFile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "lineNumber": 41,
+                        "name": "saveFile",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "group",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "winter",
+                                "type": "QVariantList"
+                            },
+                            {
+                                "name": "summer",
+                                "type": "QVariantList"
+                            }
+                        ],
+                        "index": 4,
+                        "lineNumber": 45,
+                        "name": "addStudent",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 5,
+                        "lineNumber": 49,
+                        "name": "deleteStudent",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "group",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "winter",
+                                "type": "QVariantList"
+                            },
+                            {
+                                "name": "summer",
+                                "type": "QVariantList"
+                            }
+                        ],
+                        "index": 6,
+                        "lineNumber": 52,
+                        "name": "editStudent",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "filterType",
+                                "type": "int"
+                            },
+                            {
+                                "name": "nameSearch",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 7,
+                        "isConst": true,
+                        "lineNumber": 58,
+                        "name": "filtered",
+                        "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 62,
+                        "name": "sortByName",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 64,
+                        "name": "sortByGroup",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "lineNumber": 66,
+                        "name": "sortByAvgDesc",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "StudentController.h",
+        "outputRevision": 69
+    }
+]

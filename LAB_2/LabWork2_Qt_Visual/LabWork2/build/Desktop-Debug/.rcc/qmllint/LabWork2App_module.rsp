@@ -1,0 +1,14 @@
+-I
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug
+-I
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/LabWork2
+-I
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug
+-I
+/usr/lib/qt6/qml
+--resource
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/rcc/qmake_LabWork2.qrc
+--resource
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/rcc/LabWork2App_raw_qml_0.qrc
+--module
+LabWork2

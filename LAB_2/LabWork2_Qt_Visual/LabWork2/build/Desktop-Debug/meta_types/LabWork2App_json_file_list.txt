@@ -1,0 +1,3 @@
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/LabWork2App_autogen/include/../VU2PALRVTW/moc_DateController.cpp.json
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/LabWork2App_autogen/include/../VU2PALRVTW/moc_ExpressionController.cpp.json
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/LabWork2App_autogen/include/../VU2PALRVTW/moc_StudentController.cpp.json

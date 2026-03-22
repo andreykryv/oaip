@@ -1,0 +1,65 @@
+{
+    "classes": [
+        {
+            "className": "ExpressionController",
+            "lineNumber": 25,
+            "object": true,
+            "qualifiedClassName": "ExpressionController",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 47,
+                    "name": "error",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "expression",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 37,
+                    "name": "evaluate",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "typeA",
+                            "type": "int"
+                        },
+                        {
+                            "name": "typeB",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 44,
+                    "name": "checkEquals",
+                    "returnType": "bool"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "ExpressionController.h",
+    "outputRevision": 69
+}

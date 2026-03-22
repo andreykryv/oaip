@@ -1,0 +1,26 @@
+module LabWork2
+typeinfo LabWork2App.qmltypes
+prefer :/qt/qml/LabWork2/
+Main 1.0 Main.qml
+Screen01 1.0 Screen01.qml
+DatesPage 1.0 DatesPage.qml
+DeanPage 1.0 DeanPage.qml
+ExprPage 1.0 ExprPage.qml
+TypeCheckPage 1.0 TypeCheckPage.qml
+AppTabButton 1.0 AppTabButton.qml
+AppButton 1.0 AppButton.qml
+AppInput 1.0 AppInput.qml
+AppComboBox 1.0 AppComboBox.qml
+AppGroupBox 1.0 AppGroupBox.qml
+AppToolBar 1.0 AppToolBar.qml
+AppFileDialog 1.0 AppFileDialog.qml
+AppErrorDialog 1.0 AppErrorDialog.qml
+Badge 1.0 Badge.qml
+DateCell 1.0 DateCell.qml
+DCell 1.0 DCell.qml
+ToolSep 1.0 ToolSep.qml
+StatusItem 1.0 StatusItem.qml
+StatusSep 1.0 StatusSep.qml
+MenuButton 1.0 MenuButton.qml
+depends QtQuick
+

@@ -1,0 +1,5 @@
+/home/andrey/Загрузки/CarApp3D_v3/CarApp3D/build/Desktop-Debug/CMakeFiles/CarApp3D.dir
+/home/andrey/Загрузки/CarApp3D_v3/CarApp3D/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/andrey/Загрузки/CarApp3D_v3/CarApp3D/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/andrey/Загрузки/CarApp3D_v3/CarApp3D/build/Desktop-Debug/CMakeFiles/CarApp3D_autogen_timestamp_deps.dir
+/home/andrey/Загрузки/CarApp3D_v3/CarApp3D/build/Desktop-Debug/CMakeFiles/CarApp3D_autogen.dir

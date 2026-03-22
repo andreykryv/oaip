@@ -1,0 +1,26 @@
+<RCC>
+  <qresource prefix="/qt/qml/LabWork2/">
+    <file alias="Main.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/Main.qml</file>
+    <file alias="Screen01.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/Screen01.qml</file>
+    <file alias="DatesPage.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/DatesPage.qml</file>
+    <file alias="DeanPage.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/DeanPage.qml</file>
+    <file alias="ExprPage.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/ExprPage.qml</file>
+    <file alias="TypeCheckPage.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/TypeCheckPage.qml</file>
+    <file alias="AppTabButton.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppTabButton.qml</file>
+    <file alias="AppButton.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppButton.qml</file>
+    <file alias="AppInput.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppInput.qml</file>
+    <file alias="AppComboBox.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppComboBox.qml</file>
+    <file alias="AppGroupBox.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppGroupBox.qml</file>
+    <file alias="AppToolBar.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppToolBar.qml</file>
+    <file alias="AppFileDialog.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppFileDialog.qml</file>
+    <file alias="AppErrorDialog.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/AppErrorDialog.qml</file>
+    <file alias="Badge.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/Badge.qml</file>
+    <file alias="DateCell.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/DateCell.qml</file>
+    <file alias="DCell.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/DCell.qml</file>
+    <file alias="ToolSep.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/ToolSep.qml</file>
+    <file alias="StatusItem.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/StatusItem.qml</file>
+    <file alias="StatusSep.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/StatusSep.qml</file>
+    <file alias="MenuButton.qml">/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/MenuButton.qml</file>
+  </qresource>
+</RCC>
+

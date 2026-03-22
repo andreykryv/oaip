@@ -1,0 +1,14 @@
+-rootPath
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2
+-cmake-output
+-output-file
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/qml_imports/LabWork2App_build.cmake
+-importPath
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug
+-importPath
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/LabWork2
+-importPath
+/usr/lib/qt6/qml
+-qrcFiles
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/rcc/qmake_LabWork2.qrc
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/rcc/LabWork2App_raw_qml_0.qrc
