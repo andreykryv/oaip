@@ -85,8 +85,9 @@ Item {
         AppToolBar {
             Layout.fillWidth: true
 
-            AppButton { text: "Открыть файл"; onClicked: dateBE.openFileDialog() }
-            AppButton { text: "Сохранить";    onClicked: dateBE.saveFileDialog() }
+            AppButton { text: "📂  Открыть файл…"; variant: "primary"
+             onClicked: dateBE.openFileDialog() }
+            AppButton {  text: "💾  Сохранить";    onClicked: dateBE.saveFileDialog() }
 
             ToolSep {}
             AppButton {

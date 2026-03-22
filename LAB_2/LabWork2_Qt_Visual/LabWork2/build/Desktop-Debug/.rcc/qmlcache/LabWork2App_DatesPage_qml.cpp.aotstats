@@ -71,15 +71,7 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 58,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 88,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 58,
+                            "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
                             "line": 89,
@@ -87,10 +79,10 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 28,
+                            "column": 63,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 95,
+                            "line": 90,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -98,7 +90,15 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 103,
+                            "line": 96,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 104,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -106,7 +106,7 @@
                             "column": 70,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 110,
+                            "line": 111,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -114,7 +114,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 112,
+                            "line": 113,
                             "message": "Cannot access value for name cDim"
                         },
                         {
@@ -122,7 +122,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 115,
+                            "line": 116,
                             "message": "Cannot access value for name dateBE"
                         },
                         {
@@ -130,7 +130,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 116,
+                            "line": 117,
                             "message": "Cannot access value for name cAccent"
                         },
                         {
@@ -138,7 +138,7 @@
                             "column": 88,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 116,
+                            "line": 117,
                             "message": ""
                         },
                         {
@@ -146,7 +146,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 119,
+                            "line": 120,
                             "message": "Cannot access value for name cDim"
                         },
                         {
@@ -154,7 +154,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 137,
+                            "line": 138,
                             "message": "Cannot access value for name cWhite"
                         },
                         {
@@ -162,7 +162,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 137,
+                            "line": 138,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -170,7 +170,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 140,
+                            "line": 141,
                             "message": ""
                         },
                         {
@@ -178,7 +178,7 @@
                             "column": 72,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 143,
+                            "line": 144,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -186,7 +186,7 @@
                             "column": 77,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 144,
+                            "line": 145,
                             "message": ""
                         },
                         {
@@ -194,7 +194,7 @@
                             "column": 107,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 144,
+                            "line": 145,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -202,7 +202,7 @@
                             "column": 56,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 144,
+                            "line": 145,
                             "message": ""
                         },
                         {
@@ -210,7 +210,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 146,
+                            "line": 147,
                             "message": ""
                         },
                         {
@@ -218,7 +218,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 148,
+                            "line": 149,
                             "message": "Cannot generate efficient code for storing an array in a non-sequence type"
                         },
                         {
@@ -226,7 +226,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 159,
+                            "line": 160,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -234,7 +234,7 @@
                             "column": 97,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 160,
+                            "line": 161,
                             "message": ""
                         },
                         {
@@ -242,7 +242,7 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 160,
+                            "line": 161,
                             "message": ""
                         },
                         {
@@ -250,7 +250,7 @@
                             "column": 96,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 161,
+                            "line": 162,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -258,7 +258,7 @@
                             "column": 209,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 161,
+                            "line": 162,
                             "message": ""
                         },
                         {
@@ -266,7 +266,7 @@
                             "column": 61,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 161,
+                            "line": 162,
                             "message": ""
                         },
                         {
@@ -274,7 +274,7 @@
                             "column": 180,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 161,
+                            "line": 162,
                             "message": ""
                         },
                         {
@@ -282,7 +282,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 172,
+                            "line": 173,
                             "message": "Cannot access value for name dateBE"
                         },
                         {
@@ -290,7 +290,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "policy",
-                            "line": 176,
+                            "line": 177,
                             "message": "Could not find property \"policy\"."
                         },
                         {
@@ -298,7 +298,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 182,
+                            "line": 183,
                             "message": "Cannot access value for name dateList"
                         },
                         {
@@ -306,7 +306,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 183,
+                            "line": 184,
                             "message": "Cannot access value for name selectedRow"
                         },
                         {
@@ -314,7 +314,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "onTapped",
-                            "line": 187,
+                            "line": 188,
                             "message": "Cannot access value for name index"
                         },
                         {
@@ -322,7 +322,7 @@
                             "column": 53,
                             "durationMicroseconds": 0,
                             "functionName": "visible",
-                            "line": 198,
+                            "line": 199,
                             "message": "Cannot access value for name selectedRow"
                         },
                         {
@@ -330,7 +330,7 @@
                             "column": 90,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 198,
+                            "line": 199,
                             "message": ""
                         },
                         {
@@ -338,7 +338,7 @@
                             "column": 111,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 198,
+                            "line": 199,
                             "message": "Cannot access value for name cAccent"
                         },
                         {
@@ -346,7 +346,7 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 200,
+                            "line": 201,
                             "message": ""
                         },
                         {
@@ -354,7 +354,7 @@
                             "column": 68,
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
-                            "line": 201,
+                            "line": 202,
                             "message": "Cannot access value for name index"
                         },
                         {
@@ -362,24 +362,8 @@
                             "column": 100,
                             "durationMicroseconds": 0,
                             "functionName": "cellColor",
-                            "line": 201,
+                            "line": 202,
                             "message": "Cannot access value for name cDim"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 68,
-                            "durationMicroseconds": 0,
-                            "functionName": "cellText",
-                            "line": 202,
-                            "message": "Cannot access value for name modelData"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 122,
-                            "durationMicroseconds": 0,
-                            "functionName": "cellColor",
-                            "line": 202,
-                            "message": "Cannot access value for name cAccent"
                         },
                         {
                             "codegenResult": 2,
@@ -391,6 +375,14 @@
                         },
                         {
                             "codegenResult": 2,
+                            "column": 122,
+                            "durationMicroseconds": 0,
+                            "functionName": "cellColor",
+                            "line": 203,
+                            "message": "Cannot access value for name cAccent"
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 68,
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
@@ -398,11 +390,19 @@
                             "message": "Cannot access value for name modelData"
                         },
                         {
+                            "codegenResult": 2,
+                            "column": 68,
+                            "durationMicroseconds": 0,
+                            "functionName": "cellText",
+                            "line": 205,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
                             "codegenResult": 0,
                             "column": 97,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 207,
+                            "line": 208,
                             "message": ""
                         },
                         {
@@ -410,7 +410,7 @@
                             "column": 118,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 207,
+                            "line": 208,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -418,7 +418,7 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 207,
+                            "line": 208,
                             "message": ""
                         },
                         {
@@ -426,7 +426,7 @@
                             "column": 64,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 212,
+                            "line": 213,
                             "message": ""
                         },
                         {
@@ -434,7 +434,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 214,
+                            "line": 215,
                             "message": ""
                         },
                         {
@@ -442,7 +442,7 @@
                             "column": 70,
                             "durationMicroseconds": 0,
                             "functionName": "diffVal",
-                            "line": 216,
+                            "line": 217,
                             "message": "Cannot access value for name selectedRow"
                         },
                         {
@@ -450,7 +450,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 222,
+                            "line": 223,
                             "message": ""
                         },
                         {
@@ -458,7 +458,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 223,
+                            "line": 224,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         },
                         {
@@ -466,7 +466,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 210,
+                            "line": 211,
                             "message": ""
                         },
                         {
@@ -474,7 +474,7 @@
                             "column": 97,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 235,
+                            "line": 236,
                             "message": ""
                         },
                         {
@@ -482,7 +482,7 @@
                             "column": 118,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 235,
+                            "line": 236,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -490,7 +490,7 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 235,
+                            "line": 236,
                             "message": ""
                         },
                         {
@@ -498,7 +498,7 @@
                             "column": 84,
                             "durationMicroseconds": 0,
                             "functionName": "badgeText",
-                            "line": 236,
+                            "line": 237,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -506,7 +506,7 @@
                             "column": 130,
                             "durationMicroseconds": 0,
                             "functionName": "badgeColor",
-                            "line": 236,
+                            "line": 237,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -514,7 +514,7 @@
                             "column": 66,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 236,
+                            "line": 237,
                             "message": ""
                         },
                         {
@@ -522,7 +522,7 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "cellText",
-                            "line": 238,
+                            "line": 239,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -530,7 +530,7 @@
                             "column": 114,
                             "durationMicroseconds": 0,
                             "functionName": "cellColor",
-                            "line": 238,
+                            "line": 239,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -538,7 +538,7 @@
                             "column": 81,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 240,
+                            "line": 241,
                             "message": ""
                         },
                         {
@@ -546,7 +546,7 @@
                             "column": 111,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 240,
+                            "line": 241,
                             "message": "Cannot access value for name cBorder"
                         },
                         {
@@ -554,7 +554,7 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 240,
+                            "line": 241,
                             "message": ""
                         },
                         {
@@ -562,7 +562,7 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 261,
+                            "line": 262,
                             "message": "Cannot access value for name cText"
                         },
                         {
@@ -570,7 +570,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 266,
+                            "line": 267,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -578,7 +578,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 271,
+                            "line": 272,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -586,7 +586,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 275,
+                            "line": 276,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -594,7 +594,7 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 290,
+                            "line": 291,
                             "message": "Cannot access value for name cDim"
                         },
                         {
@@ -602,7 +602,7 @@
                             "column": 115,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 290,
+                            "line": 291,
                             "message": ""
                         },
                         {
@@ -610,7 +610,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 295,
+                            "line": 296,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -618,7 +618,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "visible",
-                            "line": 312,
+                            "line": 313,
                             "message": "Cannot access value for name selectedRow"
                         },
                         {
@@ -626,7 +626,7 @@
                             "column": 98,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 313,
+                            "line": 314,
                             "message": "Cannot access value for name cDim"
                         },
                         {
@@ -634,7 +634,7 @@
                             "column": 164,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 313,
+                            "line": 314,
                             "message": ""
                         },
                         {
@@ -642,7 +642,7 @@
                             "column": 49,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 313,
+                            "line": 314,
                             "message": ""
                         },
                         {
@@ -650,7 +650,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "visible",
-                            "line": 318,
+                            "line": 319,
                             "message": "Cannot access value for name selectedRow"
                         },
                         {
@@ -658,7 +658,7 @@
                             "column": 79,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 321,
+                            "line": 322,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -666,7 +666,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 324,
+                            "line": 325,
                             "message": "Cannot access value for name selectedRow"
                         },
                         {
@@ -674,7 +674,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 323,
+                            "line": 324,
                             "message": ""
                         },
                         {
@@ -682,7 +682,7 @@
                             "column": 102,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 332,
+                            "line": 333,
                             "message": ""
                         },
                         {
@@ -690,7 +690,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 337,
+                            "line": 338,
                             "message": "Cannot access value for name resultData"
                         },
                         {
@@ -698,7 +698,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 346,
+                            "line": 347,
                             "message": "Cannot access value for name index"
                         },
                         {
@@ -706,7 +706,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 348,
+                            "line": 349,
                             "message": ""
                         },
                         {
@@ -714,7 +714,7 @@
                             "column": 72,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 349,
+                            "line": 350,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -722,7 +722,7 @@
                             "column": 91,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 349,
+                            "line": 350,
                             "message": "Cannot access value for name cDim"
                         },
                         {
@@ -730,7 +730,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 351,
+                            "line": 352,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -738,7 +738,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 352,
+                            "line": 353,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -746,7 +746,7 @@
                             "column": 93,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 353,
+                            "line": 354,
                             "message": ""
                         }
                     ],

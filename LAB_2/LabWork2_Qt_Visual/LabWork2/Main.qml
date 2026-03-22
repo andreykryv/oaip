@@ -82,18 +82,14 @@ ApplicationWindow {
 
             Item { Layout.fillWidth: true }
 
-            // Nav items
-            Repeater {
-                model: ["Файл", "Правка", "Вид", "Справка"]
-                delegate: MenuButton { label: modelData }
-            }
+          
 
             Item { width: 16 }
 
             // Date badge
             Rectangle {
                 height: 26; width: dateLabel.implicitWidth + 16
-                radius: 13; color: "#ffffff20"
+                radius: 13; color: '#001551'
                 anchors.verticalCenter: parent.verticalCenter
                 Text {
                     id: dateLabel

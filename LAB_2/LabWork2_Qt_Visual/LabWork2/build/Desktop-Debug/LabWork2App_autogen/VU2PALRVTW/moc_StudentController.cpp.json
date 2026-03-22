@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "StudentController",
-            "lineNumber": 18,
+            "lineNumber": 9,
             "object": true,
             "properties": [
                 {
@@ -10,7 +10,7 @@
                     "designable": true,
                     "final": false,
                     "index": 0,
-                    "lineNumber": 22,
+                    "lineNumber": 13,
                     "name": "allStudents",
                     "notify": "studentsChanged",
                     "read": "allStudents",
@@ -25,7 +25,7 @@
                     "designable": true,
                     "final": false,
                     "index": 1,
-                    "lineNumber": 23,
+                    "lineNumber": 14,
                     "name": "debtCount",
                     "notify": "studentsChanged",
                     "read": "debtCount",
@@ -40,7 +40,7 @@
                     "designable": true,
                     "final": false,
                     "index": 2,
-                    "lineNumber": 24,
+                    "lineNumber": 15,
                     "name": "expelCount",
                     "notify": "studentsChanged",
                     "read": "expelCount",
@@ -55,7 +55,7 @@
                     "designable": true,
                     "final": false,
                     "index": 3,
-                    "lineNumber": 25,
+                    "lineNumber": 16,
                     "name": "okCount",
                     "notify": "studentsChanged",
                     "read": "okCount",
@@ -64,6 +64,36 @@
                     "stored": true,
                     "type": "int",
                     "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 18,
+                    "name": "sortColumn",
+                    "notify": "sortChanged",
+                    "read": "sortColumn",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "lineNumber": 19,
+                    "name": "sortAsc",
+                    "notify": "sortChanged",
+                    "read": "sortAsc",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
                 }
             ],
             "qualifiedClassName": "StudentController",
@@ -71,8 +101,15 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 69,
+                    "lineNumber": 67,
                     "name": "studentsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 68,
+                    "name": "sortChanged",
                     "returnType": "void"
                 },
                 {
@@ -83,13 +120,27 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 1,
-                    "lineNumber": 70,
+                    "index": 2,
+                    "lineNumber": 69,
                     "name": "error",
                     "returnType": "void"
                 }
             ],
             "slots": [
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 36,
+                    "name": "openFileDialog",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 37,
+                    "name": "saveFileDialog",
+                    "returnType": "void"
+                },
                 {
                     "access": "public",
                     "arguments": [
@@ -98,8 +149,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 2,
-                    "lineNumber": 39,
+                    "index": 5,
+                    "lineNumber": 45,
                     "name": "openFile",
                     "returnType": "void"
                 },
@@ -111,8 +162,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 3,
-                    "lineNumber": 41,
+                    "index": 6,
+                    "lineNumber": 46,
                     "name": "saveFile",
                     "returnType": "void"
                 },
@@ -136,8 +187,8 @@
                             "type": "QVariantList"
                         }
                     ],
-                    "index": 4,
-                    "lineNumber": 45,
+                    "index": 7,
+                    "lineNumber": 49,
                     "name": "addStudent",
                     "returnType": "void"
                 },
@@ -149,8 +200,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 5,
-                    "lineNumber": 49,
+                    "index": 8,
+                    "lineNumber": 51,
                     "name": "deleteStudent",
                     "returnType": "void"
                 },
@@ -178,10 +229,24 @@
                             "type": "QVariantList"
                         }
                     ],
-                    "index": 6,
+                    "index": 9,
                     "lineNumber": 52,
                     "name": "editStudent",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 10,
+                    "isConst": true,
+                    "lineNumber": 55,
+                    "name": "getStudent",
+                    "returnType": "QVariantMap"
                 },
                 {
                     "access": "public",
@@ -195,30 +260,30 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 7,
+                    "index": 11,
                     "isConst": true,
-                    "lineNumber": 58,
+                    "lineNumber": 56,
                     "name": "filtered",
                     "returnType": "QVariantList"
                 },
                 {
                     "access": "public",
-                    "index": 8,
+                    "index": 12,
                     "lineNumber": 62,
                     "name": "sortByName",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 9,
-                    "lineNumber": 64,
+                    "index": 13,
+                    "lineNumber": 63,
                     "name": "sortByGroup",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 10,
-                    "lineNumber": 66,
+                    "index": 14,
+                    "lineNumber": 64,
                     "name": "sortByAvgDesc",
                     "returnType": "void"
                 }

@@ -135,26 +135,10 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "model",
-                            "line": 87,
-                            "message": "Cannot generate efficient code for storing an array in a non-sequence type"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 47,
-                            "durationMicroseconds": 0,
-                            "functionName": "label",
-                            "line": 88,
-                            "message": "Cannot access value for name modelData"
-                        },
-                        {
-                            "codegenResult": 2,
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 95,
+                            "line": 91,
                             "message": "Cannot access value for name dateLabel"
                         },
                         {
@@ -162,7 +146,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "verticalCenter",
-                            "line": 97,
+                            "line": 93,
                             "message": ""
                         },
                         {
@@ -170,7 +154,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 101,
+                            "line": 97,
                             "message": ""
                         },
                         {
@@ -178,7 +162,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 100,
+                            "line": 96,
                             "message": ""
                         },
                         {
@@ -186,7 +170,7 @@
                             "column": 16,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 110,
+                            "line": 106,
                             "message": ""
                         },
                         {
@@ -194,7 +178,7 @@
                             "column": 16,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 111,
+                            "line": 107,
                             "message": "Cannot access value for name cNavy"
                         },
                         {
@@ -202,7 +186,7 @@
                             "column": 53,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 113,
+                            "line": 109,
                             "message": ""
                         },
                         {
@@ -210,7 +194,7 @@
                             "column": 85,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 113,
+                            "line": 109,
                             "message": "Cannot access value for name cAccent"
                         },
                         {
@@ -218,7 +202,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "top",
-                            "line": 113,
+                            "line": 109,
                             "message": ""
                         },
                         {
@@ -226,7 +210,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 116,
+                            "line": 112,
                             "message": ""
                         },
                         {
@@ -234,7 +218,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 122,
+                            "line": 118,
                             "message": "Cannot access value for name tabBar"
                         },
                         {
@@ -242,7 +226,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "verticalCenter",
-                            "line": 132,
+                            "line": 128,
                             "message": ""
                         },
                         {
@@ -250,7 +234,7 @@
                             "column": 103,
                             "durationMicroseconds": 0,
                             "functionName": "verticalCenter",
-                            "line": 133,
+                            "line": 129,
                             "message": ""
                         },
                         {
@@ -258,7 +242,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 141,
+                            "line": 137,
                             "message": ""
                         },
                         {
@@ -266,7 +250,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 152,
+                            "line": 148,
                             "message": ""
                         },
                         {
@@ -274,7 +258,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 151,
+                            "line": 147,
                             "message": ""
                         },
                         {
@@ -282,7 +266,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 158,
+                            "line": 154,
                             "message": "Could not find property \"fill\"."
                         },
                         {
@@ -290,7 +274,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 164,
+                            "line": 160,
                             "message": "Cannot generate efficient code for storing an array in a non-sequence type"
                         },
                         {
@@ -298,7 +282,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "label",
-                            "line": 171,
+                            "line": 167,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -306,7 +290,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "isActive",
-                            "line": 172,
+                            "line": 168,
                             "message": "Cannot retrieve a non-object type by ID: tabBar"
                         },
                         {
@@ -314,7 +298,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "currentIndex",
-                            "line": 182,
+                            "line": 178,
                             "message": "Cannot retrieve a non-object type by ID: tabBar"
                         }
                     ],
