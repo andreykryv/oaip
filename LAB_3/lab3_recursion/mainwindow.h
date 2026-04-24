@@ -25,25 +25,39 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QFont>
+#include <QPainter>
+#include <QPixmap>
+#include <QTimer>
+#include <QStackedWidget>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsRectItem>
+#include <QGraphicsTextItem>
+#include <QGraphicsDropShadowEffect>
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
+#include <QVector>
+#include <QHeaderView>
 
 // ─────────────────────────────────────────────────
 //  Цветовая палитра терминала
 // ─────────────────────────────────────────────────
 namespace Theme {
-    const QString BG_MAIN    = "#0d0d1a";
-    const QString BG_CARD    = "#131328";
-    const QString BG_INPUT   = "#1a1a30";
-    const QString BG_OUTPUT  = "#0a0a16";
-    const QString BORDER     = "#2a2a50";
-    const QString ACCENT     = "#7c3aed";      // фиолетовый
+    const QString BG_MAIN    = "#0a0a14";
+    const QString BG_CARD    = "#12121f";
+    const QString BG_INPUT   = "#1a1a2e";
+    const QString BG_OUTPUT  = "#080810";
+    const QString BORDER     = "#2d2d4a";
+    const QString ACCENT     = "#8b5cf6";      // фиолетовый
     const QString ACCENT2    = "#06b6d4";      // циан
+    const QString ACCENT3    = "#f472b6";      // розовый
     const QString SUCCESS    = "#10b981";      // зелёный
-    const QString WARNING    = "#f59e0b";      // жёлтый
+    const QString WARNING    = "#fbbf24";      // жёлтый
     const QString ERROR_CLR  = "#ef4444";      // красный
-    const QString TEXT_PRI   = "#e2e8f0";
+    const QString TEXT_PRI   = "#f1f5f9";
     const QString TEXT_SEC   = "#94a3b8";
     const QString TEXT_DIM   = "#475569";
-    const QString HIGHLIGHT  = "#a78bfa";
+    const QString HIGHLIGHT  = "#c4b5fd";
 }
 
 // ─────────────────────────────────────────────────
@@ -71,6 +85,7 @@ private:
                        QStringList &steps, int &stepNo);
     void         countItems(const QString &path, int &files, int &folders);
     QTreeWidgetItem* buildTree(const QString &path);
+    void         drawHanoiTowers(int n);
 
     // ── Построение вкладок ─────────────────────────
     QWidget* createTask1Widget();
@@ -107,6 +122,8 @@ private:
 
     QSpinBox   *t4Rings;
     QTextEdit  *t4Out;
+    QGraphicsView *t4Visualizer;
+    QGraphicsScene *t4Scene;
 
     QLineEdit  *t5Path;
     QTextEdit  *t5Out;

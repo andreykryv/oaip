@@ -761,8 +761,9 @@ QWidget* MainWindow::createTask4Widget()
     QLabel *info = new QLabel(
         "Классическая рекурсивная задача: переместить n колец с колышка <b>A</b> "
         "на колышек <b>C</b>, используя <b>B</b> как вспомогательный.<br>"
-        "<span style='color:#f59e0b;'>Минимальное число ходов:</span> "
-        "<code>2ⁿ − 1</code>  (для 10 колец = 1023 хода)");
+        "<span style='color:#fbbf24;'>Минимальное число ходов:</span> "
+        "<code>2ⁿ − 1</code>  (для 10 колец = 1023 хода)<br>"
+        "<span style='color:#8b5cf6;font-size:11px;'>✨ Визуализация в реальном времени!</span>");
     info->setObjectName("taskDesc");
     info->setWordWrap(true);
     dLay->addWidget(info);
@@ -774,8 +775,8 @@ QWidget* MainWindow::createTask4Widget()
     lbl->setObjectName("inputLabel");
     lbl->setFixedWidth(80);
     t4Rings = new QSpinBox;
-    t4Rings->setRange(1, 12);
-    t4Rings->setValue(3);
+    t4Rings->setRange(1, 8);
+    t4Rings->setValue(4);
     t4Rings->setFixedWidth(90);
     auto *btn = makeRunButton();
     connect(btn, &QPushButton::clicked, this, &MainWindow::runTask4);
@@ -784,6 +785,20 @@ QWidget* MainWindow::createTask4Widget()
     iLay->addStretch();
     iLay->addWidget(btn);
     lay->addWidget(inputCard);
+
+    // Визуализатор Ханойской башни
+    auto *vizCard = makeCard("🎨 Визуализация");
+    auto *vLay = new QVBoxLayout(vizCard);
+    t4Scene = new QGraphicsScene(this);
+    t4Scene->setBackgroundBrush(QColor("#0a0a14"));
+    t4Visualizer = new QGraphicsView(t4Scene);
+    t4Visualizer->setRenderHint(QPainter::Antialiasing);
+    t4Visualizer->setMinimumHeight(280);
+    t4Visualizer->setMaximumHeight(320);
+    t4Visualizer->setStyleSheet(
+        "QGraphicsView { border: 1px solid #2d2d4a; border-radius: 8px; background: #0a0a14; }");
+    vLay->addWidget(t4Visualizer);
+    lay->addWidget(vizCard);
 
     auto *outCard = makeCard("Шаги решения");
     auto *oLay = new QVBoxLayout(outCard);
@@ -807,6 +822,10 @@ void MainWindow::runTask4()
                 .arg(Theme::TEXT_DIM).arg(n),
             Theme::WARNING);
     printSep(t4Out);
+
+    // Очистка и отрисовка визуализации
+    t4Scene->clear();
+    drawHanoiTowers(n);
 
     QStringList steps;
     int stepNo = 1;
@@ -833,18 +852,97 @@ void MainWindow::runTask4()
             .arg(Theme::SUCCESS).arg(steps.size()),
         Theme::TEXT_PRI);
 
-    // ASCII-схема стержней
-    t4Out->append("<div style='margin-top:8px;'>");
-    t4Out->append(QString(
-        "<span style='color:%1;font-size:12px;'>"
-        "  Начало:  [A: 1…%2]  [B: пусто]  [C: пусто]<br>"
-        "  Конец:   [A: пусто]  [B: пусто]  [C: 1…%2]"
-        "</span>").arg(Theme::TEXT_DIM).arg(n));
-    t4Out->append("</div>");
-
     scrollBottom(t4Out);
     statusBar()->showMessage(
         QString("  Задание 4: %1 колец → %2 ходов").arg(n).arg(steps.size()));
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  ВИЗУАЛИЗАЦИЯ ХАНОЙСКОЙ БАШНИ
+// ═══════════════════════════════════════════════════════════════════════
+void MainWindow::drawHanoiTowers(int n)
+{
+    const double towerWidth = 180;
+    const double towerHeight = 220;
+    const double baseY = 260;
+    const double towerSpacing = 200;
+    const double startX = 100;
+
+    // Цвета для колец (градиент от фиолетового к циану через розовый)
+    QVector<QColor> ringColors = {
+        QColor("#8b5cf6"),  // фиолетовый
+        QColor("#a78bfa"),  // светлый фиолетовый
+        QColor("#f472b6"),  // розовый
+        QColor("#fb7185"),  // светло-розовый
+        QColor("#06b6d4"),  // циан
+        QColor("#22d3ee"),  // светлый циан
+        QColor("#10b981"),  // зелёный
+        QColor("#34d399"),  // светлый зелёный
+    };
+
+    // Рисуем три стержня
+    for (int i = 0; i < 3; i++) {
+        double x = startX + i * towerSpacing;
+
+        // Основание стержня
+        QGraphicsRectItem *base = new QGraphicsRectItem(
+            x - towerWidth/2, baseY + 10, towerWidth, 20);
+        base->setBrush(QColor("#2d2d4a"));
+        base->setPen(Qt::NoPen);
+        base->setZValue(0);
+        t4Scene->addItem(base);
+
+        // Стержень
+        QGraphicsRectItem *pole = new QGraphicsRectItem(
+            x - 8, baseY - towerHeight, 16, towerHeight);
+        QLinearGradient poleGrad(x - 8, baseY - towerHeight, x + 8, baseY);
+        poleGrad.setColorAt(0, "#64748b");
+        poleGrad.setColorAt(1, "#334155");
+        pole->setBrush(poleGrad);
+        pole->setPen(QPen(QColor("#475569"), 2));
+        pole->setZValue(1);
+        t4Scene->addItem(pole);
+
+        // Подпись стержня
+        QGraphicsTextItem *label = new QGraphicsTextItem(
+            QString("%1").arg(QChar('A' + i)));
+        label->setDefaultTextColor(QColor("#94a3b8"));
+        label->setFont(QFont("Segoe UI", 14, QFont::Bold));
+        label->setPos(x - 5, baseY + 35);
+        t4Scene->addItem(label);
+    }
+
+    // Рисуем кольца на первом стержне (A)
+    for (int i = 0; i < n; i++) {
+        double width = 60 + (n - i) * 25;
+        double height = 22;
+        double x = startX;
+        double y = baseY - towerHeight + 5 + i * height;
+
+        // Кольцо с градиентом
+        QGraphicsRectItem *ring = new QGraphicsRectItem(
+            x - width/2, y, width, height);
+
+        QLinearGradient ringGrad(x - width/2, y, x + width/2, y + height);
+        ringGrad.setColorAt(0, ringColors[i % ringColors.size()].lighter(120));
+        ringGrad.setColorAt(0.5, ringColors[i % ringColors.size()]);
+        ringGrad.setColorAt(1, ringColors[i % ringColors.size()].darker(110));
+        ring->setBrush(ringGrad);
+        ring->setPen(QPen(ringColors[i % ringColors.size()].lighter(150), 2));
+        ring->setZValue(2);
+
+        // Добавляем свечение
+        QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect;
+        shadow->setBlurRadius(15);
+        shadow->setColor(ringColors[i % ringColors.size()].lighter(150));
+        shadow->setOffset(0, 2);
+        ring->setGraphicsEffect(shadow);
+
+        t4Scene->addItem(ring);
+    }
+
+    // Устанавливаем границы сцены
+    t4Scene->setSceneRect(0, 0, startX + 2 * towerSpacing + 100, 320);
 }
 
 // ═══════════════════════════════════════════════════════════════════════

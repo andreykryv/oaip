@@ -1,8 +1,10 @@
-QT += core gui widgets
+QT += core gui widgets svg
 
-CONFIG += c++17
+CONFIG += c++17 c++1z
 TARGET   = lab3_recursion
 TEMPLATE = app
+
+QMAKE_CXXFLAGS += -std=c++17
 
 SOURCES += \
     main.cpp \
