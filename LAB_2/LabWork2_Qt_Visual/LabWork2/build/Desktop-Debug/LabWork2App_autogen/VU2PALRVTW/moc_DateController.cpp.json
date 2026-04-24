@@ -13,12 +13,14 @@
                     "lineNumber": 25,
                     "name": "dates",
                     "notify": "datesChanged",
+                    "override": false,
                     "read": "dates",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QVariantList",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -28,12 +30,14 @@
                     "lineNumber": 26,
                     "name": "todayStr",
                     "notify": "datesChanged",
+                    "override": false,
                     "read": "todayStr",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QString",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "DateController",

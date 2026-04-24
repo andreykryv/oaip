@@ -13,12 +13,14 @@
                     "lineNumber": 13,
                     "name": "allStudents",
                     "notify": "studentsChanged",
+                    "override": false,
                     "read": "allStudents",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QVariantList",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -28,12 +30,14 @@
                     "lineNumber": 14,
                     "name": "debtCount",
                     "notify": "studentsChanged",
+                    "override": false,
                     "read": "debtCount",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "int",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -43,12 +47,14 @@
                     "lineNumber": 15,
                     "name": "expelCount",
                     "notify": "studentsChanged",
+                    "override": false,
                     "read": "expelCount",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "int",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -58,12 +64,14 @@
                     "lineNumber": 16,
                     "name": "okCount",
                     "notify": "studentsChanged",
+                    "override": false,
                     "read": "okCount",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "int",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -73,12 +81,14 @@
                     "lineNumber": 18,
                     "name": "sortColumn",
                     "notify": "sortChanged",
+                    "override": false,
                     "read": "sortColumn",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QString",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -88,12 +98,14 @@
                     "lineNumber": 19,
                     "name": "sortAsc",
                     "notify": "sortChanged",
+                    "override": false,
                     "read": "sortAsc",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "bool",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "StudentController",

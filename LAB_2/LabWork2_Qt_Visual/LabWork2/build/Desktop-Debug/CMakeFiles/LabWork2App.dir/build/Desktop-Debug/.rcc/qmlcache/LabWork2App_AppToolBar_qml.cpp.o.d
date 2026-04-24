@@ -189,6 +189,7 @@ CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWork2App_AppTool
  /usr/include/qt6/QtCore/qarraydataops.h \
  /usr/include/qt6/QtCore/qcontainertools_impl.h \
  /usr/include/qt6/QtCore/qxptype_traits.h \
+ /usr/include/qt6/QtCore/q23type_traits.h \
  /usr/include/c++/15.2.1/iterator \
  /usr/include/c++/15.2.1/bits/stream_iterator.h \
  /usr/include/c++/15.2.1/iosfwd /usr/include/c++/15.2.1/bits/stringfwd.h \
@@ -269,12 +270,14 @@ CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWork2App_AppTool
  /usr/include/qt6/QtCore/qanystringview.h \
  /usr/include/qt6/QtCore/qutf8stringview.h \
  /usr/include/qt6/QtCore/qstringtokenizer.h \
- /usr/include/qt6/QtCore/q23type_traits.h \
  /usr/include/qt6/QtCore/qstringbuilder.h \
  /usr/include/qt6/QtCore/qstringconverter.h \
  /usr/include/qt6/QtCore/qstringconverter_base.h \
  /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/qmetatype.h \
  /usr/include/qt6/QtCore/qdatastream.h \
+ /usr/include/qt6/QtCore/qobjectdefs.h \
+ /usr/include/qt6/QtCore/qobjectdefs_impl.h \
+ /usr/include/qt6/QtCore/qfunctionaltools_impl.h \
  /usr/include/qt6/QtCore/qiodevicebase.h \
  /usr/include/qt6/QtCore/qscopedpointer.h \
  /usr/include/qt6/QtCore/qfloat16.h \
@@ -282,14 +285,11 @@ CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWork2App_AppTool
  /usr/include/c++/15.2.1/bits/stl_numeric.h \
  /usr/include/c++/15.2.1/pstl/glue_numeric_defs.h \
  /usr/include/qt6/QtCore/qmath.h /usr/include/qt6/QtCore/qalgorithms.h \
- /usr/include/qt6/QtCore/qtformat_impl.h \
+ /usr/include/qt6/QtCore/q20bit.h /usr/include/qt6/QtCore/qtformat_impl.h \
  /usr/include/qt6/QtCore/qiterable.h \
  /usr/include/qt6/QtCore/qtaggedpointer.h \
  /usr/include/qt6/QtCore/qmetacontainer.h \
  /usr/include/qt6/QtCore/qcontainerinfo.h \
- /usr/include/qt6/QtCore/qobjectdefs.h \
- /usr/include/qt6/QtCore/qobjectdefs_impl.h \
- /usr/include/qt6/QtCore/qfunctionaltools_impl.h \
  /usr/include/qt6/QtCore/qscopeguard.h /usr/include/c++/15.2.1/list \
  /usr/include/c++/15.2.1/bits/stl_list.h \
  /usr/include/c++/15.2.1/bits/list.tcc /usr/include/c++/15.2.1/map \
@@ -328,10 +328,13 @@ CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWork2App_AppTool
  /usr/include/qt6/QtQml/qqmlparserstatus.h \
  /usr/include/qt6/QtQml/qqmlpropertyvaluesource.h \
  /usr/include/qt6/QtCore/qdatetime.h /usr/include/qt6/QtCore/qcalendar.h \
- /usr/include/qt6/QtCore/qlocale.h /usr/include/qt6/QtCore/qmetaobject.h \
- /usr/include/qt6/QtCore/qpointer.h /usr/include/qt6/QtCore/qurl.h \
- /usr/include/qt6/QtCore/qversionnumber.h /usr/include/qt6/QtCore/qspan.h \
- /usr/include/c++/15.2.1/cassert /usr/include/qt6/QtCore/q20iterator.h \
+ /usr/include/qt6/QtCore/qlocale.h \
+ /usr/include/qt6/QtCore/qmetasequence.h \
+ /usr/include/qt6/QtCore/qiterable_impl.h \
+ /usr/include/qt6/QtCore/qmetaobject.h /usr/include/qt6/QtCore/qpointer.h \
+ /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/qversionnumber.h \
+ /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
+ /usr/include/qt6/QtCore/q20iterator.h \
  /usr/include/qt6/QtCore/qtyperevision.h \
  /usr/include/qt6/QtCore/qtimezone.h /usr/include/qt6/QtQml/qjsengine.h \
  /usr/include/qt6/QtQml/qjsmanagedvalue.h \

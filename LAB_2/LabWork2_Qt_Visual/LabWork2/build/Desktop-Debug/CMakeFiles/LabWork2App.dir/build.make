@@ -960,16 +960,16 @@ LabWork2App: CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWor
 LabWork2App: CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.qt/rcc/qrc_LabWork2App_raw_qml_0.cpp.o
 LabWork2App: CMakeFiles/LabWork2App.dir/build.make
 LabWork2App: CMakeFiles/LabWork2App.dir/compiler_depend.ts
-LabWork2App: /usr/lib/libQt6QuickControls2.so.6.10.2
-LabWork2App: /usr/lib/libQt6Widgets.so.6.10.2
-LabWork2App: /usr/lib/libQt6Quick.so.6.10.2
-LabWork2App: /usr/lib/libQt6OpenGL.so.6.10.2
-LabWork2App: /usr/lib/libQt6Qml.so.6.10.2
-LabWork2App: /usr/lib/libQt6Network.so.6.10.2
-LabWork2App: /usr/lib/libQt6Gui.so.6.10.2
+LabWork2App: /usr/lib/libQt6QuickControls2.so.6.11.0
+LabWork2App: /usr/lib/libQt6Widgets.so.6.11.0
+LabWork2App: /usr/lib/libQt6Quick.so.6.11.0
+LabWork2App: /usr/lib/libQt6OpenGL.so.6.11.0
+LabWork2App: /usr/lib/libQt6Qml.so.6.11.0
+LabWork2App: /usr/lib/libQt6Network.so.6.11.0
+LabWork2App: /usr/lib/libQt6Gui.so.6.11.0
 LabWork2App: /usr/lib/libGLX.so
 LabWork2App: /usr/lib/libOpenGL.so
-LabWork2App: /usr/lib/libQt6Core.so.6.10.2
+LabWork2App: /usr/lib/libQt6Core.so.6.11.0
 LabWork2App: CMakeFiles/LabWork2App.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Linking CXX executable LabWork2App"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LabWork2App.dir/link.txt --verbose=$(VERBOSE)

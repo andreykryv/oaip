@@ -188,7 +188,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qtcreator/cmake-helper/qtcreator-project.cmake
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=LabWork2App
+CMAKE_PROJECT_NAME:STATIC=LabWork2ButtonTests
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=
@@ -281,6 +281,15 @@ LabWork2App_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 LabWork2App_SOURCE_DIR:STATIC=/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2
+
+//Value Computed by CMake
+LabWork2ButtonTests_BINARY_DIR:STATIC=/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug
+
+//Value Computed by CMake
+LabWork2ButtonTests_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+LabWork2ButtonTests_SOURCE_DIR:STATIC=/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2
 
 //Path to a file.
 OPENGL_EGL_INCLUDE_DIR:PATH=/usr/include
@@ -409,6 +418,9 @@ Qt6QuickTools_DIR:PATH=/usr/lib/cmake/Qt6QuickTools
 //The directory containing a CMake configuration file for Qt6Quick.
 Qt6Quick_DIR:PATH=/usr/lib/cmake/Qt6Quick
 
+//The directory containing a CMake configuration file for Qt6Test.
+Qt6Test_DIR:PATH=/usr/lib/cmake/Qt6Test
+
 //The directory containing a CMake configuration file for Qt6WidgetsTools.
 Qt6WidgetsTools_DIR:PATH=/usr/lib/cmake/Qt6WidgetsTools
 
@@ -446,7 +458,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=4
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=3
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=0
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
@@ -653,6 +665,8 @@ QT_FEATURE_arm_crc32:INTERNAL=OFF
 QT_FEATURE_arm_crypto:INTERNAL=OFF
 //Qt feature: arm_sve (from target Qt6::Core)
 QT_FEATURE_arm_sve:INTERNAL=OFF
+//Qt feature: async_io (from target Qt6::Core)
+QT_FEATURE_async_io:INTERNAL=ON
 //Qt feature: avx (from target Qt6::Core)
 QT_FEATURE_avx:INTERNAL=ON
 //Qt feature: avx2 (from target Qt6::Core)
@@ -679,6 +693,8 @@ QT_FEATURE_avx512vbmi2:INTERNAL=ON
 QT_FEATURE_avx512vl:INTERNAL=ON
 //Qt feature: backtrace (from target Qt6::Core)
 QT_FEATURE_backtrace:INTERNAL=ON
+//Qt feature: batch_test_support (from target Qt6::Test)
+QT_FEATURE_batch_test_support:INTERNAL=OFF
 //Qt feature: broken_threadlocal_dtors (from target Qt6::Core)
 QT_FEATURE_broken_threadlocal_dtors:INTERNAL=OFF
 //Qt feature: brotli (from target Qt6::Network)
@@ -973,6 +989,8 @@ QT_FEATURE_ipv6ifname:INTERNAL=OFF
 QT_FEATURE_islamiccivilcalendar:INTERNAL=ON
 //Qt feature: itemmodel (from target Qt6::Core)
 QT_FEATURE_itemmodel:INTERNAL=ON
+//Qt feature: itemmodeltester (from target Qt6::Test)
+QT_FEATURE_itemmodeltester:INTERNAL=ON
 //Qt feature: itemviews (from target Qt6::Widgets)
 QT_FEATURE_itemviews:INTERNAL=ON
 //Qt feature: jalalicalendar (from target Qt6::Core)
@@ -1013,6 +1031,8 @@ QT_FEATURE_libresolv:INTERNAL=ON
 QT_FEATURE_libstdcpp_assertions:INTERNAL=ON
 //Qt feature: libudev (from target Qt6::Core)
 QT_FEATURE_libudev:INTERNAL=ON
+//Qt feature: liburing (from target Qt6::Core)
+QT_FEATURE_liburing:INTERNAL=ON
 //Qt feature: lineedit (from target Qt6::Widgets)
 QT_FEATURE_lineedit:INTERNAL=ON
 //Qt feature: linkat (from target Qt6::Core)
@@ -1171,6 +1191,8 @@ QT_FEATURE_qml_delegate_model:INTERNAL=ON
 QT_FEATURE_qml_itemmodel:INTERNAL=ON
 //Qt feature: qml_jit (from target Qt6::Qml)
 QT_FEATURE_qml_jit:INTERNAL=ON
+//Qt feature: qml_labs (from target Qt6::Qml)
+QT_FEATURE_qml_labs:INTERNAL=ON
 //Qt feature: qml_list_model (from target Qt6::QmlModels)
 QT_FEATURE_qml_list_model:INTERNAL=ON
 //Qt feature: qml_locale (from target Qt6::Qml)
@@ -1201,6 +1223,8 @@ QT_FEATURE_qml_worker_script:INTERNAL=ON
 QT_FEATURE_qml_xml_http_request:INTERNAL=ON
 //Qt feature: qml_xmllistmodel (from target Qt6::Qml)
 QT_FEATURE_qml_xmllistmodel:INTERNAL=ON
+//Qt feature: qmlcontextpropertydump (from target Qt6::Qml)
+QT_FEATURE_qmlcontextpropertydump:INTERNAL=ON
 //Qt feature: qqnx_imf (from target Qt6::Gui)
 QT_FEATURE_qqnx_imf:INTERNAL=OFF
 //Qt feature: qqnx_pps (from target Qt6::Core)
@@ -1213,6 +1237,8 @@ QT_FEATURE_quick_animatedimage:INTERNAL=ON
 QT_FEATURE_quick_canvas:INTERNAL=ON
 //Qt feature: quick_designer (from target Qt6::Quick)
 QT_FEATURE_quick_designer:INTERNAL=ON
+//Qt feature: quick_dialogs (from target Qt6::Quick)
+QT_FEATURE_quick_dialogs:INTERNAL=ON
 //Qt feature: quick_draganddrop (from target Qt6::Quick)
 QT_FEATURE_quick_draganddrop:INTERNAL=ON
 //Qt feature: quick_flipable (from target Qt6::Quick)
@@ -1244,6 +1270,8 @@ QT_FEATURE_quick_sprite:INTERNAL=ON
 QT_FEATURE_quick_tableview:INTERNAL=ON
 //Qt feature: quick_treeview (from target Qt6::Quick)
 QT_FEATURE_quick_treeview:INTERNAL=ON
+//Qt feature: quick_vectorimage (from target Qt6::Quick)
+QT_FEATURE_quick_vectorimage:INTERNAL=ON
 //Qt feature: quick_viewtransitions (from target Qt6::Quick)
 QT_FEATURE_quick_viewtransitions:INTERNAL=ON
 //Qt feature: quickcontrols2_basic (from target Qt6::QuickControls2)
@@ -1260,6 +1288,8 @@ QT_FEATURE_quickcontrols2_ios:INTERNAL=OFF
 QT_FEATURE_quickcontrols2_macos:INTERNAL=OFF
 //Qt feature: quickcontrols2_material (from target Qt6::QuickControls2)
 QT_FEATURE_quickcontrols2_material:INTERNAL=ON
+//Qt feature: quickcontrols2_stylekit (from target Qt6::QuickControls2)
+QT_FEATURE_quickcontrols2_stylekit:INTERNAL=ON
 //Qt feature: quickcontrols2_universal (from target Qt6::QuickControls2)
 QT_FEATURE_quickcontrols2_universal:INTERNAL=ON
 //Qt feature: quickcontrols2_windows (from target Qt6::QuickControls2)
@@ -1450,8 +1480,12 @@ QT_FEATURE_tabwidget:INTERNAL=ON
 QT_FEATURE_temporaryfile:INTERNAL=ON
 //Qt feature: test_gui (from target Qt6::Core)
 QT_FEATURE_test_gui:INTERNAL=ON
+//Qt feature: test_squish (from target Qt6::Core)
+QT_FEATURE_test_squish:INTERNAL=ON
 //Qt feature: testlib (from target Qt6::Core)
 QT_FEATURE_testlib:INTERNAL=ON
+//Qt feature: testlib_selfcover (from target Qt6::Test)
+QT_FEATURE_testlib_selfcover:INTERNAL=OFF
 //Qt feature: textbrowser (from target Qt6::Widgets)
 QT_FEATURE_textbrowser:INTERNAL=ON
 //Qt feature: textdate (from target Qt6::Core)
@@ -1520,6 +1554,8 @@ QT_FEATURE_use_lld_linker:INTERNAL=OFF
 QT_FEATURE_use_mold_linker:INTERNAL=OFF
 //Qt feature: vaes (from target Qt6::Core)
 QT_FEATURE_vaes:INTERNAL=ON
+//Qt feature: valgrind (from target Qt6::Test)
+QT_FEATURE_valgrind:INTERNAL=ON
 //Qt feature: validator (from target Qt6::Gui)
 QT_FEATURE_validator:INTERNAL=ON
 //Qt feature: version_tagging (from target Qt6::Core)
@@ -1586,6 +1622,11 @@ QT_FEATURE_wheelevent:INTERNAL=ON
 QT_FEATURE_widgets:INTERNAL=ON
 //Qt feature: widgettextcontrol (from target Qt6::Widgets)
 QT_FEATURE_widgettextcontrol:INTERNAL=ON
+//Qt feature: windows_ioring (from target Qt6::Core)
+QT_FEATURE_windows_ioring:INTERNAL=OFF
+//Qt feature: windows_ioring_skip_builder_param_checks (from target
+// Qt6::Core)
+QT_FEATURE_windows_ioring_skip_builder_param_checks:INTERNAL=OFF
 //Qt feature: winsdkicu (from target Qt6::Core)
 QT_FEATURE_winsdkicu:INTERNAL=OFF
 //Qt feature: wizard (from target Qt6::Widgets)

@@ -1,2 +1,2 @@
-set(__QT_DEPLOY_TARGET_LabWork2App_FILE /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/LabWork2App)
-set(__QT_DEPLOY_TARGET_LabWork2App_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_test_buttons_FILE /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/test_buttons)
+set(__QT_DEPLOY_TARGET_test_buttons_TYPE EXECUTABLE)

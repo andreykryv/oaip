@@ -35,16 +35,16 @@ LabWork2App: \
   CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWork2App_StatusSep_qml.cpp.o \
   CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWork2App_MenuButton_qml.cpp.o \
   CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.qt/rcc/qrc_LabWork2App_raw_qml_0.cpp.o \
-  /usr/lib/libQt6QuickControls2.so.6.10.2 \
-  /usr/lib/libQt6Widgets.so.6.10.2 \
-  /usr/lib/libQt6Quick.so.6.10.2 \
-  /usr/lib/libQt6OpenGL.so.6.10.2 \
-  /usr/lib/libQt6Qml.so.6.10.2 \
-  /usr/lib/libQt6Network.so.6.10.2 \
-  /usr/lib/libQt6Gui.so.6.10.2 \
+  /usr/lib/libQt6QuickControls2.so.6.11.0 \
+  /usr/lib/libQt6Widgets.so.6.11.0 \
+  /usr/lib/libQt6Quick.so.6.11.0 \
+  /usr/lib/libQt6OpenGL.so.6.11.0 \
+  /usr/lib/libQt6Qml.so.6.11.0 \
+  /usr/lib/libQt6Network.so.6.11.0 \
+  /usr/lib/libQt6Gui.so.6.11.0 \
   /usr/lib/libGLX.so \
   /usr/lib/libOpenGL.so \
-  /usr/lib/libQt6Core.so.6.10.2 \
+  /usr/lib/libQt6Core.so.6.11.0 \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
@@ -96,6 +96,7 @@ LabWork2App: \
   /usr/lib/libfreetype.so.6 \
   /usr/lib32/libGLdispatch.so.0 \
   /usr/lib/libGLdispatch.so.0 \
+  /usr/lib/liburing.so.2 \
   /usr/lib/libicui18n.so.78 \
   /usr/lib/libicuuc.so.78 \
   /usr/lib/libsystemd.so.0 \
@@ -242,25 +243,25 @@ CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.rcc/qmlcache/LabWork2App_MenuBut
 
 CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.qt/rcc/qrc_LabWork2App_raw_qml_0.cpp.o:
 
-/usr/lib/libQt6QuickControls2.so.6.10.2:
+/usr/lib/libQt6QuickControls2.so.6.11.0:
 
-/usr/lib/libQt6Widgets.so.6.10.2:
+/usr/lib/libQt6Widgets.so.6.11.0:
 
-/usr/lib/libQt6Quick.so.6.10.2:
+/usr/lib/libQt6Quick.so.6.11.0:
 
-/usr/lib/libQt6OpenGL.so.6.10.2:
+/usr/lib/libQt6OpenGL.so.6.11.0:
 
-/usr/lib/libQt6Qml.so.6.10.2:
+/usr/lib/libQt6Qml.so.6.11.0:
 
-/usr/lib/libQt6Network.so.6.10.2:
+/usr/lib/libQt6Network.so.6.11.0:
 
-/usr/lib/libQt6Gui.so.6.10.2:
+/usr/lib/libQt6Gui.so.6.11.0:
 
 /usr/lib/libGLX.so:
 
 /usr/lib/libOpenGL.so:
 
-/usr/lib/libQt6Core.so.6.10.2:
+/usr/lib/libQt6Core.so.6.11.0:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so:
 
@@ -363,6 +364,8 @@ CMakeFiles/LabWork2App.dir/build/Desktop-Debug/.qt/rcc/qrc_LabWork2App_raw_qml_0
 /usr/lib32/libGLdispatch.so.0:
 
 /usr/lib/libGLdispatch.so.0:
+
+/usr/lib/liburing.so.2:
 
 /usr/lib/libicui18n.so.78:
 

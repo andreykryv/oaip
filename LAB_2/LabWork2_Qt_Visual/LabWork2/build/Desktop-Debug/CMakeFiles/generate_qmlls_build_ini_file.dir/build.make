@@ -73,8 +73,7 @@ CMakeFiles/generate_qmlls_build_ini_file: .qt/.qmlls.build.ini
 	/usr/bin/cmake -E echo [General] > /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/.qmlls.build.ini
 	/usr/bin/cmake -E echo_append docDir= >> /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/.qmlls.build.ini
 	/usr/lib/qt6/bin/qtpaths --query QT_INSTALL_DOCS >> /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/.qmlls.build.ini
-	/usr/bin/cmake -E echo "[<SLASH>home<SLASH>andrey<SLASH>Документы<SLASH>553504<SLASH>second_sem_lrs<SLASH>OAIP<SLASH>LAB_2<SLASH>LabWork2_Qt_Visual<SLASH>LabWork2]" >> /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/.qmlls.build.ini
-	/usr/bin/cmake -E echo importPaths=\"/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug:/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/LabWork2:/usr/lib/qt6/qml\" >> /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/.qmlls.build.ini
+	/usr/bin/cmake -E cat /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/.qmlls.build.ini.part >> /home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_2/LabWork2_Qt_Visual/LabWork2/build/Desktop-Debug/.qt/.qmlls.build.ini
 
 CMakeFiles/generate_qmlls_build_ini_file.dir/codegen:
 .PHONY : CMakeFiles/generate_qmlls_build_ini_file.dir/codegen
