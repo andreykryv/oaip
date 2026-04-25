@@ -35,9 +35,20 @@
 #include <QGraphicsTextItem>
 #include <QGraphicsDropShadowEffect>
 #include <QPropertyAnimation>
+#include <QEasingCurve>
+#include <QSequentialAnimationGroup>
 #include <QParallelAnimationGroup>
 #include <QVector>
 #include <QHeaderView>
+
+// ─────────────────────────────────────────────────
+//  Структура для хранения информации о кольце
+// ─────────────────────────────────────────────────
+struct RingInfo {
+    QGraphicsRectItem *item;
+    int ringIndex;      // индекс кольца (0 - самое маленькое)
+    int currentTower;   // текущий стержень (0, 1, 2)
+};
 
 // ─────────────────────────────────────────────────
 //  Цветовая палитра терминала
@@ -83,9 +94,13 @@ private:
     int          countDigits(long long n);
     void         hanoi(int n, char from, char to, char via,
                        QStringList &steps, int &stepNo);
+    void         runHanoiAnimation(int n, char from, char to, char via);
+    void         runHanoiAnimationInternal(int n, char from, char to, char via);
     void         countItems(const QString &path, int &files, int &folders);
     QTreeWidgetItem* buildTree(const QString &path);
     void         drawHanoiTowers(int n);
+    void         animateHanoiMove(RingInfo ring, int fromTower, int toTower,
+                                  int delayMs = 0);
 
     // ── Построение вкладок ─────────────────────────
     QWidget* createTask1Widget();
@@ -124,6 +139,12 @@ private:
     QTextEdit  *t4Out;
     QGraphicsView *t4Visualizer;
     QGraphicsScene *t4Scene;
+    QVector<RingInfo> t4RingsData;      // данные о кольцах для анимации
+    double     t4TowerX[3];             // X-координаты стержней
+    double     t4BaseY;                 // Y-координата основания
+    double     t4TowerHeight;           // высота стержня
+    int        t4CurrentStep;           // текущий шаг анимации
+    bool       t4IsAnimating;           // флаг анимации
 
     QLineEdit  *t5Path;
     QTextEdit  *t5Out;

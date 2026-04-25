@@ -5,6 +5,9 @@
 #include <cmath>
 #include <climits>
 #include <stdexcept>
+#include <QSequentialAnimationGroup>
+#include <QTimer>
+#include <QRegularExpression>
 
 // ═══════════════════════════════════════════════════════════════════════
 //  КОНСТРУКТОР
@@ -827,9 +830,16 @@ void MainWindow::runTask4()
     t4Scene->clear();
     drawHanoiTowers(n);
 
+    // Запускаем анимированное решение
+    t4Out->clear();
+    printHeader(t4Out, "Ханойская башня", "Задание 4");
+
     QStringList steps;
     int stepNo = 1;
     hanoi(n, 'A', 'C', 'B', steps, stepNo);
+
+    // Запускаем анимацию с задержкой между ходами
+    runHanoiAnimation(n, 'A', 'C', 'B');
 
     // Показываем максимум 100 шагов, остальные свернуть
     const int maxShow = 100;
@@ -858,8 +868,235 @@ void MainWindow::runTask4()
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-//  ВИЗУАЛИЗАЦИЯ ХАНОЙСКОЙ БАШНИ
+//  ВИЗУАЛИЗАЦИЯ ХАНОЙСКОЙ БАШНИ С АНИМАЦИЕЙ
 // ═══════════════════════════════════════════════════════════════════════
+
+// Рекурсивная функция для запуска анимации Ханойской башни
+void MainWindow::runHanoiAnimation(int n, char from, char to, char via)
+{
+    if (n <= 0) return;
+
+    // Конвертируем символы стержней в индексы (A=0, B=1, C=2)
+    int fromIdx = from - 'A';
+    int toIdx = to - 'A';
+    int viaIdx = via - 'A';
+
+    // Для анимации используем QTimer для последовательного выполнения шагов
+    static int stepCounter = 0;
+    static QStringList moveQueue;
+
+    if (stepCounter == 0) {
+        // Первый вызов - генерируем все ходы
+        moveQueue.clear();
+        int dummyStep = 1;
+        QStringList dummySteps;
+        hanoi(n, from, to, via, dummySteps, dummyStep);
+
+        // Парсим ходы из строк
+        for (const QString &step : dummySteps) {
+            // Извлекаем номер кольца и целевой стержень из строки вида:
+            // "Кольцо N: X → Y"
+            QRegularExpression ringRx("Кольцо (\d+):");
+            QRegularExpression towerRx("([ABC])\s*→\s*([ABC])");
+
+            QRegularExpressionMatch ringMatch = ringRx.match(step);
+            QRegularExpressionMatch towerMatch = towerRx.match(step);
+
+            if (ringMatch.hasMatch() && towerMatch.hasMatch()) {
+                int ringNum = ringMatch.captured(1).toInt();
+                char fromTower = towerMatch.captured(1)[0].toLatin1();
+                char toTower = towerMatch.captured(2)[0].toLatin1();
+                moveQueue << QString("%1:%2:%3").arg(ringNum).arg(fromTower).arg(toTower);
+            }
+        }
+
+    if (moveQueue.isEmpty()) {
+        stepCounter = 0;
+        return;
+    }
+
+    // Выполняем следующий ход с задержкой
+    QString move = moveQueue.takeFirst();
+    QStringList parts = move.split(':');
+    int ringNum = parts[0].toInt();
+    char fromTower = parts[1][0].toLatin1();
+    char toTower = parts[2][0].toLatin1();
+
+    // Находим кольцо по номеру (ringNum-1 т.к. индексация с 0)
+    int ringIndex = ringNum - 1;
+    if (ringIndex >= 0 && ringIndex < t4RingsData.size()) {
+        RingInfo ring = t4RingsData[ringIndex];
+        int fromIdx = fromTower - 'A';
+        int toIdx = toTower - 'A';
+
+        // Запускаем анимацию перемещения
+        animateHanoiMove(ring, fromIdx, toIdx, 200);
+    }
+
+    // Планируем следующий ход через таймер
+    QTimer::singleShot(1200, this, [this, n, from, to, via]() {
+        // Продолжаем рекурсивно
+        runHanoiAnimationInternal(n, from, to, via);
+    });
+}
+
+// Внутренняя функция для управления очередью ходов
+void MainWindow::runHanoiAnimationInternal(int n, char from, char to, char via)
+{
+    static int moveIndex = 0;
+    static QStringList moveQueue;
+    static bool initialized = false;
+
+    if (!initialized) {
+        // Генерируем все ходы один раз
+        moveQueue.clear();
+        int dummyStep = 1;
+        QStringList dummySteps;
+        hanoi(n, from, to, via, dummySteps, dummyStep);
+
+        for (const QString &step : dummySteps) {
+            QRegularExpression ringRx("Кольцо (\\d+):");
+            QRegularExpression towerRx("([ABC])\\s*→\\s*([ABC])");
+
+            QRegularExpressionMatch ringMatch = ringRx.match(step);
+            QRegularExpressionMatch towerMatch = towerRx.match(step);
+
+            if (ringMatch.hasMatch() && towerMatch.hasMatch()) {
+                int ringNum = ringMatch.captured(1).toInt();
+                char fromTower = towerMatch.captured(1)[0].toLatin1();
+                char toTower = towerMatch.captured(2)[0].toLatin1();
+                moveQueue << QString("%1:%2:%3").arg(ringNum).arg(fromTower).arg(toTower);
+            }
+        }
+        moveIndex = 0;
+        initialized = true;
+    }
+
+    // Проверка: все ходы выполнены?
+    if (moveIndex >= moveQueue.size()) {
+        // Все ходы выполнены
+        initialized = false;
+        moveIndex = 0;
+        statusBar()->showMessage("  Анимация завершена!");
+        return;
+    }
+
+    // Выполняем следующий ход
+    QString move = moveQueue[moveIndex++];
+    QStringList parts = move.split(':');
+    int ringNum = parts[0].toInt();
+    char fromTower = parts[1][0].toLatin1();
+    char toTower = parts[2][0].toLatin1();
+
+    int ringIndex = ringNum - 1;
+    if (ringIndex >= 0 && ringIndex < t4RingsData.size()) {
+        RingInfo ring = t4RingsData[ringIndex];
+        int fromIdx = fromTower - 'A';
+        int toIdx = toTower - 'A';
+
+        animateHanoiMove(ring, fromIdx, toIdx, 0);
+    }
+
+    // Планируем следующий ход
+    QTimer::singleShot(1000, this, [this, n, from, to, via]() {
+        runHanoiAnimationInternal(n, from, to, via);
+    });
+}
+
+// Вспомогательная функция для анимации перемещения кольца
+void MainWindow::animateHanoiMove(RingInfo ring, int fromTower, int toTower,
+                                   int delayMs)
+{
+    if (!ring.item || fromTower == toTower) return;
+
+    const double ringHeight = 22.0;
+    const double liftHeight = 180.0;  // насколько поднимать кольцо
+
+    double fromX = t4TowerX[fromTower];
+    double toX = t4TowerX[toTower];
+    double baseY = t4BaseY;
+    double towerHeight = t4TowerHeight;
+
+    // Вычисляем целевую Y-позицию на целевом стержне
+    // (считаем сколько колец уже на целевом стержне)
+    int ringsOnTarget = 0;
+    for (const auto &r : t4RingsData) {
+        if (r.currentTower == toTower && r.ringIndex > ring.ringIndex) {
+            ringsOnTarget++;
+        }
+    }
+    double targetY = baseY - towerHeight + 5 + ringsOnTarget * ringHeight;
+
+    // Создаём последовательную анимацию: подъём → перемещение → опускание
+    auto *animGroup = new QSequentialAnimationGroup(this);
+
+    // 1. Подъём кольца вверх
+    auto *liftAnim = new QVariantAnimation(this);
+    liftAnim->setDuration(300);
+    liftAnim->setStartValue(fromX);
+    liftAnim->setEndValue(fromX);
+    connect(liftAnim, &QVariantAnimation::valueChanged, this, [this, ring, fromX, baseY, towerHeight, liftHeight](const QVariant &value) {
+        ring.item->setPos(fromX, baseY - towerHeight - liftHeight);
+    });
+    liftAnim->setEasingCurve(QEasingCurve::OutQuad);
+    animGroup->addAnimation(liftAnim);
+
+    // 2. Горизонтальное перемещение
+    auto *moveAnim = new QVariantAnimation(this);
+    moveAnim->setDuration(400);
+    moveAnim->setStartValue(fromX);
+    moveAnim->setEndValue(toX);
+    connect(moveAnim, &QVariantAnimation::valueChanged, this, [this, ring, baseY, towerHeight, liftHeight](const QVariant &value) {
+        double x = value.toDouble();
+        ring.item->setPos(x, baseY - towerHeight - liftHeight);
+    });
+    moveAnim->setEasingCurve(QEasingCurve::InOutSine);
+    animGroup->addAnimation(moveAnim);
+
+    // 3. Опускание кольца на целевой стержень
+    auto *dropAnim = new QVariantAnimation(this);
+    dropAnim->setDuration(300);
+    dropAnim->setStartValue(baseY - towerHeight - liftHeight);
+    dropAnim->setEndValue(targetY);
+    connect(dropAnim, &QVariantAnimation::valueChanged, this, [this, ring, toX](const QVariant &value) {
+        double y = value.toDouble();
+        ring.item->setPos(toX, y);
+    });
+    dropAnim->setEasingCurve(QEasingCurve::InQuad);
+    animGroup->addAnimation(dropAnim);
+
+    // Задержка перед началом (если нужно)
+    if (delayMs > 0) {
+        auto *delayAnim = new QPauseAnimation(this);
+        delayAnim->setDuration(delayMs);
+        animGroup->insertAnimation(0, delayAnim);
+    }
+
+    // Обновляем состояние кольца после анимации
+    connect(animGroup, &QSequentialAnimationGroup::finished, this, [this, ring, toTower]() {
+        RingInfo *foundRing = nullptr;
+        for (auto &r : t4RingsData) {
+            if (r.item == ring.item) {
+                foundRing = &r;
+                break;
+            }
+        }
+        if (foundRing) {
+            foundRing->currentTower = toTower;
+        }
+
+        t4IsAnimating = false;
+
+        // Запускаем следующий шаг, если есть
+        if (t4CurrentStep < t4RingsData.size() * 2) {
+            // Продолжаем анимацию
+        }
+    });
+
+    t4IsAnimating = true;
+    animGroup->start();
+}
+
 void MainWindow::drawHanoiTowers(int n)
 {
     const double towerWidth = 180;
@@ -867,6 +1104,18 @@ void MainWindow::drawHanoiTowers(int n)
     const double baseY = 260;
     const double towerSpacing = 200;
     const double startX = 100;
+
+    // Сохраняем параметры для использования в анимации
+    t4BaseY = baseY;
+    t4TowerHeight = towerHeight;
+    t4TowerX[0] = startX;
+    t4TowerX[1] = startX + towerSpacing;
+    t4TowerX[2] = startX + 2 * towerSpacing;
+    t4IsAnimating = false;
+    t4CurrentStep = 0;
+
+    // Очищаем данные о кольцах
+    t4RingsData.clear();
 
     // Цвета для колец (градиент от фиолетового к циану через розовый)
     QVector<QColor> ringColors = {
@@ -939,6 +1188,13 @@ void MainWindow::drawHanoiTowers(int n)
         ring->setGraphicsEffect(shadow);
 
         t4Scene->addItem(ring);
+
+        // Сохраняем информацию о кольце
+        RingInfo info;
+        info.item = ring;
+        info.ringIndex = i;
+        info.currentTower = 0;  // все кольца на стержне A
+        t4RingsData.append(info);
     }
 
     // Устанавливаем границы сцены
