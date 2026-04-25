@@ -909,9 +909,11 @@ void MainWindow::runHanoiAnimation(int n, char from, char to, char via)
                 moveQueue << QString("%1:%2:%3").arg(ringNum).arg(fromTower).arg(toTower);
             }
         }
+    }
 
     if (moveQueue.isEmpty()) {
         stepCounter = 0;
+        statusBar()->showMessage("  Анимация завершена!");
         return;
     }
 
