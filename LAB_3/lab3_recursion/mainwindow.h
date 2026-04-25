@@ -38,6 +38,7 @@
 #include <QEasingCurve>
 #include <QSequentialAnimationGroup>
 #include <QParallelAnimationGroup>
+#include <QPauseAnimation>
 #include <QVector>
 #include <QHeaderView>
 
