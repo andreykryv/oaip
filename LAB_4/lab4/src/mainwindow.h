@@ -11,6 +11,32 @@
 #include <QScrollArea>
 #include <QGroupBox>
 #include <QComboBox>
+#include <QPainter>
+#include <QPaintEvent>
+#include <QTimer>
+
+// ─────────────────────────────────────────────────────────
+//  SortVisualizer — гистограмма для визуализации сортировки
+// ─────────────────────────────────────────────────────────
+class SortVisualizer : public QWidget {
+    Q_OBJECT
+public:
+    explicit SortVisualizer(QWidget* parent = nullptr);
+    void setData(const std::vector<int>& data);
+    void setHighlight(int index);
+    void setRange(int minVal, int maxVal);
+    void setBarColor(const QColor& color);
+
+protected:
+    void paintEvent(QPaintEvent* event) override;
+
+private:
+    std::vector<int> m_data;
+    int m_highlight = -1;
+    int m_minVal = 0;
+    int m_maxVal = 100;
+    QColor m_barColor = QColor("#58a6ff");
+};
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -40,6 +66,7 @@ private:
     QSpinBox*   t1_size    = nullptr;
     QLineEdit*  t1_search  = nullptr;
     QTextEdit*  t1_out     = nullptr;
+    SortVisualizer* t1_viz = nullptr;
     int* t1_sorted = nullptr;
     int  t1_n      = 0;
 
@@ -58,6 +85,7 @@ private:
 
     // Task 4
     QTextEdit*  t4_out     = nullptr;
+    SortVisualizer* t4_viz = nullptr;
 
     // Task 5
     QTextEdit*    t5_out   = nullptr;

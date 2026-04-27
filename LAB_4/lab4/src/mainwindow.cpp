@@ -24,6 +24,95 @@
 #include <cmath>
 #include <sstream>
 
+// ═══════════════════════════════════════════════════════════
+//  SortVisualizer Implementation
+// ═══════════════════════════════════════════════════════════
+
+SortVisualizer::SortVisualizer(QWidget* parent)
+    : QWidget(parent), m_highlight(-1), m_minVal(0), m_maxVal(100) {
+    setMinimumHeight(200);
+    setStyleSheet("background:#0d1117; border:1px solid #30363d; border-radius:8px;");
+}
+
+void SortVisualizer::setData(const std::vector<int>& data) {
+    m_data = data;
+    if (!m_data.empty()) {
+        m_minVal = *std::min_element(m_data.begin(), m_data.end());
+        m_maxVal = *std::max_element(m_data.begin(), m_data.end());
+        if (m_minVal == m_maxVal) { m_minVal--; m_maxVal++; }
+    }
+    update();
+}
+
+void SortVisualizer::setHighlight(int index) {
+    m_highlight = index;
+    update();
+}
+
+void SortVisualizer::setRange(int minVal, int maxVal) {
+    m_minVal = minVal;
+    m_maxVal = maxVal;
+    if (m_minVal == m_maxVal) { m_minVal--; m_maxVal++; }
+    update();
+}
+
+void SortVisualizer::setBarColor(const QColor& color) {
+    m_barColor = color;
+    update();
+}
+
+void SortVisualizer::paintEvent(QPaintEvent* event) {
+    Q_UNUSED(event);
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    int w = width() - 20;
+    int h = height() - 20;
+    int n = static_cast<int>(m_data.size());
+
+    if (n == 0 || w <= 0 || h <= 0) return;
+
+    double barWidth = static_cast<double>(w) / n;
+    if (barWidth > 50) barWidth = 50;
+    int totalWidth = static_cast<int>(barWidth * n);
+    int startX = (width() - totalWidth) / 2;
+
+    double range = m_maxVal - m_minVal;
+    if (range <= 0) range = 1;
+
+    for (int i = 0; i < n; ++i) {
+        double normalized = (m_data[i] - m_minVal) / range;
+        int barHeight = static_cast<int>(normalized * h * 0.9) + 10;
+        int x = startX + static_cast<int>(i * barWidth);
+        int y = height() - 10 - barHeight;
+
+        QRect barRect(x, y, static_cast<int>(barWidth) - 2, barHeight);
+
+        if (i == m_highlight) {
+            painter.setBrush(QColor("#f0883e"));
+            painter.setPen(QPen(QColor("#f0883e"), 2));
+        } else {
+            // Gradient-like coloring based on value
+            float hue = 220 - normalized * 100; // Blue to green
+            painter.setBrush(QColor::fromHslF(hue/360.0f, 0.7f, 0.5f));
+            painter.setPen(QPen(m_barColor, 1));
+        }
+
+        painter.drawRoundedRect(barRect, 4, 4);
+
+        // Draw value label for small arrays
+        if (n <= 20 && barHeight > 20) {
+            painter.setPen(QColor("#e6edf3"));
+            painter.setFont(QFont("Segoe UI", 8));
+            painter.drawText(barRect, Qt::AlignBottom | Qt::AlignHCenter, QString::number(m_data[i]));
+        }
+    }
+
+    // Draw baseline
+    painter.setPen(QPen(QColor("#30363d"), 2));
+    painter.drawLine(10, height()-10, width()-10, height()-10);
+}
+
 // ─────────────────────────────────────────────────────────
 //  Static helpers
 // ─────────────────────────────────────────────────────────
@@ -254,6 +343,11 @@ QWidget* MainWindow::buildTask1() {
     hl->addStretch();
     main->addWidget(grpS);
 
+    // ── Visualization ──
+    t1_viz = new SortVisualizer;
+    t1_viz->setMinimumHeight(250);
+    main->addWidget(t1_viz);
+
     // ── Output ──
     t1_out = makeConsole();
     main->addWidget(t1_out, 1);
@@ -270,6 +364,12 @@ void MainWindow::onTask1Generate() {
     for (int i = 0; i < n; ++i)
         lst << QString::number(QRandomGenerator::global()->bounded(1, 100));
     t1_input->setText(lst.join(","));
+
+    // Update visualization with random data
+    std::vector<int> randData;
+    for (int i = 0; i < n; ++i)
+        randData.push_back(lst[i].toInt());
+    t1_viz->setData(randData);
 }
 
 void MainWindow::onTask1Sort() {
@@ -327,6 +427,10 @@ void MainWindow::onTask1Sort() {
     runSort("Quick Sort", "#3fb950", quickSort);
     runSort("Merge Sort", "#d2a8ff", mergeSort);
 
+    // Update visualization with sorted data (show Quick Sort result)
+    std::vector<int> sortedViz(t1_sorted, t1_sorted + t1_n);
+    t1_viz->setData(sortedViz);
+
     t1_out->setHtml(html);
     t1_out->verticalScrollBar()->setValue(0);
 }
@@ -356,6 +460,10 @@ void MainWindow::onTask1Search() {
                          "<span style='color:#3fb950; font-weight:bold;'>индекс %2</span></p>")
                      .arg(digit).arg(idx);
         result += "<p style='margin:2px 0;'>Массив: " + htmlArr(sv, idx) + "</p>";
+
+        // Highlight found element in visualization
+        t1_viz->setData(sv);
+        t1_viz->setHighlight(idx);
     }
     t1_out->append(result);
     t1_out->verticalScrollBar()->setValue(t1_out->verticalScrollBar()->maximum());
@@ -595,6 +703,11 @@ QWidget* MainWindow::buildTask4() {
     hl->addStretch();
     main->addWidget(grpTop);
 
+    // Visualization for Vector operations
+    t4_viz = new SortVisualizer;
+    t4_viz->setMinimumHeight(200);
+    main->addWidget(t4_viz);
+
     t4_out = makeConsole();
     main->addWidget(t4_out, 1);
 
@@ -615,6 +728,14 @@ void MainWindow::onTask4Demo() {
         for (std::size_t i = 0; i < v.size(); ++i) sv.push_back(v[i]);
         return htmlArr(sv);
     };
+    auto updateViz = [&](const Vector<int>& vec, int highlight = -1) {
+        std::vector<int> sv;
+        for (std::size_t i = 0; i < vec.size(); ++i) sv.push_back(vec[i]);
+        t4_viz->setData(sv);
+        if (highlight >= 0 && highlight < (int)sv.size())
+            t4_viz->setHighlight(highlight);
+        qApp->processEvents();
+    };
 
     html += "<p style='color:#3fb950; font-size:14px; font-weight:bold;'>📦 Vector&lt;T&gt; — демонстрация методов</p><br>";
 
@@ -625,50 +746,62 @@ void MainWindow::onTask4Demo() {
     show("push_back(10..60)", arrStr(v));
     show("size()", badge(QString::number(v.size()), "#238636","#e6edf3"));
     show("capacity()", badge(QString::number(v.capacity()), "#1f6feb","#e6edf3"));
+    updateViz(v);
 
     // Initializer list constructor
     section("Конструктор из initializer_list");
     Vector<int> v2 = {5, 3, 8, 1, 9, 2};
     show("Vector{5,3,8,1,9,2}", arrStr(v2));
+    updateViz(v2);
 
     // at / front / back
     section("at, front, back");
     show("at(2)",  badge(QString::number(v.at(2)), "#f0883e","#0d1117"));
     show("front()",badge(QString::number(v.front()), "#f0883e","#0d1117"));
     show("back()", badge(QString::number(v.back()), "#f0883e","#0d1117"));
+    updateViz(v, 2);  // highlight element at index 2
 
     // insert / emplace
     section("insert / emplace / emplace_back");
     v.insert(v.begin() + 2, 99);
     show("insert(pos=2, 99)", arrStr(v));
+    updateViz(v, 2);  // highlight inserted element
     v.emplace(v.begin() + 4, 77);
     show("emplace(pos=4, 77)", arrStr(v));
+    updateViz(v, 4);  // highlight emplaced element
     v.emplace_back(88);
     show("emplace_back(88)", arrStr(v));
+    updateViz(v, v.size()-1);  // highlight last element
 
     // erase
     section("erase");
     v.erase(v.begin() + 3);
     show("erase(pos=3)", arrStr(v));
+    updateViz(v);
     v.erase(v.begin()+1, v.begin()+3);
     show("erase(1..3)", arrStr(v));
+    updateViz(v);
 
     // pop_back
     section("pop_back");
     v.pop_back();
     show("pop_back()", arrStr(v));
+    updateViz(v, v.size()-1);  // highlight new last element
 
     // assign
     section("assign");
     v.assign(5, 42);
     show("assign(5, 42)", arrStr(v));
+    updateViz(v);
     v.assign({7,14,21,28});
     show("assign({7,14,21,28})", arrStr(v));
+    updateViz(v);
 
     // resize / reserve
     section("resize / reserve");
     v.resize(7, 0);
     show("resize(7, 0)", arrStr(v));
+    updateViz(v);
     std::size_t old_cap = v.capacity();
     v.reserve(50);
     show(QString("reserve(50)  cap: %1 → %2").arg(old_cap).arg(v.capacity()),
@@ -685,34 +818,41 @@ void MainWindow::onTask4Demo() {
             rev += QString::number(*it) + " ";
         show("forward:  " + fwd.trimmed(), badge("✓","#238636","#e6edf3"));
         show("reverse:  " + rev.trimmed(), badge("✓","#238636","#e6edf3"));
+        updateViz(vi);
     }
 
     // swap
     section("swap");
     Vector<int> va = {1,2,3}, vb = {4,5,6};
     show("До swap: va=" + arrStr(va) + "  vb=" + arrStr(vb), "");
+    updateViz(va);
     va.swap(vb);
     show("После swap: va=" + arrStr(va) + "  vb=" + arrStr(vb), "");
+    updateViz(va);  // show swapped va
 
     // copy / move
     section("Копирование / перемещение");
     Vector<int> vc(va);
     show("copy ctor: vc=" + arrStr(vc), badge("deep copy","#6e40c9","#e6edf3"));
+    updateViz(vc);
     Vector<int> vd(std::move(vc));
     show("move ctor: vd=" + arrStr(vd) + "  vc.size()=" + QString::number(vc.size()),
          badge("moved","#e3b341","#0d1117"));
+    updateViz(vd);
 
     // empty / clear
     section("empty / clear");
     show("vd.empty()", badge(vd.empty()?"true":"false","#f85149","#e6edf3"));
     vd.clear();
     show("vd.clear() → empty()", badge(vd.empty()?"true":"false","#238636","#e6edf3"));
+    updateViz(vd);  // show empty vector
 
     // data / max_size
     section("data / max_size");
     Vector<int> vx = {10,20,30};
     show("data()[1]", badge(QString::number(vx.data()[1]),"#1f6feb","#e6edf3"));
     show("max_size()", badge(QString::number(vx.max_size()),"#8b949e","#e6edf3"));
+    updateViz(vx, 1);  // highlight element at index 1 (data()[1])
 
     t4_out->setHtml(html);
     t4_out->verticalScrollBar()->setValue(0);
