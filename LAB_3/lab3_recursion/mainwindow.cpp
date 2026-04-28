@@ -5,9 +5,7 @@
 #include <cmath>
 #include <climits>
 #include <stdexcept>
-#include <QSequentialAnimationGroup>
-#include <QTimer>
-#include <QRegularExpression>
+#include <QLinearGradient>
 
 // ═══════════════════════════════════════════════════════════════════════
 //  КОНСТРУКТОР
@@ -21,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     applyAppStyle();
 
-    // ── Центральный виджет ──────────────────────────────
     QWidget *central = new QWidget(this);
     QVBoxLayout *rootLayout = new QVBoxLayout(central);
     rootLayout->setContentsMargins(0, 0, 0, 0);
@@ -40,8 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QLabel *title = new QLabel("Рекурсия", header);
     title->setStyleSheet(QString(
-        "font-size:22px; font-weight:700; color:%1; font-family:'Segoe UI',sans-serif;")
-        .arg(Theme::TEXT_PRI));
+        "font-size:22px; font-weight:700; color:%1;").arg(Theme::TEXT_PRI));
 
     QLabel *sub = new QLabel("Лабораторная работа №3", header);
     sub->setStyleSheet(QString(
@@ -72,7 +68,6 @@ MainWindow::MainWindow(QWidget *parent)
     rootLayout->addWidget(header);
     rootLayout->addWidget(tabs);
 
-    // ── Статус-бар ─────────────────────────────────────
     statusBar()->showMessage(
         "  Выберите задачу, введите данные и нажмите «Запустить»");
     statusBar()->setStyleSheet(
@@ -165,15 +160,12 @@ void MainWindow::applyAppStyle()
             padding: 10px 28px;
             font-size: 14px;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
         QPushButton#runBtn:hover {
             background: qlineargradient(x1:0,y1:0,x2:1,y2:0,
-                stop:0 %10, stop:1 %11);
+                stop:0 #a078f8, stop:1 #0ea5c9);
         }
-        QPushButton#runBtn:pressed {
-            background: %4;
-        }
+        QPushButton#runBtn:pressed { background: %4; }
         QPushButton#browseBtn {
             background: %8;
             color: %6;
@@ -183,10 +175,7 @@ void MainWindow::applyAppStyle()
             font-size: 13px;
             font-weight: 600;
         }
-        QPushButton#browseBtn:hover {
-            background: %3;
-            color: %2;
-        }
+        QPushButton#browseBtn:hover { background: %3; color: %2; }
         QTextEdit {
             background: %12;
             color: %2;
@@ -198,34 +187,16 @@ void MainWindow::applyAppStyle()
             selection-background-color: %7;
         }
         QScrollBar:vertical {
-            background: %3;
-            width: 8px;
-            border-radius: 4px;
+            background: %3; width: 8px; border-radius: 4px;
         }
         QScrollBar::handle:vertical {
-            background: %4;
-            border-radius: 4px;
-            min-height: 20px;
+            background: %4; border-radius: 4px; min-height: 20px;
         }
-        QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-            height: 0;
-        }
-        QLabel#taskDesc {
-            color: %5;
-            font-size: 13px;
-            background: transparent;
-            line-height: 160%%;
-        }
-        QLabel#inputLabel {
-            color: %6;
-            font-size: 13px;
-            font-weight: 600;
-            background: transparent;
-        }
+        QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+        QLabel#taskDesc  { color: %5; font-size: 13px; background: transparent; }
+        QLabel#inputLabel{ color: %6; font-size: 13px; font-weight: 600; background: transparent; }
         QTreeWidget {
-            background: %12;
-            color: %2;
-            border: 1px solid %4;
+            background: %12; color: %2; border: 1px solid %4;
             border-radius: 8px;
             font-family: 'Cascadia Code','Consolas','Courier New',monospace;
             font-size: 12px;
@@ -234,37 +205,39 @@ void MainWindow::applyAppStyle()
         QTreeWidget::item:selected { background: %7; color: #fff; }
         QStatusBar { font-size: 12px; }
     )").arg(
-        Theme::BG_MAIN,       // %1
-        Theme::TEXT_PRI,      // %2
-        Theme::BG_CARD,       // %3
-        Theme::BORDER,        // %4
-        Theme::TEXT_SEC,      // %5
-        Theme::HIGHLIGHT,     // %6
-        Theme::ACCENT,        // %7
-        Theme::BG_INPUT,      // %8
-        Theme::ACCENT2,       // %9
-        "#8b5cf6",            // %10 hover start
-        "#0891b2",            // %11 hover end
-        Theme::BG_OUTPUT      // %12
+        Theme::BG_MAIN,    // %1
+        Theme::TEXT_PRI,   // %2
+        Theme::BG_CARD,    // %3
+        Theme::BORDER,     // %4
+        Theme::TEXT_SEC,   // %5
+        Theme::HIGHLIGHT,  // %6
+        Theme::ACCENT,     // %7
+        Theme::BG_INPUT,   // %8
+        Theme::ACCENT2,    // %9
+        "#000000",         // %10
+        "#0891b2",         // %11
+        Theme::BG_OUTPUT   // %12
     ));
 }
 
 // ═══════════════════════════════════════════════════════════════════════
 //  UI-ХЕЛПЕРЫ
 // ═══════════════════════════════════════════════════════════════════════
-QGroupBox* MainWindow::makeCard(const QString &title) {
-    auto *gb = new QGroupBox(title);
-    return gb;
+QGroupBox* MainWindow::makeCard(const QString &title)
+{
+    return new QGroupBox(title);
 }
 
-QPushButton* MainWindow::makeRunButton(const QString &text) {
+QPushButton* MainWindow::makeRunButton(const QString &text)
+{
     auto *btn = new QPushButton(text);
     btn->setObjectName("runBtn");
     btn->setCursor(Qt::PointingHandCursor);
     return btn;
 }
 
-QTextEdit* MainWindow::makeOutput() {
+QTextEdit* MainWindow::makeOutput()
+{
     auto *te = new QTextEdit;
     te->setReadOnly(true);
     te->setMinimumHeight(160);
@@ -296,25 +269,25 @@ void MainWindow::printKV(QTextEdit *out, const QString &key,
                           const QString &val, const QString &valColor)
 {
     out->append(QString(
-        "<div>"
-        "<span style='color:%1;'>%2</span>"
-        "<span style='color:%3;font-weight:700;font-size:15px;'>%4</span>"
-        "</div>")
+        "<div><span style='color:%1;'>%2</span>"
+        "<span style='color:%3;font-weight:700;font-size:15px;'>%4</span></div>")
         .arg(Theme::TEXT_SEC, key, valColor, val));
 }
 
-void MainWindow::printSep(QTextEdit *out) {
+void MainWindow::printSep(QTextEdit *out)
+{
     out->append(QString("<div style='color:%1;font-size:11px;'>"
                         "──────────────────────────────────────"
                         "</div>").arg(Theme::BORDER));
 }
 
-void MainWindow::scrollBottom(QTextEdit *out) {
-    out->verticalScrollBar()->setValue(
-        out->verticalScrollBar()->maximum());
+void MainWindow::scrollBottom(QTextEdit *out)
+{
+    out->verticalScrollBar()->setValue(out->verticalScrollBar()->maximum());
 }
 
-QString MainWindow::badge(const QString &text, const QString &color) {
+QString MainWindow::badge(const QString &text, const QString &color)
+{
     return QString("<span style='background:%1;color:#fff;"
                    "border-radius:4px;padding:1px 6px;"
                    "font-size:11px;font-weight:700;'>%2</span>")
@@ -338,20 +311,17 @@ QWidget* MainWindow::createTask1Widget()
     lay->setContentsMargins(20, 16, 20, 16);
     lay->setSpacing(16);
 
-    // Описание
     auto *desc = makeCard("Задание 1 · Десятичное → Двоичное");
     auto *dLay = new QVBoxLayout(desc);
     QLabel *info = new QLabel(
         "Рекурсивно переводит целое десятичное число в двоичную запись.<br>"
         "<span style='color:#f59e0b;'>Принцип:</span> "
-        "<code>bin(n) = bin(n÷2) + (n%2)</code> — "
-        "делим на 2 до тех пор, пока не достигнем базового случая (0 или 1).");
+        "<code>bin(n) = bin(n÷2) + (n%2)</code>");
     info->setObjectName("taskDesc");
     info->setWordWrap(true);
     dLay->addWidget(info);
     lay->addWidget(desc);
 
-    // Ввод
     auto *inputCard = makeCard("Ввод");
     auto *iLay = new QHBoxLayout(inputCard);
     QLabel *lbl = new QLabel("Число:");
@@ -366,7 +336,6 @@ QWidget* MainWindow::createTask1Widget()
     iLay->addWidget(btn);
     lay->addWidget(inputCard);
 
-    // Вывод
     auto *outCard = makeCard("Результат");
     auto *oLay = new QVBoxLayout(outCard);
     t1Out = makeOutput();
@@ -386,16 +355,13 @@ void MainWindow::runTask1()
     printHeader(t1Out, "Dec → Bin", "Задание 1");
 
     if (!ok || n < 0) {
-        printLine(t1Out,
-            "✗ Ошибка: введите целое неотрицательное число.",
-            Theme::ERROR_CLR);
+        printLine(t1Out, "✗ Ошибка: введите целое неотрицательное число.", Theme::ERROR_CLR);
         return;
     }
 
     printKV(t1Out, "Входное число:  ", QString::number(n), Theme::ACCENT2);
     printSep(t1Out);
 
-    // Пошаговое разложение
     printLine(t1Out, "Шаги рекурсии:", Theme::TEXT_SEC);
     long long tmp = n;
     QStringList steps;
@@ -412,23 +378,19 @@ void MainWindow::runTask1()
 
     QString bin = (n == 0) ? "0" : decToBinRec(n);
     printKV(t1Out, "Результат:      ",
-            bin + QString("  <span style='color:%1;font-size:11px;'>"
-                          "[%2 бит]</span>").arg(Theme::TEXT_DIM)
-                              .arg(bin.length()),
+            bin + QString("  <span style='color:%1;font-size:11px;'>[%2 бит]</span>")
+                      .arg(Theme::TEXT_DIM).arg(bin.length()),
             Theme::SUCCESS);
 
-    // Визуальное представление битов
     QString bits;
-    for (QChar c : bin) {
-        if (c == '1')
-            bits += QString("<span style='color:%1;background:%2;"
-                            "border-radius:3px;padding:1px 5px;margin:1px;'>"
-                            "1</span> ").arg(Theme::TEXT_PRI).arg(Theme::ACCENT);
-        else
-            bits += QString("<span style='color:%1;background:%2;"
-                            "border-radius:3px;padding:1px 5px;margin:1px;'>"
-                            "0</span> ").arg(Theme::TEXT_DIM).arg(Theme::BG_CARD);
-    }
+    for (QChar c : bin)
+        bits += (c == '1')
+            ? QString("<span style='color:%1;background:%2;"
+                      "border-radius:3px;padding:1px 5px;margin:1px;'>1</span> ")
+                  .arg(Theme::TEXT_PRI).arg(Theme::ACCENT)
+            : QString("<span style='color:%1;background:%2;"
+                      "border-radius:3px;padding:1px 5px;margin:1px;'>0</span> ")
+                  .arg(Theme::TEXT_DIM).arg(Theme::BG_CARD);
     t1Out->append("<div style='margin-top:6px;'>" + bits + "</div>");
 
     scrollBottom(t1Out);
@@ -460,11 +422,8 @@ QWidget* MainWindow::createTask2Widget()
     auto *dLay = new QVBoxLayout(desc);
     QLabel *info = new QLabel(
         "Функция Аккермана A(m,n) — классический пример <b>взаимной рекурсии</b>:<br>"
-        "<code>A(0,n) = n+1 &nbsp;|&nbsp; "
-        "A(m,0) = A(m-1,1) &nbsp;|&nbsp; "
-        "A(m,n) = A(m-1, A(m, n-1))</code><br>"
-        "<span style='color:#ef4444;'>⚠</span> "
-        "При m≥4 рост катастрофически быстрый, вычисление ограничено 10M вызовов.");
+        "<code>A(0,n)=n+1 | A(m,0)=A(m-1,1) | A(m,n)=A(m-1,A(m,n-1))</code><br>"
+        "<span style='color:#ef4444;'>⚠</span> При m≥4 рост катастрофически быстрый.");
     info->setObjectName("taskDesc");
     info->setWordWrap(true);
     dLay->addWidget(info);
@@ -472,61 +431,39 @@ QWidget* MainWindow::createTask2Widget()
 
     auto *inputCard = makeCard("Ввод");
     auto *iLay = new QHBoxLayout(inputCard);
-
-    QLabel *lm = new QLabel("m:");
-    lm->setObjectName("inputLabel");
-    lm->setFixedWidth(28);
-    t2M = new QSpinBox;
-    t2M->setRange(0, 4);
-    t2M->setValue(2);
-    t2M->setFixedWidth(80);
-
-    QLabel *ln = new QLabel("n:");
-    ln->setObjectName("inputLabel");
-    ln->setFixedWidth(28);
-    t2N = new QSpinBox;
-    t2N->setRange(0, 10);
-    t2N->setValue(2);
-    t2N->setFixedWidth(80);
-
+    QLabel *lm = new QLabel("m:"); lm->setObjectName("inputLabel"); lm->setFixedWidth(28);
+    t2M = new QSpinBox; t2M->setRange(0,4); t2M->setValue(2); t2M->setFixedWidth(80);
+    QLabel *ln = new QLabel("n:"); ln->setObjectName("inputLabel"); ln->setFixedWidth(28);
+    t2N = new QSpinBox; t2N->setRange(0,10); t2N->setValue(2); t2N->setFixedWidth(80);
     auto *btn = makeRunButton();
     connect(btn, &QPushButton::clicked, this, &MainWindow::runTask2);
-
-    iLay->addWidget(lm);
-    iLay->addWidget(t2M);
+    iLay->addWidget(lm); iLay->addWidget(t2M);
     iLay->addSpacing(16);
-    iLay->addWidget(ln);
-    iLay->addWidget(t2N);
+    iLay->addWidget(ln); iLay->addWidget(t2N);
     iLay->addStretch();
     iLay->addWidget(btn);
     lay->addWidget(inputCard);
 
-    // Таблица малых значений
     auto *tableCard = makeCard("Справочная таблица A(m,n)");
     auto *tLay = new QVBoxLayout(tableCard);
     QTextEdit *table = makeOutput();
     table->setMaximumHeight(120);
-
     QString hdr = "<table style='border-collapse:collapse;font-size:12px;'>";
     hdr += "<tr><td style='padding:2px 8px;color:" + Theme::TEXT_DIM + ";'>m\\n</td>";
-    for (int n2 = 0; n2 <= 5; n2++)
+    for (int n2=0;n2<=5;n2++)
         hdr += QString("<td style='padding:2px 10px;color:%1;font-weight:700;'>%2</td>")
                    .arg(Theme::ACCENT2).arg(n2);
     hdr += "</tr>";
-    int dummy;
-    const int mmax = 3, nmax = 5;
-    for (int m2 = 0; m2 <= mmax; m2++) {
+    for (int m2=0;m2<=3;m2++) {
         hdr += QString("<tr><td style='padding:2px 8px;color:%1;font-weight:700;'>%2</td>")
                    .arg(Theme::ACCENT).arg(m2);
-        for (int n2 = 0; n2 <= nmax; n2++) {
-            dummy = 0;
-            try {
-                long long v = ackermann(m2, n2, dummy);
-                hdr += QString("<td style='padding:2px 10px;color:%1;'>%2</td>")
-                           .arg(Theme::SUCCESS).arg(v);
-            } catch (...) {
-                hdr += QString("<td style='color:%1;'>…</td>")
-                           .arg(Theme::TEXT_DIM);
+        for (int n2=0;n2<=5;n2++) {
+            int d=0;
+            try { long long v=ackermann(m2,n2,d);
+                hdr+=QString("<td style='padding:2px 10px;color:%1;'>%2</td>")
+                         .arg(Theme::SUCCESS).arg(v);
+            } catch(...) {
+                hdr+=QString("<td style='color:%1;'>…</td>").arg(Theme::TEXT_DIM);
             }
         }
         hdr += "</tr>";
@@ -561,26 +498,15 @@ void MainWindow::runTask2()
         long long result = ackermann(m, n, calls);
         printKV(t2Out, "Результат:       ", QString::number(result), Theme::SUCCESS);
         printKV(t2Out, "Вызовов рекурсии:", QString::number(calls), Theme::WARNING);
-
-        // Предупреждение о взрывном росте
-        if (calls > 100000) {
-            printLine(t2Out,
-                "⚡ Внимание: функция Аккермана растёт быстрее любой "
-                "примитивно-рекурсивной функции!",
-                Theme::WARNING);
-        }
+        if (calls > 100000)
+            printLine(t2Out, "⚡ Функция Аккермана растёт быстрее любой примитивно-рекурсивной!", Theme::WARNING);
     } catch (const std::overflow_error &e) {
-        printLine(t2Out,
-            QString("✗ Переполнение: %1").arg(e.what()),
-            Theme::ERROR_CLR);
-        printLine(t2Out,
-            "  Попробуйте меньшие значения m и n.",
-            Theme::TEXT_SEC);
+        printLine(t2Out, QString("✗ Переполнение: %1").arg(e.what()), Theme::ERROR_CLR);
+        printLine(t2Out, "  Попробуйте меньшие значения.", Theme::TEXT_SEC);
     }
 
     scrollBottom(t2Out);
-    statusBar()->showMessage(
-        QString("  Задание 2 выполнено: A(%1,%2)").arg(m).arg(n));
+    statusBar()->showMessage(QString("  Задание 2: A(%1,%2)").arg(m).arg(n));
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -609,10 +535,8 @@ QWidget* MainWindow::createTask3Widget()
     auto *desc = makeCard("Задание 3 · Реверс числа рекурсией");
     auto *dLay = new QVBoxLayout(desc);
     QLabel *info = new QLabel(
-        "Разворачивает цифры числа <b>без циклов, строк и массивов</b> — "
-        "только рекурсия и целочисленная арифметика.<br>"
-        "<span style='color:#f59e0b;'>Идея:</span> "
-        "<code>rev(n) = (n%10) × 10^len(n÷10)  +  rev(n÷10)</code>");
+        "Разворачивает цифры числа <b>без циклов, строк и массивов</b>.<br>"
+        "<code>rev(n) = (n%10) × 10^len(n÷10) + rev(n÷10)</code>");
     info->setObjectName("taskDesc");
     info->setWordWrap(true);
     dLay->addWidget(info);
@@ -620,16 +544,12 @@ QWidget* MainWindow::createTask3Widget()
 
     auto *inputCard = makeCard("Ввод");
     auto *iLay = new QHBoxLayout(inputCard);
-    QLabel *lbl = new QLabel("Число:");
-    lbl->setObjectName("inputLabel");
-    lbl->setFixedWidth(80);
+    QLabel *lbl = new QLabel("Число:"); lbl->setObjectName("inputLabel"); lbl->setFixedWidth(80);
     t3Input = new QLineEdit("972");
     t3Input->setPlaceholderText("Число без нулей в записи");
     auto *btn = makeRunButton();
     connect(btn, &QPushButton::clicked, this, &MainWindow::runTask3);
-    iLay->addWidget(lbl);
-    iLay->addWidget(t3Input);
-    iLay->addWidget(btn);
+    iLay->addWidget(lbl); iLay->addWidget(t3Input); iLay->addWidget(btn);
     lay->addWidget(inputCard);
 
     auto *outCard = makeCard("Результат");
@@ -651,36 +571,28 @@ void MainWindow::runTask3()
     printHeader(t3Out, "Реверс числа", "Задание 3");
 
     if (!ok || n <= 0) {
-        printLine(t3Out,
-            "✗ Ошибка: введите положительное число без нулей.",
-            Theme::ERROR_CLR);
+        printLine(t3Out, "✗ Ошибка: введите положительное число без нулей.", Theme::ERROR_CLR);
         return;
     }
     QString s = QString::number(n);
     if (s.contains('0')) {
-        printLine(t3Out,
-            "✗ Ошибка: число не должно содержать нулей в записи.",
-            Theme::ERROR_CLR);
+        printLine(t3Out, "✗ Ошибка: число не должно содержать нулей.", Theme::ERROR_CLR);
         return;
     }
 
     printKV(t3Out, "Входное число:  ", QString::number(n), Theme::ACCENT2);
 
-    // Визуализация цифр
     QString digits;
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); i++)
         digits += QString("<span style='background:%1;color:#fff;"
                           "border-radius:4px;padding:2px 8px;margin:2px;"
                           "font-size:16px;font-weight:700;'>%2</span> ")
                       .arg(Theme::ACCENT).arg(s[i]);
-    }
     t3Out->append("<div style='margin:6px 0;'>"
                   "<span style='color:" + Theme::TEXT_SEC + ";'>Цифры:  </span>"
                   + digits + "</div>");
-
     printSep(t3Out);
 
-    // Шаги
     printLine(t3Out, "Шаги рекурсии:", Theme::TEXT_SEC);
     long long tmp = n;
     int depth = 0;
@@ -689,52 +601,101 @@ void MainWindow::runTask3()
         t3Out->append(QString(
             "<div style='color:%1;font-size:12px;'>"
             "  <span style='color:%2;'>%3rev(%4)</span>"
-            " → (%5 % 10) × 10^%6 + rev(%7)"
-            "</div>")
+            " → (%5 %% 10) × 10^%6 + rev(%7)</div>")
             .arg(Theme::TEXT_PRI, Theme::ACCENT)
-            .arg(indent)
-            .arg(tmp)
-            .arg(tmp)
-            .arg(countDigits(tmp / 10))
-            .arg(tmp / 10));
+            .arg(indent).arg(tmp).arg(tmp)
+            .arg(countDigits(tmp / 10)).arg(tmp / 10));
         tmp /= 10;
         depth++;
     }
-    printLine(t3Out,
-        QString("  базовый случай: rev(%1) = %1").arg(tmp),
-        Theme::SUCCESS);
+    printLine(t3Out, QString("  базовый случай: rev(%1) = %1").arg(tmp), Theme::SUCCESS);
 
     printSep(t3Out);
     long long result = reverseNum(n);
     printKV(t3Out, "Результат:      ", QString::number(result), Theme::SUCCESS);
 
-    // Стрелка разворота
     QString sres = QString::number(result);
     QString revDigits;
-    for (int i = 0; i < sres.length(); i++) {
+    for (int i = 0; i < sres.length(); i++)
         revDigits += QString("<span style='background:%1;color:#fff;"
                              "border-radius:4px;padding:2px 8px;margin:2px;"
                              "font-size:16px;font-weight:700;'>%2</span> ")
                          .arg(Theme::SUCCESS).arg(sres[i]);
-    }
     t3Out->append("<div style='margin:6px 0;'>"
                   "<span style='color:" + Theme::TEXT_SEC + ";'>Итог:   </span>"
                   + revDigits + "</div>");
 
     scrollBottom(t3Out);
     statusBar()->showMessage(
-        QString("  Задание 3 выполнено: rev(%1) = %2").arg(n).arg(result));
+        QString("  Задание 3: rev(%1) = %2").arg(n).arg(result));
 }
 
 // ═══════════════════════════════════════════════════════════════════════
 //  ЗАДАНИЕ 4 — ХАНОЙСКАЯ БАШНЯ
+//
+//  Архитектура анимации:
+//  • collectHanoiMoves()  — рекурсивно собирает все ходы в m_moves
+//  • drawHanoiInitial()   — рисует начальное состояние (все кольца на A)
+//  • animateNextHanoiMove() — пошагово анимирует каждый ход:
+//      фаза 1 → подъём (OutCubic)
+//      фаза 2 → горизонтальный скользок (InOutSine)
+//      фаза 3 → падение (InCubic)
+//  • m_generation — счётчик запусков; при новом запуске старая
+//    анимация «отменяется» через проверку поколения.
 // ═══════════════════════════════════════════════════════════════════════
+
+// ── Константы сцены ────────────────────────────────────────────────────
+static const double HNX[3] = { 117.0, 350.0, 583.0 }; // X-центры трёх стержней
+static const double HBY    = 270.0;  // Y-координата основания (кольца кладутся выше)
+static const double HRH    = 26.0;   // высота одного кольца (px)
+static const double HSW    = 710.0;  // ширина сцены
+static const double HSH    = 330.0;  // высота сцены
+
+// Цвета колец (8 штук, повторяются по модулю)
+static const QColor RING_CLR[] = {
+    {139,  92, 246},   // фиолетовый
+    {167, 139, 250},   // светло-фиолетовый
+    {244, 114, 182},   // розовый
+    {251, 113, 133},   // розово-красный
+    {  6, 182, 212},   // циан
+    { 34, 211, 238},   // светлый циан
+    { 16, 185, 129},   // изумрудный
+    { 52, 211, 153},   // светло-изумрудный
+};
+
+// ── Вспомогательные методы ─────────────────────────────────────────────
+
+// Ширина кольца с номером ringNum (1=мин, n=макс)
+double MainWindow::hanoiRingW(int ringNum) const
+{
+    if (m_hanoiN <= 1) return 88.0;
+    const double minW = 50.0;
+    const double maxW = qMin(50.0 + (double)m_hanoiN * 22.0, 198.0);
+    return minW + (double)(ringNum - 1) * (maxW - minW) / (double)(m_hanoiN - 1);
+}
+
+// Y-координата левого верхнего угла кольца на позиции stackPos (0=дно)
+double MainWindow::hanoiRingY(int stackPos) const
+{
+    return HBY - (double)(stackPos + 1) * HRH;
+}
+
+// Рекурсивный сбор ходов (from/to/via — индексы 0=A,1=B,2=C)
+void MainWindow::collectHanoiMoves(int n, int from, int to, int via)
+{
+    if (n <= 0) return;
+    collectHanoiMoves(n - 1, from, via, to);
+    m_moves.append({n, from, to});
+    collectHanoiMoves(n - 1, via, to, from);
+}
+
+// Строковый вывод для текстового лога (оставлен из исходника)
 void MainWindow::hanoi(int n, char from, char to, char via,
                         QStringList &steps, int &stepNo)
 {
     if (n == 1) {
         steps << QString("<span style='color:%1;'>Шаг %2:</span>"
-                         " Кольцо 1:  <b style='color:%3;'>%4</b>"
+                         " Кольцо 1: <b style='color:%3;'>%4</b>"
                          " → <b style='color:%5;'>%6</b>")
                      .arg(Theme::TEXT_DIM).arg(stepNo++)
                      .arg(Theme::WARNING).arg(from)
@@ -743,15 +704,248 @@ void MainWindow::hanoi(int n, char from, char to, char via,
     }
     hanoi(n - 1, from, via, to, steps, stepNo);
     steps << QString("<span style='color:%1;'>Шаг %2:</span>"
-                     " Кольцо %3:  <b style='color:%4;'>%5</b>"
+                     " Кольцо %3: <b style='color:%4;'>%5</b>"
                      " → <b style='color:%6;'>%7</b>")
-                 .arg(Theme::TEXT_DIM).arg(stepNo++)
-                 .arg(n)
+                 .arg(Theme::TEXT_DIM).arg(stepNo++).arg(n)
                  .arg(Theme::WARNING).arg(from)
                  .arg(Theme::SUCCESS).arg(to);
     hanoi(n - 1, via, to, from, steps, stepNo);
 }
 
+// ── Отрисовка начального состояния ────────────────────────────────────
+void MainWindow::drawHanoiInitial(int n)
+{
+    // Останавливаем текущую анимацию (если идёт)
+    if (m_activeAnim) {
+        m_activeAnim->stop();
+        // Отключаем сигнал finished, чтобы callback не вызвался
+        disconnect(m_activeAnim, nullptr, this, nullptr);
+        m_activeAnim->deleteLater();
+        m_activeAnim = nullptr;
+    }
+
+    t4Scene->clear();
+    m_ringItems.clear();
+    m_stacks.clear();
+    m_stacks.resize(3);
+    m_hanoiN = n;
+
+    t4Scene->setSceneRect(0, 0, HSW, HSH);
+
+    const double poleH   = (n + 2.5) * HRH;
+    const double baseW   = 210.0;
+    const double baseH   = 15.0;
+
+    // ── Стержни и основания ────────────────────────
+    for (int i = 0; i < 3; i++) {
+        double x = HNX[i];
+
+        // Основание
+        QGraphicsRectItem *base =
+            new QGraphicsRectItem(x - baseW/2, HBY + 1, baseW, baseH);
+        base->setBrush(QColor("#252540"));
+        base->setPen(QPen(QColor("#3a3a60"), 1.5));
+        base->setZValue(0);
+        t4Scene->addItem(base);
+
+        // Стержень с градиентом
+        QLinearGradient pg(x - 7, 0, x + 7, 0);
+        pg.setColorAt(0.0, QColor("#6b7f90"));
+        pg.setColorAt(0.5, QColor("#a8bfcc"));
+        pg.setColorAt(1.0, QColor("#445566"));
+        QGraphicsRectItem *pole =
+            new QGraphicsRectItem(x - 7, HBY - poleH, 14, poleH);
+        pole->setBrush(pg);
+        pole->setPen(Qt::NoPen);
+        pole->setZValue(1);
+        t4Scene->addItem(pole);
+
+        // Подпись (A / B / C)
+        auto *lbl = new QGraphicsTextItem(QString(QChar('A' + i)));
+        lbl->setDefaultTextColor(QColor("#94a3b8"));
+        lbl->setFont(QFont("Segoe UI", 13, QFont::Bold));
+        lbl->setPos(x - 8, HBY + 18);
+        t4Scene->addItem(lbl);
+    }
+
+    // ── Кольца на стержне A ─────────────────────────
+    // ringNum n (наибольшее) → stackPos 0 (дно),
+    // ringNum 1 (наименьшее) → stackPos n-1 (верх)
+    for (int ringNum = n; ringNum >= 1; ringNum--) {
+        int stackPos = n - ringNum;
+        double rw = hanoiRingW(ringNum);
+        double rx = HNX[0];          // центр X
+        double ry = hanoiRingY(stackPos); // верхний Y
+
+        QColor c = RING_CLR[(ringNum - 1) % 8];
+
+        // Скруглённый прямоугольник, начало в (-rw/2, 0) относительно item
+        QPainterPath path;
+        path.addRoundedRect(-rw / 2.0, 0.0, rw, HRH - 3.0, 7.0, 7.0);
+
+        auto *item = new QGraphicsPathItem(path);
+
+        QLinearGradient rg(-rw/2, 0, rw/2, HRH);
+        rg.setColorAt(0.0, c.lighter(145));
+        rg.setColorAt(0.45, c);
+        rg.setColorAt(1.0, c.darker(135));
+        item->setBrush(rg);
+        item->setPen(QPen(c.lighter(175), 1.5));
+        item->setZValue(2);
+        item->setPos(rx, ry);
+
+        // Свечение
+        auto *glow = new QGraphicsDropShadowEffect;
+        glow->setBlurRadius(16);
+        glow->setColor(c);
+        glow->setOffset(0, 2);
+        item->setGraphicsEffect(glow);
+
+        // Номер кольца поверх
+        auto *numLbl = new QGraphicsSimpleTextItem(QString::number(ringNum), item);
+        numLbl->setBrush(QColor(255, 255, 255, 200));
+        numLbl->setFont(QFont("Segoe UI", 8, QFont::Bold));
+        // Примерно центрируем (ширина цифры ~7px, высота ~10px)
+        numLbl->setPos(-4.5, (HRH - 3.0) / 2.0 - 6.0);
+
+        t4Scene->addItem(item);
+        m_ringItems[ringNum] = item;
+    }
+
+    // Стек стержня A: снизу вверх = [n, n-1, ..., 1]
+    for (int ringNum = n; ringNum >= 1; ringNum--)
+        m_stacks[0].append(ringNum);
+    // last() = 1 = верхнее кольцо
+
+    t4View->fitInView(t4Scene->sceneRect(), Qt::KeepAspectRatio);
+}
+
+// ── Пошаговая анимация ────────────────────────────────────────────────
+void MainWindow::animateNextHanoiMove(int generation)
+{
+    // Устаревший вызов — игнорируем
+    if (generation != m_generation) return;
+
+    if (m_moveIdx >= m_moves.size()) {
+        statusBar()->showMessage(
+            QString("  ✓ Ханойская башня решена! (%1 ходов)")
+                .arg(m_moves.size()));
+        return;
+    }
+
+    HanoiMove mv = m_moves[m_moveIdx++];
+
+    QGraphicsPathItem *item = m_ringItems.value(mv.ringNum, nullptr);
+    if (!item) {
+        // Кольцо не найдено — пропускаем и идём дальше
+        QTimer::singleShot(10, this, [this, generation]() {
+            animateNextHanoiMove(generation);
+        });
+        return;
+    }
+
+    const double rw = hanoiRingW(mv.ringNum);
+
+    // Исходная позиция: верхнее кольцо стека fromTower
+    const double srcX = HNX[mv.fromTower];
+    const double srcY = HBY - (double)m_stacks[mv.fromTower].size() * HRH;
+
+    // Целевая позиция
+    const double dstX = HNX[mv.toTower];
+    const double dstY = HBY - (double)(m_stacks[mv.toTower].size() + 1) * HRH;
+
+    // Высота подъёма — выше любого возможного стека + запас
+    const double liftY = HBY - (double)(m_hanoiN + 3) * HRH;
+
+    // Скорость: меньше колец → дольше; больше → быстрее
+    const int totalMs = qMax(240, 1800 / m_hanoiN);
+    const int liftMs  = totalMs * 30 / 100;
+    const int slideMs = totalMs * 42 / 100;
+    const int dropMs  = totalMs * 28 / 100;
+
+    auto *group = new QSequentialAnimationGroup(this);
+
+    // ── Фаза 1: ПОДЪЁМ ─────────────────────────────
+    {
+        auto *anim = new QVariantAnimation(this);
+        anim->setDuration(liftMs);
+        anim->setStartValue(srcY);
+        anim->setEndValue(liftY);
+        anim->setEasingCurve(QEasingCurve::OutCubic);
+        // item захватываем как сырой указатель; при сбросе сцены
+        // generation-проверка предотвратит новые вызовы,
+        // а m_activeAnim->stop() прекратит текущий
+        connect(anim, &QVariantAnimation::valueChanged, this,
+            [item, srcX](const QVariant &v) {
+                item->setPos(srcX, v.toDouble());
+            });
+        group->addAnimation(anim);
+    }
+
+    // ── Фаза 2: ГОРИЗОНТАЛЬНОЕ СКОЛЬЖЕНИЕ ──────────
+    {
+        auto *anim = new QVariantAnimation(this);
+        anim->setDuration(slideMs);
+        anim->setStartValue(srcX);
+        anim->setEndValue(dstX);
+        anim->setEasingCurve(QEasingCurve::InOutSine);
+        connect(anim, &QVariantAnimation::valueChanged, this,
+            [item, liftY](const QVariant &v) {
+                item->setPos(v.toDouble(), liftY);
+            });
+        group->addAnimation(anim);
+    }
+
+    // ── Фаза 3: ПАДЕНИЕ ────────────────────────────
+    {
+        auto *anim = new QVariantAnimation(this);
+        anim->setDuration(dropMs);
+        anim->setStartValue(liftY);
+        anim->setEndValue(dstY);
+        anim->setEasingCurve(QEasingCurve::InCubic);
+        connect(anim, &QVariantAnimation::valueChanged, this,
+            [item, dstX](const QVariant &v) {
+                item->setPos(dstX, v.toDouble());
+            });
+        group->addAnimation(anim);
+    }
+
+    // Короткая пауза после «удара» об основание (звуковой эффект на глаз)
+    group->addAnimation(new QPauseAnimation(qMax(25, 60 / m_hanoiN), this));
+
+    // ── Завершение хода ────────────────────────────
+    int gen   = generation;
+    int idx   = m_moveIdx;
+    int total = m_moves.size();
+    int rNum  = mv.ringNum;
+    int fT    = mv.fromTower;
+    int tT    = mv.toTower;
+
+    connect(group, &QSequentialAnimationGroup::finished, this,
+        [this, gen, idx, total, rNum, fT, tT, mv]() {
+            m_activeAnim = nullptr;
+
+            // Обновляем стеки
+            m_stacks[mv.fromTower].removeLast();
+            m_stacks[mv.toTower].append(mv.ringNum);
+
+            statusBar()->showMessage(
+                QString("  Ход %1 / %2  ·  кольцо %3: %4 → %5")
+                    .arg(idx).arg(total).arg(rNum)
+                    .arg(QChar('A' + fT)).arg(QChar('A' + tT)));
+
+            // Небольшая пауза между ходами
+            const int pause = qMax(20, 50 / m_hanoiN);
+            QTimer::singleShot(pause, this, [this, gen]() {
+                animateNextHanoiMove(gen);
+            });
+        });
+
+    m_activeAnim = group;
+    group->start(QAbstractAnimation::DeleteWhenStopped);
+}
+
+// ── Виджет вкладки 4 ──────────────────────────────────────────────────
 QWidget* MainWindow::createTask4Widget()
 {
     QWidget *w = new QWidget;
@@ -763,10 +957,11 @@ QWidget* MainWindow::createTask4Widget()
     auto *dLay = new QVBoxLayout(desc);
     QLabel *info = new QLabel(
         "Классическая рекурсивная задача: переместить n колец с колышка <b>A</b> "
-        "на колышек <b>C</b>, используя <b>B</b> как вспомогательный.<br>"
+        "на <b>C</b>, используя <b>B</b> как вспомогательный.<br>"
         "<span style='color:#fbbf24;'>Минимальное число ходов:</span> "
-        "<code>2ⁿ − 1</code>  (для 10 колец = 1023 хода)<br>"
-        "<span style='color:#8b5cf6;font-size:11px;'>✨ Визуализация в реальном времени!</span>");
+        "<code>2ⁿ − 1</code>&nbsp;&nbsp;&nbsp;"
+        "<span style='color:#8b5cf6;font-size:11px;'>"
+        "✨ Башня сначала показывается в собранном виде, затем анимированно решается.</span>");
     info->setObjectName("taskDesc");
     info->setWordWrap(true);
     dLay->addWidget(info);
@@ -789,20 +984,24 @@ QWidget* MainWindow::createTask4Widget()
     iLay->addWidget(btn);
     lay->addWidget(inputCard);
 
-    // Визуализатор Ханойской башни
-    auto *vizCard = makeCard("🎨 Визуализация");
+    // ── Визуализатор ───────────────────────────────
+    auto *vizCard = makeCard("🎨 Визуализация  (A → C  через  B)");
     auto *vLay = new QVBoxLayout(vizCard);
     t4Scene = new QGraphicsScene(this);
-    t4Scene->setBackgroundBrush(QColor("#0a0a14"));
-    t4Visualizer = new QGraphicsView(t4Scene);
-    t4Visualizer->setRenderHint(QPainter::Antialiasing);
-    t4Visualizer->setMinimumHeight(280);
-    t4Visualizer->setMaximumHeight(320);
-    t4Visualizer->setStyleSheet(
-        "QGraphicsView { border: 1px solid #2d2d4a; border-radius: 8px; background: #0a0a14; }");
-    vLay->addWidget(t4Visualizer);
+    t4Scene->setBackgroundBrush(QColor("#07070f"));
+
+    t4View = new QGraphicsView(t4Scene);
+    t4View->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    t4View->setMinimumHeight(285);
+    t4View->setMaximumHeight(325);
+    t4View->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    t4View->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    t4View->setStyleSheet(
+        "QGraphicsView { border:1px solid #2d2d4a; border-radius:8px; background:#07070f; }");
+    vLay->addWidget(t4View);
     lay->addWidget(vizCard);
 
+    // ── Шаги ───────────────────────────────────────
     auto *outCard = makeCard("Шаги решения");
     auto *oLay = new QVBoxLayout(outCard);
     t4Out = makeOutput();
@@ -813,394 +1012,66 @@ QWidget* MainWindow::createTask4Widget()
     return w;
 }
 
+// ── Слот «Запустить» ──────────────────────────────────────────────────
 void MainWindow::runTask4()
 {
-    int n = t4Rings->value();
+    const int n = t4Rings->value();
+
+    // Отменяем предыдущую анимацию, меняя поколение
+    ++m_generation;
+    const int gen = m_generation;
+
+    // ── Текстовый лог ──────────────────────────────
     printHeader(t4Out, "Ханойская башня", "Задание 4");
     printKV(t4Out, "Колец:  ", QString::number(n), Theme::ACCENT2);
-    long long minMoves = (1LL << n) - 1;
+    const long long minMoves = (1LL << n) - 1;
     printKV(t4Out, "Мин. ходов:  ",
             QString::number(minMoves) +
-            QString("  <span style='color:%1;font-size:11px;'>(2^%2−1)</span>")
+            QString("  <span style='color:%1;font-size:11px;'>(2^%2 − 1)</span>")
                 .arg(Theme::TEXT_DIM).arg(n),
             Theme::WARNING);
     printSep(t4Out);
 
-    // Очистка и отрисовка визуализации
-    t4Scene->clear();
-    drawHanoiTowers(n);
-
-    // Запускаем анимированное решение
-    t4Out->clear();
-    printHeader(t4Out, "Ханойская башня", "Задание 4");
-
+    // Текстовые шаги (для лога)
     QStringList steps;
     int stepNo = 1;
     hanoi(n, 'A', 'C', 'B', steps, stepNo);
 
-    // Запускаем анимацию с задержкой между ходами
-    runHanoiAnimation(n, 'A', 'C', 'B');
-
-    // Показываем максимум 100 шагов, остальные свернуть
-    const int maxShow = 100;
-    int shown = qMin((int)steps.size(), maxShow);
-    for (int i = 0; i < shown; i++)
+    const int maxShow = 64;
+    for (int i = 0; i < qMin((int)steps.size(), maxShow); i++)
         t4Out->append("<div>" + steps[i] + "</div>");
-
-    if (steps.size() > maxShow) {
+    if ((int)steps.size() > maxShow)
         t4Out->append(QString(
-            "<div style='color:%1;margin-top:6px;'>"
-            "  … и ещё %2 шагов (итого %3)</div>")
+            "<div style='color:%1;margin-top:4px;'>"
+            "  … ещё %2 ходов (итого %3)</div>")
             .arg(Theme::TEXT_DIM)
             .arg(steps.size() - maxShow)
             .arg(steps.size()));
-    }
 
     printSep(t4Out);
     printLine(t4Out,
-        QString("✓ Решение завершено за <b style='color:%1;'>%2</b> ходов")
-            .arg(Theme::SUCCESS).arg(steps.size()),
-        Theme::TEXT_PRI);
-
+        QString("✓ %1 ход(ов) · "
+                "<span style='color:%2;'>анимация запустится через ~1.5 с…</span>")
+            .arg(steps.size()).arg(Theme::ACCENT2),
+        Theme::SUCCESS);
     scrollBottom(t4Out);
+
+    // ── Собираем ходы для анимации ─────────────────
+    m_moves.clear();
+    m_moveIdx = 0;
+    collectHanoiMoves(n, 0, 2, 1);   // A=0, C=2, B=1
+
+    // ── Рисуем начальное состояние (башня собрана) ─
+    drawHanoiInitial(n);
+
+    // ── Пауза 1.5 с, затем анимация ────────────────
     statusBar()->showMessage(
-        QString("  Задание 4: %1 колец → %2 ходов").arg(n).arg(steps.size()));
-}
+        QString("  Задание 4: %1 колец, %2 ходов · показ начального состояния…")
+            .arg(n).arg(m_moves.size()));
 
-// ═══════════════════════════════════════════════════════════════════════
-//  ВИЗУАЛИЗАЦИЯ ХАНОЙСКОЙ БАШНИ С АНИМАЦИЕЙ
-// ═══════════════════════════════════════════════════════════════════════
-
-// Рекурсивная функция для запуска анимации Ханойской башни
-void MainWindow::runHanoiAnimation(int n, char from, char to, char via)
-{
-    if (n <= 0) return;
-
-    // Конвертируем символы стержней в индексы (A=0, B=1, C=2)
-    int fromIdx = from - 'A';
-    int toIdx = to - 'A';
-    int viaIdx = via - 'A';
-
-    // Для анимации используем QTimer для последовательного выполнения шагов
-    static int stepCounter = 0;
-    static QStringList moveQueue;
-
-    if (stepCounter == 0) {
-        // Первый вызов - генерируем все ходы
-        moveQueue.clear();
-        int dummyStep = 1;
-        QStringList dummySteps;
-        hanoi(n, from, to, via, dummySteps, dummyStep);
-
-        // Парсим ходы из строк
-        for (const QString &step : dummySteps) {
-            // Извлекаем номер кольца и целевой стержень из строки вида:
-            // "Кольцо N: X → Y"
-            QRegularExpression ringRx("Кольцо (\d+):");
-            QRegularExpression towerRx("([ABC])\s*→\s*([ABC])");
-
-            QRegularExpressionMatch ringMatch = ringRx.match(step);
-            QRegularExpressionMatch towerMatch = towerRx.match(step);
-
-            if (ringMatch.hasMatch() && towerMatch.hasMatch()) {
-                int ringNum = ringMatch.captured(1).toInt();
-                char fromTower = towerMatch.captured(1)[0].toLatin1();
-                char toTower = towerMatch.captured(2)[0].toLatin1();
-                moveQueue << QString("%1:%2:%3").arg(ringNum).arg(fromTower).arg(toTower);
-            }
-        }
-    }
-
-    if (moveQueue.isEmpty()) {
-        stepCounter = 0;
-        statusBar()->showMessage("  Анимация завершена!");
-        return;
-    }
-
-    // Выполняем следующий ход с задержкой
-    QString move = moveQueue.takeFirst();
-    QStringList parts = move.split(':');
-    int ringNum = parts[0].toInt();
-    char fromTower = parts[1][0].toLatin1();
-    char toTower = parts[2][0].toLatin1();
-
-    // Находим кольцо по номеру (ringNum-1 т.к. индексация с 0)
-    int ringIndex = ringNum - 1;
-    if (ringIndex >= 0 && ringIndex < t4RingsData.size()) {
-        RingInfo ring = t4RingsData[ringIndex];
-        int fromIdx = fromTower - 'A';
-        int toIdx = toTower - 'A';
-
-        // Запускаем анимацию перемещения
-        animateHanoiMove(ring, fromIdx, toIdx, 200);
-    }
-
-    // Планируем следующий ход через таймер
-    QTimer::singleShot(1200, this, [this, n, from, to, via]() {
-        // Продолжаем рекурсивно
-        runHanoiAnimationInternal(n, from, to, via);
+    QTimer::singleShot(1500, this, [this, gen]() {
+        animateNextHanoiMove(gen);
     });
-}
-
-// Внутренняя функция для управления очередью ходов
-void MainWindow::runHanoiAnimationInternal(int n, char from, char to, char via)
-{
-    static int moveIndex = 0;
-    static QStringList moveQueue;
-    static bool initialized = false;
-
-    if (!initialized) {
-        // Генерируем все ходы один раз
-        moveQueue.clear();
-        int dummyStep = 1;
-        QStringList dummySteps;
-        hanoi(n, from, to, via, dummySteps, dummyStep);
-
-        for (const QString &step : dummySteps) {
-            QRegularExpression ringRx("Кольцо (\\d+):");
-            QRegularExpression towerRx("([ABC])\\s*→\\s*([ABC])");
-
-            QRegularExpressionMatch ringMatch = ringRx.match(step);
-            QRegularExpressionMatch towerMatch = towerRx.match(step);
-
-            if (ringMatch.hasMatch() && towerMatch.hasMatch()) {
-                int ringNum = ringMatch.captured(1).toInt();
-                char fromTower = towerMatch.captured(1)[0].toLatin1();
-                char toTower = towerMatch.captured(2)[0].toLatin1();
-                moveQueue << QString("%1:%2:%3").arg(ringNum).arg(fromTower).arg(toTower);
-            }
-        }
-        moveIndex = 0;
-        initialized = true;
-    }
-
-    // Проверка: все ходы выполнены?
-    if (moveIndex >= moveQueue.size()) {
-        // Все ходы выполнены
-        initialized = false;
-        moveIndex = 0;
-        statusBar()->showMessage("  Анимация завершена!");
-        return;
-    }
-
-    // Выполняем следующий ход
-    QString move = moveQueue[moveIndex++];
-    QStringList parts = move.split(':');
-    int ringNum = parts[0].toInt();
-    char fromTower = parts[1][0].toLatin1();
-    char toTower = parts[2][0].toLatin1();
-
-    int ringIndex = ringNum - 1;
-    if (ringIndex >= 0 && ringIndex < t4RingsData.size()) {
-        RingInfo ring = t4RingsData[ringIndex];
-        int fromIdx = fromTower - 'A';
-        int toIdx = toTower - 'A';
-
-        animateHanoiMove(ring, fromIdx, toIdx, 0);
-    }
-
-    // Планируем следующий ход
-    QTimer::singleShot(1000, this, [this, n, from, to, via]() {
-        runHanoiAnimationInternal(n, from, to, via);
-    });
-}
-
-// Вспомогательная функция для анимации перемещения кольца
-void MainWindow::animateHanoiMove(RingInfo ring, int fromTower, int toTower,
-                                   int delayMs)
-{
-    if (!ring.item || fromTower == toTower) return;
-
-    const double ringHeight = 22.0;
-    const double liftHeight = 180.0;  // насколько поднимать кольцо
-
-    double fromX = t4TowerX[fromTower];
-    double toX = t4TowerX[toTower];
-    double baseY = t4BaseY;
-    double towerHeight = t4TowerHeight;
-
-    // Вычисляем целевую Y-позицию на целевом стержне
-    // (считаем сколько колец уже на целевом стержне)
-    int ringsOnTarget = 0;
-    for (const auto &r : t4RingsData) {
-        if (r.currentTower == toTower && r.ringIndex > ring.ringIndex) {
-            ringsOnTarget++;
-        }
-    }
-    double targetY = baseY - towerHeight + 5 + ringsOnTarget * ringHeight;
-
-    // Создаём последовательную анимацию: подъём → перемещение → опускание
-    auto *animGroup = new QSequentialAnimationGroup(this);
-
-    // 1. Подъём кольца вверх
-    auto *liftAnim = new QVariantAnimation(this);
-    liftAnim->setDuration(300);
-    liftAnim->setStartValue(fromX);
-    liftAnim->setEndValue(fromX);
-    connect(liftAnim, &QVariantAnimation::valueChanged, this, [this, ring, fromX, baseY, towerHeight, liftHeight](const QVariant &value) {
-        ring.item->setPos(fromX, baseY - towerHeight - liftHeight);
-    });
-    liftAnim->setEasingCurve(QEasingCurve::OutQuad);
-    animGroup->addAnimation(liftAnim);
-
-    // 2. Горизонтальное перемещение
-    auto *moveAnim = new QVariantAnimation(this);
-    moveAnim->setDuration(400);
-    moveAnim->setStartValue(fromX);
-    moveAnim->setEndValue(toX);
-    connect(moveAnim, &QVariantAnimation::valueChanged, this, [this, ring, baseY, towerHeight, liftHeight](const QVariant &value) {
-        double x = value.toDouble();
-        ring.item->setPos(x, baseY - towerHeight - liftHeight);
-    });
-    moveAnim->setEasingCurve(QEasingCurve::InOutSine);
-    animGroup->addAnimation(moveAnim);
-
-    // 3. Опускание кольца на целевой стержень
-    auto *dropAnim = new QVariantAnimation(this);
-    dropAnim->setDuration(300);
-    dropAnim->setStartValue(baseY - towerHeight - liftHeight);
-    dropAnim->setEndValue(targetY);
-    connect(dropAnim, &QVariantAnimation::valueChanged, this, [this, ring, toX](const QVariant &value) {
-        double y = value.toDouble();
-        ring.item->setPos(toX, y);
-    });
-    dropAnim->setEasingCurve(QEasingCurve::InQuad);
-    animGroup->addAnimation(dropAnim);
-
-    // Задержка перед началом (если нужно)
-    if (delayMs > 0) {
-        auto *delayAnim = new QPauseAnimation(this);
-        delayAnim->setDuration(delayMs);
-        animGroup->insertAnimation(0, delayAnim);
-    }
-
-    // Обновляем состояние кольца после анимации
-    connect(animGroup, &QSequentialAnimationGroup::finished, this, [this, ring, toTower]() {
-        RingInfo *foundRing = nullptr;
-        for (auto &r : t4RingsData) {
-            if (r.item == ring.item) {
-                foundRing = &r;
-                break;
-            }
-        }
-        if (foundRing) {
-            foundRing->currentTower = toTower;
-        }
-
-        t4IsAnimating = false;
-
-        // Запускаем следующий шаг, если есть
-        if (t4CurrentStep < t4RingsData.size() * 2) {
-            // Продолжаем анимацию
-        }
-    });
-
-    t4IsAnimating = true;
-    animGroup->start();
-}
-
-void MainWindow::drawHanoiTowers(int n)
-{
-    const double towerWidth = 180;
-    const double towerHeight = 220;
-    const double baseY = 260;
-    const double towerSpacing = 200;
-    const double startX = 100;
-
-    // Сохраняем параметры для использования в анимации
-    t4BaseY = baseY;
-    t4TowerHeight = towerHeight;
-    t4TowerX[0] = startX;
-    t4TowerX[1] = startX + towerSpacing;
-    t4TowerX[2] = startX + 2 * towerSpacing;
-    t4IsAnimating = false;
-    t4CurrentStep = 0;
-
-    // Очищаем данные о кольцах
-    t4RingsData.clear();
-
-    // Цвета для колец (градиент от фиолетового к циану через розовый)
-    QVector<QColor> ringColors = {
-        QColor("#8b5cf6"),  // фиолетовый
-        QColor("#a78bfa"),  // светлый фиолетовый
-        QColor("#f472b6"),  // розовый
-        QColor("#fb7185"),  // светло-розовый
-        QColor("#06b6d4"),  // циан
-        QColor("#22d3ee"),  // светлый циан
-        QColor("#10b981"),  // зелёный
-        QColor("#34d399"),  // светлый зелёный
-    };
-
-    // Рисуем три стержня
-    for (int i = 0; i < 3; i++) {
-        double x = startX + i * towerSpacing;
-
-        // Основание стержня
-        QGraphicsRectItem *base = new QGraphicsRectItem(
-            x - towerWidth/2, baseY + 10, towerWidth, 20);
-        base->setBrush(QColor("#2d2d4a"));
-        base->setPen(Qt::NoPen);
-        base->setZValue(0);
-        t4Scene->addItem(base);
-
-        // Стержень
-        QGraphicsRectItem *pole = new QGraphicsRectItem(
-            x - 8, baseY - towerHeight, 16, towerHeight);
-        QLinearGradient poleGrad(x - 8, baseY - towerHeight, x + 8, baseY);
-        poleGrad.setColorAt(0, "#64748b");
-        poleGrad.setColorAt(1, "#334155");
-        pole->setBrush(poleGrad);
-        pole->setPen(QPen(QColor("#475569"), 2));
-        pole->setZValue(1);
-        t4Scene->addItem(pole);
-
-        // Подпись стержня
-        QGraphicsTextItem *label = new QGraphicsTextItem(
-            QString("%1").arg(QChar('A' + i)));
-        label->setDefaultTextColor(QColor("#94a3b8"));
-        label->setFont(QFont("Segoe UI", 14, QFont::Bold));
-        label->setPos(x - 5, baseY + 35);
-        t4Scene->addItem(label);
-    }
-
-    // Рисуем кольца на первом стержне (A)
-    for (int i = 0; i < n; i++) {
-        double width = 60 + (n - i) * 25;
-        double height = 22;
-        double x = startX;
-        double y = baseY - towerHeight + 5 + i * height;
-
-        // Кольцо с градиентом
-        QGraphicsRectItem *ring = new QGraphicsRectItem(
-            x - width/2, y, width, height);
-
-        QLinearGradient ringGrad(x - width/2, y, x + width/2, y + height);
-        ringGrad.setColorAt(0, ringColors[i % ringColors.size()].lighter(120));
-        ringGrad.setColorAt(0.5, ringColors[i % ringColors.size()]);
-        ringGrad.setColorAt(1, ringColors[i % ringColors.size()].darker(110));
-        ring->setBrush(ringGrad);
-        ring->setPen(QPen(ringColors[i % ringColors.size()].lighter(150), 2));
-        ring->setZValue(2);
-
-        // Добавляем свечение
-        QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect;
-        shadow->setBlurRadius(15);
-        shadow->setColor(ringColors[i % ringColors.size()].lighter(150));
-        shadow->setOffset(0, 2);
-        ring->setGraphicsEffect(shadow);
-
-        t4Scene->addItem(ring);
-
-        // Сохраняем информацию о кольце
-        RingInfo info;
-        info.item = ring;
-        info.ringIndex = i;
-        info.currentTower = 0;  // все кольца на стержне A
-        t4RingsData.append(info);
-    }
-
-    // Устанавливаем границы сцены
-    t4Scene->setSceneRect(0, 0, startX + 2 * towerSpacing + 100, 320);
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -1214,7 +1085,7 @@ void MainWindow::countItems(const QString &path, int &files, int &folders)
          dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries)) {
         if (fi.isDir()) {
             folders++;
-            countItems(fi.absoluteFilePath(), files, folders); // рекурсия
+            countItems(fi.absoluteFilePath(), files, folders);
         } else {
             files++;
         }
@@ -1235,12 +1106,10 @@ QTreeWidgetItem* MainWindow::buildTree(const QString &path)
         QDir dir(path);
         for (const QFileInfo &child :
              dir.entryInfoList(QDir::NoDotAndDotDot | QDir::AllEntries,
-                               QDir::DirsFirst)) {
-            item->addChild(buildTree(child.absoluteFilePath())); // рекурсия
-        }
+                               QDir::DirsFirst))
+            item->addChild(buildTree(child.absoluteFilePath()));
     } else {
-        item->setText(1, QString("%1 KB")
-                            .arg(fi.size() / 1024.0, 0, 'f', 1));
+        item->setText(1, QString("%1 KB").arg(fi.size() / 1024.0, 0, 'f', 1));
         item->setForeground(0, QColor(Theme::TEXT_SEC));
 
         QString ext = fi.suffix().toLower();
@@ -1253,7 +1122,6 @@ QTreeWidgetItem* MainWindow::buildTree(const QString &path)
         else
             item->setText(0, "📄 " + fi.fileName());
 
-        // Открыть файл двойным кликом
         item->setData(0, Qt::UserRole, fi.absoluteFilePath());
     }
     return item;
@@ -1291,10 +1159,8 @@ QWidget* MainWindow::createTask5Widget()
     iLay->addWidget(run);
     lay->addWidget(inputCard);
 
-    // Разделитель: дерево + лог
     QSplitter *splitter = new QSplitter(Qt::Horizontal);
 
-    // Дерево
     auto *treeCard = makeCard("Дерево каталогов");
     auto *treeLay = new QVBoxLayout(treeCard);
     t5Tree = new QTreeWidget;
@@ -1315,7 +1181,6 @@ QWidget* MainWindow::createTask5Widget()
     treeLay->addWidget(t5Tree);
     splitter->addWidget(treeCard);
 
-    // Лог
     auto *outCard = makeCard("Статистика");
     auto *oLay = new QVBoxLayout(outCard);
     t5Out = makeOutput();
@@ -1359,7 +1224,6 @@ void MainWindow::runTask5()
     int files = 0, folders = 0;
     countItems(path, files, folders);
 
-    // Строим дерево (ограничение глубины для производительности)
     t5Tree->clear();
     auto *root = buildTree(path);
     if (root) {
@@ -1367,18 +1231,12 @@ void MainWindow::runTask5()
         root->setExpanded(true);
     }
 
-    // Вывод статистики
     printLine(t5Out, " ", Theme::TEXT_PRI);
-    printKV(t5Out, "📁 Подпапок:  ",
-            QString::number(folders), Theme::ACCENT2);
-    printKV(t5Out, "📄 Файлов:    ",
-            QString::number(files),   Theme::SUCCESS);
-    printKV(t5Out, "📊 Итого:     ",
-            QString::number(files + folders), Theme::WARNING);
+    printKV(t5Out, "📁 Подпапок:  ", QString::number(folders), Theme::ACCENT2);
+    printKV(t5Out, "📄 Файлов:    ", QString::number(files),   Theme::SUCCESS);
+    printKV(t5Out, "📊 Итого:     ", QString::number(files + folders), Theme::WARNING);
     printSep(t5Out);
-    printLine(t5Out,
-        "✓ Готово. Двойной клик по файлу — открыть.",
-        Theme::TEXT_SEC);
+    printLine(t5Out, "✓ Готово. Двойной клик по файлу — открыть.", Theme::TEXT_SEC);
 
     scrollBottom(t5Out);
     statusBar()->showMessage(

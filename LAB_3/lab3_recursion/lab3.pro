@@ -1,4 +1,4 @@
-QT += core gui widgets svg
+QT += core gui widgets
 
 CONFIG += c++17 c++1z
 TARGET   = lab3_recursion
