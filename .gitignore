@@ -1,50 +1,9 @@
 ```
-# Qt/C++ build artifacts
+# Compiled and build artifacts
 *.o
 *.obj
-*.a
-*.lib
-*.so
-*.dll
-*.dylib
-*.exe
-*.out
-
-# Qt/CMake build directories
-build/
-cmake-build-*/
-CMakeFiles/
-CMakeCache.txt
-Makefile
-conanbuildinfo.cmake
-compile_commands.json
-
-# Qt specific
-*.moc
-moc_*.cpp
-qrc_*.cpp
-ui_*.h
-
-# IDE
-.vscode/
-.idea/
-
-# Logs
-*.log
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Temp files
-*.tmp
-*.swp
-
+*.pro.user
 # Dependencies
-node_modules/
-venv/
-.venv/
-__pycache__/
-*.egg-info/
+# Editors
+*.user
 ```

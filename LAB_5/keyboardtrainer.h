@@ -8,14 +8,18 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QComboBox>
 #include <QTextEdit>
 #include <QFile>
 #include <QScrollArea>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
-#include <vector>
+#include <QVector>
 #include <random>
+#include <QPainter>
+#include <QKeyEvent>
+#include <QScrollBar>
 
 class KeyboardTrainer : public QWidget
 {
@@ -27,11 +31,14 @@ private slots:
     void onLanguageChanged(int index);
     void loadTextFromFile();
     void updateStats();
+    void restartTraining();
     void onKeyPressed(const QString& key, bool correct);
+    void updateCursorBlink();
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void showEvent(QShowEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     void setupUI();
@@ -41,7 +48,11 @@ private:
     QString currentChar() const;
     QString getKeyForChar(const QChar& ch) const;
     void animateButton(QPushButton* btn, bool correct);
-
+    void initLayouts();
+    QString getCurrentLineText() const;
+    int getCurrentLineStartIndex() const;
+    int getCurrentLineEndIndex() const;
+    
     // Раскладки
     QMap<QString, QString> englishLayout; // кнопка -> символ
     QMap<QString, QString> russianLayout;
@@ -53,25 +64,36 @@ private:
 
     // Текущее состояние
     QString currentLanguage = "English";
-    std::vector<QString> targetWords;
-    int currentWordIndex = 0;
-    int currentCharIndex = 0;
+    QString fullText;  // Полный текст для ввода
+    int currentPosition = 0;  // Позиция в полном тексте
     int totalCorrectChars = 0;
     int totalIncorrectChars = 0;
     QElapsedTimer timer;
     QTimer *statsTimer;
+    QTimer *cursorTimer;
     double wpm = 0.0;
+    double accuracy = 100.0;
+    bool cursorVisible = true;
+    int cursorBlinkCounter = 0;
 
     QLabel *textDisplay;
     QLabel *timerLabel;
     QLabel *wpmLabel;
     QLabel *accuracyLabel;
+    QLabel *progressLabel;
     QComboBox *languageCombo;
     QPushButton *loadFileBtn;
     QPushButton *restartBtn;
     QWidget *keyboardWidget;
     QScrollArea *textScrollArea;
-
+    QWidget *textDisplayWidget;  // Кастомный виджет для отображения текста
+    
+    // Размеры для отрисовки
+    int charWidth = 11;
+    int charHeight = 28;
+    int lineHeight = 36;
+    int maxCharsPerLine = 90;
+    
     std::mt19937 rng;
 
     // Для анимаций
