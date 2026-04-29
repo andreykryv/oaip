@@ -11,6 +11,9 @@
 #include <QComboBox>
 #include <QTextEdit>
 #include <QFile>
+#include <QScrollArea>
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
 #include <vector>
 #include <random>
 
@@ -24,9 +27,11 @@ private slots:
     void onLanguageChanged(int index);
     void loadTextFromFile();
     void updateStats();
+    void onKeyPressed(const QString& key, bool correct);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 private:
     void setupUI();
@@ -34,10 +39,14 @@ private:
     void updateDisplayedText();
     void highlightKey(const QString& key, bool correct);
     QString currentChar() const;
+    QString getKeyForChar(const QChar& ch) const;
+    void animateButton(QPushButton* btn, bool correct);
 
     // Раскладки
     QMap<QString, QString> englishLayout; // кнопка -> символ
     QMap<QString, QString> russianLayout;
+    QMap<QChar, QString> charToKeyEng;  // символ -> кнопка
+    QMap<QChar, QString> charToKeyRus;
     QMap<QString, QPushButton*> keyButtons;
     QStringList englishWords;
     QStringList russianWords;
@@ -56,11 +65,17 @@ private:
     QLabel *textDisplay;
     QLabel *timerLabel;
     QLabel *wpmLabel;
+    QLabel *accuracyLabel;
     QComboBox *languageCombo;
     QPushButton *loadFileBtn;
+    QPushButton *restartBtn;
     QWidget *keyboardWidget;
+    QScrollArea *textScrollArea;
 
     std::mt19937 rng;
+
+    // Для анимаций
+    QMap<QString, QPropertyAnimation*> buttonAnimations;
 };
 
 #endif // KEYBOARDTRAINER_H

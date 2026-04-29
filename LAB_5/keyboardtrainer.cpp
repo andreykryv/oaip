@@ -260,7 +260,7 @@ void KeyboardTrainer::keyPressEvent(QKeyEvent *event)
         QPropertyAnimation *colorAnim = new QPropertyAnimation(btn, "styleSheet");
         colorAnim->setDuration(200);
         QString originalStyle = btn->styleSheet();
-        btn->setStyleSheet(correct ? 
+        btn->setStyleSheet(correct ?
             "background-color: #00aa00; color: white; border: 2px solid #0f0; border-radius: 5px;" :
             "background-color: #aa0000; color: white; border: 2px solid #f00; border-radius: 5px;");
         QTimer::singleShot(200, [btn, originalStyle]() {
@@ -296,4 +296,16 @@ void KeyboardTrainer::updateStats()
     wpm = (totalChars / 5.0) / minutes;
     timerLabel->setText(QString("Время: %1 с").arg(elapsed));
     wpmLabel->setText(QString("WPM: %1").arg(wpm, 0, 'f', 1));
+}
+// Explicit definitions for methods declared in header
+void KeyboardTrainer::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event);
+    setFocus();
+}
+
+void KeyboardTrainer::onKeyPressed(const QString& key, bool correct)
+{
+    Q_UNUSED(key);
+    Q_UNUSED(correct);
 }
