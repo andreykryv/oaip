@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC -g -shared -Wl,--dependency-file=CMakeFiles/stringlib.dir/link.d -Wl,-soname,libstringlib.so -o libstringlib.so CMakeFiles/stringlib.dir/stringlib_autogen/mocs_compilation.cpp.o CMakeFiles/stringlib.dir/stringlib.cpp.o

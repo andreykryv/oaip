@@ -283,7 +283,7 @@ void KeyboardTrainer::loadTextFromFile()
         return;
     }
     QTextStream in(&file);
-    in.setCodec("UTF-8");
+   
     QString content = in.readAll();
     file.close();
     
@@ -308,6 +308,17 @@ void KeyboardTrainer::loadTextFromFile()
 void KeyboardTrainer::generateText()
 {
     const auto& words = (currentLanguage == "English") ? englishWords : russianWords;
+
+    if (words.isEmpty()) {
+        fullText = "No words available";
+        currentPosition = 0;
+        totalCorrectChars = 0;
+        totalIncorrectChars = 0;
+        timer.invalidate();
+        wpm = 0.0;
+        accuracy = 100.0;
+        return;
+    }
     std::uniform_int_distribution<int> dist(0, words.size()-1);
     
     fullText.clear();

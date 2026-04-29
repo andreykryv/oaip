@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wl,--dependency-file=CMakeFiles/test_buttons.dir/link.d CMakeFiles/test_buttons.dir/test_buttons_autogen/mocs_compilation.cpp.o -o test_buttons  /usr/lib/libQt6Test.so.6.11.0 /usr/lib/libQt6Core.so.6.11.0

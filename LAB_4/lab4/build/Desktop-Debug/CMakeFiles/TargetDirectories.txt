@@ -1,0 +1,5 @@
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_4/lab4/build/Desktop-Debug/CMakeFiles/Lab4.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_4/lab4/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_4/lab4/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_4/lab4/build/Desktop-Debug/CMakeFiles/Lab4_autogen_timestamp_deps.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_4/lab4/build/Desktop-Debug/CMakeFiles/Lab4_autogen.dir

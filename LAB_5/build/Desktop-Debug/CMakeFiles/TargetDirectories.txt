@@ -1,0 +1,10 @@
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/CMakeFiles/Lab5App.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/CMakeFiles/Lab5App_autogen_timestamp_deps.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/CMakeFiles/Lab5App_autogen.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/stringlib/CMakeFiles/stringlib.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/stringlib/CMakeFiles/edit_cache.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/stringlib/CMakeFiles/rebuild_cache.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/stringlib/CMakeFiles/stringlib_autogen_timestamp_deps.dir
+/home/andrey/Документы/553504/second_sem_lrs/OAIP/LAB_5/build/Desktop-Debug/stringlib/CMakeFiles/stringlib_autogen.dir
