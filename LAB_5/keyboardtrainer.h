@@ -32,7 +32,6 @@ private slots:
     void loadTextFromFile();
     void updateStats();
     void restartTraining();
-    void onKeyPressed(const QString& key, bool correct);
     void updateCursorBlink();
 
 protected:
@@ -70,11 +69,10 @@ private:
     int totalIncorrectChars = 0;
     QElapsedTimer timer;
     QTimer *statsTimer;
-    QTimer *cursorTimer;
+
     double wpm = 0.0;
     double accuracy = 100.0;
-    bool cursorVisible = true;
-    int cursorBlinkCounter = 0;
+   
 
     QLabel *textDisplay;
     QLabel *timerLabel;

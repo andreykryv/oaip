@@ -46,9 +46,6 @@ template <> constexpr inline auto KeyboardTrainer::qt_create_metaobjectdata<qt_m
         "loadTextFromFile",
         "updateStats",
         "restartTraining",
-        "onKeyPressed",
-        "key",
-        "correct",
         "updateCursorBlink"
     };
 
@@ -63,12 +60,8 @@ template <> constexpr inline auto KeyboardTrainer::qt_create_metaobjectdata<qt_m
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'restartTraining'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onKeyPressed'
-        QtMocHelpers::SlotData<void(const QString &, bool)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 8 }, { QMetaType::Bool, 9 },
-        }}),
         // Slot 'updateCursorBlink'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -96,8 +89,7 @@ void KeyboardTrainer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 1: _t->loadTextFromFile(); break;
         case 2: _t->updateStats(); break;
         case 3: _t->restartTraining(); break;
-        case 4: _t->onKeyPressed((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
-        case 5: _t->updateCursorBlink(); break;
+        case 4: _t->updateCursorBlink(); break;
         default: ;
         }
     }
@@ -122,14 +114,14 @@ int KeyboardTrainer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 5;
     }
     return _id;
 }

@@ -17,7 +17,7 @@ KeyboardTrainer::KeyboardTrainer(QWidget *parent) : QWidget(parent), rng(std::ra
 {
     setupUI();
     setFocusPolicy(Qt::StrongFocus);
-    
+
     // Инициализация раскладок
     initLayouts();
 
@@ -29,14 +29,9 @@ KeyboardTrainer::KeyboardTrainer(QWidget *parent) : QWidget(parent), rng(std::ra
                     "быстрая", "лиса", "прыгает", "через", "ленивого", "пса",
                     "программирование", "компьютер", "разработка", "алгоритм", "данные"};
 
-    // Курсор мигает
-    cursorTimer = new QTimer(this);
-    connect(cursorTimer, &QTimer::timeout, this, &KeyboardTrainer::updateCursorBlink);
-    cursorTimer->start(530);
-
     generateText();
     updateDisplayedText();
-    
+
     statsTimer = new QTimer(this);
     connect(statsTimer, &QTimer::timeout, this, &KeyboardTrainer::updateStats);
     statsTimer->start(1000);
@@ -76,12 +71,12 @@ void KeyboardTrainer::setupUI()
     auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(20, 20, 20, 20);
     mainLayout->setSpacing(15);
-    
+
     // Верхняя панель с настройками
     auto *topPanel = new QWidget;
     auto *topLayout = new QHBoxLayout(topPanel);
     topLayout->setContentsMargins(0, 0, 0, 0);
-    
+
     languageCombo = new QComboBox;
     languageCombo->addItem("🇬🇧 English");
     languageCombo->addItem("🇷🇺 Русский");
@@ -97,7 +92,7 @@ void KeyboardTrainer::setupUI()
     connect(languageCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &KeyboardTrainer::onLanguageChanged);
     topLayout->addWidget(languageCombo);
-    
+
     restartBtn = new QPushButton("🔄 Заново");
     restartBtn->setStyleSheet(
         "QPushButton { "
@@ -109,7 +104,7 @@ void KeyboardTrainer::setupUI()
     );
     connect(restartBtn, &QPushButton::clicked, this, &KeyboardTrainer::restartTraining);
     topLayout->addWidget(restartBtn);
-    
+
     loadFileBtn = new QPushButton("📁 Загрузить файл");
     loadFileBtn->setStyleSheet(
         "QPushButton { "
@@ -121,35 +116,35 @@ void KeyboardTrainer::setupUI()
     );
     connect(loadFileBtn, &QPushButton::clicked, this, &KeyboardTrainer::loadTextFromFile);
     topLayout->addWidget(loadFileBtn);
-    
+
     topLayout->addStretch();
     mainLayout->addWidget(topPanel);
-    
+
     // Панель статистики
     auto *statsPanel = new QWidget;
     auto *statsLayout = new QHBoxLayout(statsPanel);
     statsLayout->setContentsMargins(0, 0, 0, 0);
     statsLayout->setSpacing(30);
-    
+
     timerLabel = new QLabel("⏱️ 0:00");
     timerLabel->setStyleSheet("font-size: 20px; color: #00ff88; font-weight: bold;");
     statsLayout->addWidget(timerLabel);
-    
+
     wpmLabel = new QLabel("⚡ 0 WPM");
     wpmLabel->setStyleSheet("font-size: 20px; color: #ffaa00; font-weight: bold;");
     statsLayout->addWidget(wpmLabel);
-    
+
     accuracyLabel = new QLabel("🎯 100%");
     accuracyLabel->setStyleSheet("font-size: 20px; color: #00aaff; font-weight: bold;");
     statsLayout->addWidget(accuracyLabel);
-    
+
     progressLabel = new QLabel("");
     progressLabel->setStyleSheet("font-size: 16px; color: #888888;");
     statsLayout->addWidget(progressLabel);
-    
+
     statsLayout->addStretch();
     mainLayout->addWidget(statsPanel);
-    
+
     // Область для отображения текста с прокруткой
     textScrollArea = new QScrollArea;
     textScrollArea->setWidgetResizable(true);
@@ -163,12 +158,18 @@ void KeyboardTrainer::setupUI()
         "QScrollBar::handle:vertical { background-color: #4a4a6a; border-radius: 6px; min-height: 20px; } "
         "QScrollBar::handle:vertical:hover { background-color: #5a5a7a; }"
     );
-    
+
     textScrollArea->setMinimumHeight(180);
     textScrollArea->setMaximumHeight(220);
-    
+
+    // Создаем виджет для отображения текста
+    textDisplayWidget = new TextContainerPainter(this);
+    textDisplayWidget->setMinimumHeight(180);
+    textDisplayWidget->setMaximumHeight(220);
+    textScrollArea->setWidget(textDisplayWidget);
+
     mainLayout->addWidget(textScrollArea);
-    
+
     // Создание клавиатуры
     keyboardWidget = new QWidget;
     auto *grid = new QGridLayout(keyboardWidget);
@@ -211,7 +212,7 @@ void KeyboardTrainer::setupUI()
     // Ряд 3 с отступом
     for (int i = 0; i < row3.size(); ++i) addKey(row3[i], 2, i+1);
     for (int i = 0; i < row4.size(); ++i) addKey(row4[i], 3, i+2);
-    
+
     // Пробел
     QPushButton *spaceBtn = new QPushButton("␣ SPACE");
     spaceBtn->setMinimumSize(300, 55);
@@ -234,9 +235,9 @@ void KeyboardTrainer::setupUI()
     grid->addWidget(spaceBtn, 4, 2, 1, 6);
 
     mainLayout->addWidget(keyboardWidget);
-    
+
     setStyleSheet("background-color: #0f0f1a; color: #cccccc;");
-    
+
     // Обновляем текст на кнопках в зависимости от языка
     onLanguageChanged(0);
 }
@@ -283,17 +284,17 @@ void KeyboardTrainer::loadTextFromFile()
         return;
     }
     QTextStream in(&file);
-   
+
     QString content = in.readAll();
     file.close();
-    
+
     // Очищаем текст от лишних пробелов и переносов
     content = content.simplified();
     if (content.isEmpty()) {
         QMessageBox::warning(this, "Ошибка", "Файл не содержит текста.");
         return;
     }
-    
+
     fullText = content;
     currentPosition = 0;
     totalCorrectChars = 0;
@@ -320,14 +321,14 @@ void KeyboardTrainer::generateText()
         return;
     }
     std::uniform_int_distribution<int> dist(0, words.size()-1);
-    
+
     fullText.clear();
     int wordCount = 50;  // Генерируем 50 слов
     for (int i = 0; i < wordCount; ++i) {
         if (i > 0) fullText += " ";
         fullText += words[dist(rng)];
     }
-    
+
     currentPosition = 0;
     totalCorrectChars = 0;
     totalIncorrectChars = 0;
@@ -338,20 +339,22 @@ void KeyboardTrainer::generateText()
 
 void KeyboardTrainer::updateDisplayedText()
 {
-    
     // Определяем текущую строку для отображения
     int lineStart = getCurrentLineStartIndex();
     int lineEnd = getCurrentLineEndIndex();
-    
-    QString lineText = fullText.mid(lineStart, lineEnd - lineStart);
-    
+
     // Обновляем прогресс
     int progressPercent = (fullText.isEmpty()) ? 0 : (currentPosition * 100 / fullText.length());
     progressLabel->setText(QString("📊 %1% (%2/%3)").arg(progressPercent).arg(currentPosition).arg(fullText.length()));
-    
-    // Перерисовываем контейнер текста
-    if (textDisplayWidget) textDisplayWidget->update();
-    
+
+    // Передаем данные в виджет текста для отрисовки
+    if (textDisplayWidget) {
+        TextContainerPainter *painterWidget = qobject_cast<TextContainerPainter*>(textDisplayWidget);
+        if (painterWidget) {
+            painterWidget->setTextData(fullText, currentPosition, lineStart, lineEnd);
+        }
+    }
+
     // Прокрутка к курсору
     int cursorLine = currentPosition / maxCharsPerLine;
     textScrollArea->verticalScrollBar()->setValue(cursorLine * lineHeight);
@@ -374,7 +377,7 @@ int KeyboardTrainer::getCurrentLineEndIndex() const
 void KeyboardTrainer::paintEvent(QPaintEvent *event)
 {
     QWidget::paintEvent(event);
-    
+
     // Рисуем текст в textContainer через его paintEvent
     // Но так как textContainer - отдельный виджет, мы должны рисовать там
 }
@@ -382,8 +385,13 @@ void KeyboardTrainer::paintEvent(QPaintEvent *event)
 // Переопределяем paintEvent для textContainer через установку события
 class TextContainerPainter : public QWidget {
 public:
-    TextContainerPainter(QWidget *parent) : QWidget(parent) {}
-    
+    TextContainerPainter(QWidget *parent) : QWidget(parent), cursorBlink(true) {
+        // Запускаем таймер для мигания курсора
+        QTimer *cursorTimer = new QTimer(this);
+        connect(cursorTimer, &QTimer::timeout, this, &TextContainerPainter::toggleCursorBlink);
+        cursorTimer->start(530);
+    }
+
     void setTextData(const QString& text, int pos, int lineStart, int lineEnd) {
         fullText = text;
         currentPosition = pos;
@@ -391,26 +399,31 @@ public:
         this->lineEnd = lineEnd;
         update();
     }
-    
+
+    void toggleCursorBlink() {
+        cursorBlink = !cursorBlink;
+        update();
+    }
+
 protected:
     void paintEvent(QPaintEvent *) override {
         QPainter painter(this);
         painter.setRenderHint(QPainter::Antialiasing);
-        
+
         // Фон
         painter.fillRect(rect(), QColor("#1a1a2e"));
-        
+
         QFont font("Consolas", 16, QFont::Bold);
         painter.setFont(font);
-        
+
         int x = 15;
         int y = 25;
         int charWidth = 11;
-        
+
         for (int i = lineStart; i < lineEnd && i < fullText.length(); ++i) {
             QChar ch = fullText[i];
             QString s = QString(ch);
-            
+
             if (i < currentPosition) {
                 // Уже введено - проверяем правильность (упрощенно - считаем все верным)
                 painter.setPen(QColor("#00ff88"));  // Зеленый
@@ -422,33 +435,33 @@ protected:
                 // Еще не введено
                 painter.setPen(QColor("#666688"));
             }
-            
+
             painter.drawText(x, y, s);
             x += charWidth;
         }
-        
+
         // Рисуем мигающий курсор
         if (currentPosition < fullText.length()) {
-            static bool blink = true;
-            if (blink) {
+            if (cursorBlink) {
                 int cursorX = 15 + (currentPosition - lineStart) * charWidth;
                 painter.fillRect(cursorX, y - 22, 2, 28, QColor("#00ff88"));
             }
         }
     }
-    
+
 private:
     QString fullText;
     int currentPosition = 0;
     int lineStart = 0;
     int lineEnd = 0;
+    bool cursorBlink;
 };
 
 void KeyboardTrainer::keyPressEvent(QKeyEvent *event)
 {
     if (currentPosition >= fullText.length())
         return;
-    
+
     QString text = event->text();
     if (text.isEmpty()) {
         QWidget::keyPressEvent(event);
@@ -470,25 +483,25 @@ void KeyboardTrainer::keyPressEvent(QKeyEvent *event)
         correct = true;
         totalCorrectChars++;
         currentPosition++;
-        
+
         // Проверяем завершение
         if (currentPosition >= fullText.length()) {
-            QMessageBox::information(this, "Поздравляем!", 
+            QMessageBox::information(this, "Поздравляем!",
                 QString("Текст введён!\nWPM: %1\nТочность: %2%").arg(wpm, 0, 'f', 1).arg(accuracy, 0, 'f', 1));
         }
     } else {
         correct = false;
         totalIncorrectChars++;
     }
-    
+
     highlightKey(text, correct);
     updateDisplayedText();
     updateStats();
-    
+
     // Анимация нажатой кнопки
     QPushButton *btn = nullptr;
     QString keyName = event->text().toLower();
-    
+
     // Для пробела
     if (event->key() == Qt::Key_Space) {
         btn = keyButtons.value("space");
@@ -513,7 +526,7 @@ void KeyboardTrainer::keyPressEvent(QKeyEvent *event)
             }
         }
     }
-    
+
     if (btn) {
         QString originalStyle = btn->styleSheet();
         btn->setStyleSheet(correct ?
@@ -539,11 +552,7 @@ void KeyboardTrainer::highlightKey(const QString& key, bool correct)
     Q_UNUSED(correct);
 }
 
-void KeyboardTrainer::updateCursorBlink()
-{
-    cursorVisible = !cursorVisible;
-    if (textDisplayWidget) textDisplayWidget->update();
-}
+
 
 void KeyboardTrainer::updateStats()
 {
@@ -552,19 +561,19 @@ void KeyboardTrainer::updateStats()
         elapsed = timer.elapsed() / 1000;
     }
     if (elapsed < 1) elapsed = 1;
-    
+
     // WPM: стандартно (все символы / 5) / минуты
     int totalChars = totalCorrectChars + totalIncorrectChars;
     double minutes = elapsed / 60.0;
     wpm = (totalCorrectChars / 5.0) / minutes;
-    
+
     // Точность
     if (totalChars > 0) {
         accuracy = (totalCorrectChars * 100.0) / totalChars;
     } else {
         accuracy = 100.0;
     }
-    
+
     // Форматируем время как ММ:СС
     int mins = elapsed / 60;
     int secs = elapsed % 60;
@@ -577,10 +586,4 @@ void KeyboardTrainer::showEvent(QShowEvent *event)
 {
     QWidget::showEvent(event);
     setFocus();
-}
-
-void KeyboardTrainer::onKeyPressed(const QString& key, bool correct)
-{
-    Q_UNUSED(key);
-    Q_UNUSED(correct);
 }
