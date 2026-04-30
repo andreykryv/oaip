@@ -278,10 +278,6 @@ static QLabel* lbl(const QString &txt)
     return l;
 }
 
-// Вспомогательный метод: создать QLabel со стилем "lbl"
-// (объявление перед использованием в makeStructForm)
-static QLabel* lbl(const QString &txt);
-
 // ─── Вспомогательный виджет-форма для ввода структуры ─────────
 QWidget* MainWindow::makeStructForm(
     QLineEdit **nameEdit,
