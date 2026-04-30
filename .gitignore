@@ -1,9 +1,46 @@
 ```
-# Qt/MOC generated files
-moc_*.cpp
-moc_*.h
+# Compiled and build artifacts
 *.o
-.qmake.stash
+*.obj
+build/
 Makefile
-lab6_files/
+moc_*.cpp
+
+# Debug/release builds
+Debug-*/
+Release-*/
+build-*/
+
+# Qt specific
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*
+.qmake.stash
+.qmake.conf
+
+# IDE
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# OS
+.DS_Store
+Thumbs.db
 ```
