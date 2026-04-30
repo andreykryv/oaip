@@ -269,6 +269,19 @@ void MainWindow::fadeIn(QWidget *w)
     anim->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
+// Вспомогательный метод: создать QLabel со стилем "lbl"
+// (встраивается прямо здесь, чтобы не загромождать .h)
+static QLabel* lbl(const QString &txt)
+{
+    auto *l = new QLabel(txt);
+    l->setObjectName("lbl");
+    return l;
+}
+
+// Вспомогательный метод: создать QLabel со стилем "lbl"
+// (объявление перед использованием в makeStructForm)
+static QLabel* lbl(const QString &txt);
+
 // ─── Вспомогательный виджет-форма для ввода структуры ─────────
 QWidget* MainWindow::makeStructForm(
     QLineEdit **nameEdit,
@@ -332,15 +345,6 @@ QWidget* MainWindow::makeStructForm(
     form->addRow(lbl("ВВП (5 лет):"), gdpW);
 
     return w;
-}
-
-// Вспомогательный метод: создать QLabel со стилем "lbl"
-// (встраивается прямо здесь, чтобы не загромождать .h)
-static QLabel* lbl(const QString &txt)
-{
-    auto *l = new QLabel(txt);
-    l->setObjectName("lbl");
-    return l;
 }
 
 // Чтение структуры из формы

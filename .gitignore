@@ -1,9 +1,9 @@
 ```
-# Compiled and build artifacts
+# Qt/MOC generated files
+moc_*.cpp
+moc_*.h
 *.o
-*.obj
-*.pro.user
-# Dependencies
-# Editors
-*.user
+.qmake.stash
+Makefile
+lab6_files/
 ```
