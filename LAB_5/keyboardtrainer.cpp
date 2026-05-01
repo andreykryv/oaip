@@ -13,6 +13,81 @@
 #include <QFontMetrics>
 #include <QRandomGenerator>
 
+// Класс для отрисовки текста с курсором
+class TextContainerPainter : public QWidget {
+public:
+    TextContainerPainter(QWidget *parent) : QWidget(parent), cursorBlink(true) {
+        // Запускаем таймер для мигания курсора
+        QTimer *cursorTimer = new QTimer(this);
+        connect(cursorTimer, &QTimer::timeout, this, &TextContainerPainter::toggleCursorBlink);
+        cursorTimer->start(530);
+    }
+
+    void setTextData(const QString& text, int pos, int lineStart, int lineEnd) {
+        fullText = text;
+        currentPosition = pos;
+        this->lineStart = lineStart;
+        this->lineEnd = lineEnd;
+        update();
+    }
+
+    void toggleCursorBlink() {
+        cursorBlink = !cursorBlink;
+        update();
+    }
+
+protected:
+    void paintEvent(QPaintEvent *) override {
+        QPainter painter(this);
+        painter.setRenderHint(QPainter::Antialiasing);
+
+        // Фон
+        painter.fillRect(rect(), QColor("#1a1a2e"));
+
+        QFont font("Consolas", 16, QFont::Bold);
+        painter.setFont(font);
+
+        int x = 15;
+        int y = 25;
+        int charWidth = 11;
+
+        for (int i = lineStart; i < lineEnd && i < fullText.length(); ++i) {
+            QChar ch = fullText[i];
+            QString s = QString(ch);
+
+            if (i < currentPosition) {
+                // Уже введено - проверяем правильность (упрощенно - считаем все верным)
+                painter.setPen(QColor("#00ff88"));  // Зеленый
+            } else if (i == currentPosition) {
+                // Текущий символ с курсором
+                painter.setPen(QColor("#ffffff"));
+                painter.fillRect(x - 2, y - 22, charWidth + 4, 28, QColor("#4a4a8a"));
+            } else {
+                // Еще не введено
+                painter.setPen(QColor("#666688"));
+            }
+
+            painter.drawText(x, y, s);
+            x += charWidth;
+        }
+
+        // Рисуем мигающий курсор
+        if (currentPosition < fullText.length()) {
+            if (cursorBlink) {
+                int cursorX = 15 + (currentPosition - lineStart) * charWidth;
+                painter.fillRect(cursorX, y - 22, 2, 28, QColor("#00ff88"));
+            }
+        }
+    }
+
+private:
+    QString fullText;
+    int currentPosition = 0;
+    int lineStart = 0;
+    int lineEnd = 0;
+    bool cursorBlink;
+};
+
 KeyboardTrainer::KeyboardTrainer(QWidget *parent) : QWidget(parent), rng(std::random_device{}())
 {
     setupUI();
@@ -381,81 +456,6 @@ void KeyboardTrainer::paintEvent(QPaintEvent *event)
     // Рисуем текст в textContainer через его paintEvent
     // Но так как textContainer - отдельный виджет, мы должны рисовать там
 }
-
-// Переопределяем paintEvent для textContainer через установку события
-class TextContainerPainter : public QWidget {
-public:
-    TextContainerPainter(QWidget *parent) : QWidget(parent), cursorBlink(true) {
-        // Запускаем таймер для мигания курсора
-        QTimer *cursorTimer = new QTimer(this);
-        connect(cursorTimer, &QTimer::timeout, this, &TextContainerPainter::toggleCursorBlink);
-        cursorTimer->start(530);
-    }
-
-    void setTextData(const QString& text, int pos, int lineStart, int lineEnd) {
-        fullText = text;
-        currentPosition = pos;
-        this->lineStart = lineStart;
-        this->lineEnd = lineEnd;
-        update();
-    }
-
-    void toggleCursorBlink() {
-        cursorBlink = !cursorBlink;
-        update();
-    }
-
-protected:
-    void paintEvent(QPaintEvent *) override {
-        QPainter painter(this);
-        painter.setRenderHint(QPainter::Antialiasing);
-
-        // Фон
-        painter.fillRect(rect(), QColor("#1a1a2e"));
-
-        QFont font("Consolas", 16, QFont::Bold);
-        painter.setFont(font);
-
-        int x = 15;
-        int y = 25;
-        int charWidth = 11;
-
-        for (int i = lineStart; i < lineEnd && i < fullText.length(); ++i) {
-            QChar ch = fullText[i];
-            QString s = QString(ch);
-
-            if (i < currentPosition) {
-                // Уже введено - проверяем правильность (упрощенно - считаем все верным)
-                painter.setPen(QColor("#00ff88"));  // Зеленый
-            } else if (i == currentPosition) {
-                // Текущий символ с курсором
-                painter.setPen(QColor("#ffffff"));
-                painter.fillRect(x - 2, y - 22, charWidth + 4, 28, QColor("#4a4a8a"));
-            } else {
-                // Еще не введено
-                painter.setPen(QColor("#666688"));
-            }
-
-            painter.drawText(x, y, s);
-            x += charWidth;
-        }
-
-        // Рисуем мигающий курсор
-        if (currentPosition < fullText.length()) {
-            if (cursorBlink) {
-                int cursorX = 15 + (currentPosition - lineStart) * charWidth;
-                painter.fillRect(cursorX, y - 22, 2, 28, QColor("#00ff88"));
-            }
-        }
-    }
-
-private:
-    QString fullText;
-    int currentPosition = 0;
-    int lineStart = 0;
-    int lineEnd = 0;
-    bool cursorBlink;
-};
 
 void KeyboardTrainer::keyPressEvent(QKeyEvent *event)
 {
