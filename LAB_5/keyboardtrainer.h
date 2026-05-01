@@ -4,22 +4,14 @@
 #include <QWidget>
 #include <QElapsedTimer>
 #include <QTimer>
-#include <QMap>
 #include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QComboBox>
-#include <QTextEdit>
-#include <QFile>
-#include <QScrollArea>
-#include <QPropertyAnimation>
-#include <QParallelAnimationGroup>
-#include <QVector>
-#include <random>
-#include <QPainter>
-#include <QKeyEvent>
-#include <QScrollBar>
+#include <QList>
+#include <QRandomGenerator>
+
+class GameWidget;
 
 class KeyboardTrainer : public QWidget
 {
@@ -27,75 +19,56 @@ class KeyboardTrainer : public QWidget
 public:
     explicit KeyboardTrainer(QWidget *parent = nullptr);
 
+    struct Word {
+        QString text;
+        qreal x = 0;
+        qreal y = 0;
+        bool highlighted = false;
+    };
+
 private slots:
     void onLanguageChanged(int index);
+    void restartTraining();
     void loadTextFromFile();
     void updateStats();
-    void restartTraining();
-    void updateCursorBlink();
-
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
-    void showEvent(QShowEvent *event) override;
-    void paintEvent(QPaintEvent *event) override;
+    void gameLoop();
+    void spawnWord();
 
 private:
     void setupUI();
-    void generateText();
-    void updateDisplayedText();
-    void highlightKey(const QString& key, bool correct);
-    QString currentChar() const;
-    QString getKeyForChar(const QChar& ch) const;
-    void animateButton(QPushButton* btn, bool correct);
-    void initLayouts();
-    QString getCurrentLineText() const;
-    int getCurrentLineStartIndex() const;
-    int getCurrentLineEndIndex() const;
-    
-    // Раскладки
-    QMap<QString, QString> englishLayout; // кнопка -> символ
-    QMap<QString, QString> russianLayout;
-    QMap<QChar, QString> charToKeyEng;  // символ -> кнопка
-    QMap<QChar, QString> charToKeyRus;
-    QMap<QString, QPushButton*> keyButtons;
+    void checkInput();
+
+    QString currentLanguage = "English";
     QStringList englishWords;
     QStringList russianWords;
+    QRandomGenerator rng;
 
-    // Текущее состояние
-    QString currentLanguage = "English";
-    QString fullText;  // Полный текст для ввода
-    int currentPosition = 0;  // Позиция в полном тексте
+    QList<Word> words;
+    QElapsedTimer elapsedTimer;
+    QTimer *gameTimer = nullptr;
+    QTimer *spawnTimer = nullptr;
+    QTimer *statsTimer = nullptr;
+
     int totalCorrectChars = 0;
-    int totalIncorrectChars = 0;
-    QElapsedTimer timer;
-    QTimer *statsTimer;
-
+    int totalMissedChars = 0;
+    int correctWords = 0;
+    int missedWords = 0;
     double wpm = 0.0;
     double accuracy = 100.0;
-   
 
-    QLabel *textDisplay;
     QLabel *timerLabel;
     QLabel *wpmLabel;
     QLabel *accuracyLabel;
-    QLabel *progressLabel;
+    QLabel *scoreLabel;
     QComboBox *languageCombo;
-    QPushButton *loadFileBtn;
     QPushButton *restartBtn;
-    QWidget *keyboardWidget;
-    QScrollArea *textScrollArea;
-    QWidget *textDisplayWidget;  // Кастомный виджет для отображения текста
-    
-    // Размеры для отрисовки
-    int charWidth = 11;
-    int charHeight = 28;
-    int lineHeight = 36;
-    int maxCharsPerLine = 90;
-    
-    std::mt19937 rng;
+    QPushButton *loadFileBtn;
+    QLineEdit *inputField;
+    GameWidget *gameField = nullptr;
 
-    // Для анимаций
-    QMap<QString, QPropertyAnimation*> buttonAnimations;
+    static constexpr int TICK_INTERVAL = 30;     // ms
+    static constexpr int SPAWN_INTERVAL = 1800;  // ms
+    static constexpr qreal WORD_SPEED = 1.2;     // pixels per tick
 };
 
 #endif // KEYBOARDTRAINER_H
