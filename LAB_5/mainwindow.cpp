@@ -121,24 +121,24 @@ void MainWindow::setupGlobalStyles()
         }
 
         /* Группы */
-        QGroupBox {
-            background: %4;
-            border: 1px solid %5;
-            border-radius: 10px;
-            margin-top: 18px;
-            padding: 14px 16px 16px 16px;
-            font-size: 12px;
-            font-weight: 700;
-            color: %6;
-        }
-        QGroupBox::title {
-            subcontrol-origin: margin;
-            left: 14px;
-            top: -9px;
-            padding: 0 8px;
-            color: %7;
-            background: %4;
-        }
+      "QGroupBox {"
+"    background: %4;"
+"    border: 1px solid %5;"
+"    border-radius: 10px;"
+"    margin-top: 24px;"           // увеличен верхний отступ
+"    padding: 14px 16px 16px 16px;"
+"    font-size: 12px;"
+"    font-weight: 700;"
+"    color: %6;"
+"}"
+"QGroupBox::title {"
+"    subcontrol-origin: margin;"
+"    left: 14px;"
+"    top: -12px;"                 // скорректировано под новый margin-top
+"    padding: 0 8px;"
+"    color: %7;"
+"    background: %4;"
+"}"
 
         /* Поля ввода */
         QLineEdit, QSpinBox, QDoubleSpinBox, QComboBox {
