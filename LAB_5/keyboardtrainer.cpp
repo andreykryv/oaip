@@ -109,8 +109,8 @@ KeyboardHintWidget::KeyboardHintWidget(QWidget *parent) : QWidget(parent)
 void KeyboardHintWidget::buildLayout()
 {
     m_keys.clear();
-    QStringList rows = {"1234567890-=", "qwertyuiop[]", "asdfghjkl;'", "zxcvbnm,./"};
-    QList<int> counts = {12, 12, 11, 10};
+    QStringList rows = rowsForLanguage();
+    QList<int> counts = {12, 12, 11, 10};   // количество клавиш в рядах (может варьироваться)
     QList<qreal> offsets = {0, 14, 22, 34}; // отступы рядов
 
     qreal mg = 4.0, sp = 3.0;
@@ -351,7 +351,8 @@ void KeyboardTrainer::restartTraining()
 {
     words.clear();
     totalCorrectChars = 0;
-    totalMissedChars  = 0;
+totalMissedChars  = 0;
+m_prevInput.clear();    
     correctWords      = 0;
     missedWords       = 0;
     streak            = 0;
@@ -382,6 +383,7 @@ void KeyboardTrainer::restartTraining()
 void KeyboardTrainer::onLanguageChanged(int idx)
 {
     currentLanguage = (idx == 0) ? "English" : "Russian";
+    kbHint->setLanguage(currentLanguage);   // <-- добавить
     restartTraining();
 }
 
@@ -452,19 +454,36 @@ void KeyboardTrainer::gameLoop()
     for (auto &w : words) w.y += speed;
 
     int h = gameField->height();
-    for (int i = words.size() - 1; i >= 0; --i) {
-        if (words[i].y > h) {
-            if (!words[i].highlighted) {   // слово не было в процессе набора
-                missedWords++;
-                totalMissedChars += words[i].text.length();
-                lives--;
-                streak = 0;
-                updateLivesDisplay();
-                if (lives <= 0) { gameOver(); return; }
-            }
-            words.removeAt(i);
+   for (int i = words.size() - 1; i >= 0; --i) {
+    if (words[i].y > h) {
+       if (words[i].highlighted) {
+    int typed = inputField->text().length();   // сколько символов уже в поле (включая ошибки)
+    int remaining = words[i].text.length() - typed;
+    if (remaining > 0)
+        totalMissedChars += remaining;        // оставшиеся символы = пропущено
+    missedWords++;
+    streak = 0;
+    lives--;
+            updateLivesDisplay();
+            if (lives <= 0) { gameOver(); return; }
+        } else {
+            // Слово не трогали – полностью пропущено
+            missedWords++;
+            totalMissedChars += words[i].text.length();
+            lives--;
+            streak = 0;
+            updateLivesDisplay();
+            if (lives <= 0) { gameOver(); return; }
         }
+        // Если удаляемое слово было активным, очищаем ввод и подсказку
+       if (words[i].highlighted) {
+    inputField->clear();
+    kbHint->clearHint();
+    m_prevInput.clear();   // чтобы следующее слово начиналось с чистого сравнения
+}
+        words.removeAt(i);
     }
+}
     gameField->update();
 }
 
@@ -474,6 +493,34 @@ void KeyboardTrainer::checkInput()
     if (isGameOver) return;
 
     QString text = inputField->text();
+
+    // ----- НОВЫЙ БЛОК: подсчёт символов при наборе -----
+    if (text.length() > m_prevInput.length()) {
+        QString added = text.mid(m_prevInput.length());          // только что добавленные символы
+        // Ищем слово, с которым сейчас работаем (самое низкое подсвеченное или первое)
+        Word *best = nullptr;
+        for (auto &w : words) {
+            if (w.highlighted)
+                if (!best || w.y > best->y) best = &w;
+        }
+        if (best) {
+            for (int i = 0; i < added.length(); ++i) {
+                int pos = m_prevInput.length() + i;
+                if (pos < best->text.length() &&
+                    best->text[pos].toLower() == added[i].toLower()) {
+                    totalCorrectChars++;      // символ совпал
+                } else {
+                    totalMissedChars++;       // символ не совпал
+                }
+            }
+        } else {
+            // Ни одно слово не подсвечено → все введённые символы считаем ошибочными
+            totalMissedChars += added.length();
+        }
+    }
+    m_prevInput = text;   // запоминаем текущий ввод для следующего сравнения
+    // ----------------------------------------------------
+
     if (text.isEmpty()) {
         for (auto &w : words) w.highlighted = false;
         kbHint->clearHint();
@@ -481,13 +528,15 @@ void KeyboardTrainer::checkInput()
         return;
     }
 
-    // Пробел — пропуск текущего слова (штраф)
+    // Пробел — пропуск текущего слова
     if (text == " ") {
         inputField->clear();
         return;
     }
 
     Word *best = nullptr;
+    
+    // (остаток метода без изменений, кроме удаления totalCorrectChars при полном совпадении)
     for (auto &w : words) {
         w.highlighted = false;
         if (w.text.startsWith(text, Qt::CaseInsensitive))
@@ -500,7 +549,7 @@ void KeyboardTrainer::checkInput()
         // Полное совпадение
         if (best->text.compare(text, Qt::CaseInsensitive) == 0) {
             correctWords++;
-            totalCorrectChars += text.length();
+            
             streak++;
             // Удаляем слово
             for (int i = 0; i < words.size(); ++i)
@@ -633,4 +682,19 @@ void KeyboardTrainer::loadPersonalBest()
 {
     QSettings s("University", "Lab5");
     personalBestWPM = s.value("personalBestWPM", 0.0).toDouble();
+}
+QStringList KeyboardHintWidget::rowsForLanguage() const
+{
+    if (m_language == "Russian") {
+        return {"1234567890-=", "йцукенгшщзхъ", "фывапролджэ", "ячсмитьбю."};
+    } else {
+        // English (и любой другой язык по умолчанию)
+        return {"1234567890-=", "qwertyuiop[]", "asdfghjkl;'", "zxcvbnm,./"};
+    }
+}
+void KeyboardHintWidget::setLanguage(const QString &lang)
+{
+    m_language = lang;
+    buildLayout();
+    update();           // перерисовка
 }

@@ -62,8 +62,9 @@ private:
     QTimer *spawnTimer = nullptr;
     QTimer *statsTimer = nullptr;
 
-    int   totalCorrectChars = 0;
-    int   totalMissedChars  = 0;
+   int   totalCorrectChars = 0;
+int   totalMissedChars  = 0;
+QString m_prevInput;  
     int   correctWords      = 0;
     int   missedWords       = 0;
     int   lives             = 5;
@@ -118,12 +119,14 @@ private:
 };
 
 // ─── Виджет подсказки клавиатуры ─────────────────────────
-class KeyboardHintWidget : public QWidget {
+class KeyboardHintWidget : public QWidget
+{
     Q_OBJECT
 public:
     explicit KeyboardHintWidget(QWidget *parent = nullptr);
     void setNextChar(QChar c);
     void clearHint();
+    void setLanguage(const QString &lang);   // новая функция
 
 protected:
     void paintEvent(QPaintEvent *) override;
@@ -132,8 +135,11 @@ protected:
 private:
     struct Key { QChar ch; QRectF rect; bool active = false; };
     void buildLayout();
+    QStringList rowsForLanguage() const;     // новая вспомогательная функция
+
     QList<Key> m_keys;
     QChar m_active;
+    QString m_language = "English";          // по умолчанию
 };
 
 #endif // KEYBOARDTRAINER_H
