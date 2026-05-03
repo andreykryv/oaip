@@ -1,0 +1,7 @@
+add_library(listheap SHARED listheap.h listheap_inst.cpp)
+set_target_properties(listheap PROPERTIES
+    CXX_VISIBILITY_PRESET hidden
+    VISIBILITY_INLINES_HIDDEN ON
+)
+target_include_directories(listheap PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_features(listheap PUBLIC cxx_std_17)

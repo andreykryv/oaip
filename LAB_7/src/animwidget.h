@@ -5,6 +5,8 @@
 #include <QTimer>
 #include <QPainter>
 #include <QColor>
+#include <QEasingCurve>
+#include <QAbstractAnimation>
 
 // Плавное появление виджета
 inline void fadeIn(QWidget* w, int ms = 250) {

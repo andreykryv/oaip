@@ -3,6 +3,7 @@
 #include <QRandomGenerator>
 #include <QFrame>
 #include <QScrollBar>
+#include <QDateTime>
 #include <cmath>
 #include <climits>
 #include <sstream>
@@ -856,8 +857,7 @@ void Task3Widget::onGenerate() {
 }
 
 void Task3Widget::onFindMinStack() {
-    int idx = ht_.findStackWithMinStack_helper();  // will be called below
-    idx = ht_.findStackWithMinKey();
+    int idx = ht_.findStackWithMinKey();
     int minK = ht_.getMinKey();
     resultLabel_->setText(QString("  ★  Стек с мин. ключом: #%1  (min key = %2)").arg(idx).arg(minK));
     logLine(QString("findStackWithMinKey() → стек #%1  (key=%2)").arg(idx).arg(minK), "#ffd040");
@@ -974,9 +974,9 @@ void Task4Widget::onGenerate() {
         ht_->insert(k);
     }
     htView_->setTable(ht_.get());
-    benchLabel_->setText(QString("  Размер: %1  Заполнено: %2  Коэффициент: %.2f  Коллизий: %3")
+    benchLabel_->setText(QString("  Размер: %1  Заполнено: %2  Коэффициент: %3  Коллизий: %4")
         .arg(ht_->capacity).arg(ht_->size_)
-        .arg(ht_->loadFactor()).arg(ht_->totalCollisions));
+        .arg(ht_->loadFactor(), 0, 'f', 2).arg(ht_->totalCollisions));
     logLine(QString("✦ Таблица заполнена  size=%1  collisions=%2")
         .arg(ht_->size_).arg(ht_->totalCollisions), "#7c4dff");
     fadeIn(htView_,150);
